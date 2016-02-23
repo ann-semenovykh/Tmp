@@ -1,0 +1,35 @@
+C:\doc\TriadNS\TriadNS\TriadNS\bin\Release\TriadCore.dll
+C:\doc\TriadNS\TriadNS\TriadNS\bin\Release\TriadCore.pdb
+C:\doc\TriadNS\TriadNS\TriadNS\TriadCore\obj\Release\TriadCore.csprojResolveAssemblyReference.cache
+C:\doc\TriadNS\TriadNS\TriadNS\TriadCore\obj\Release\TriadCore.Properties.Resources.resources
+C:\doc\TriadNS\TriadNS\TriadNS\TriadCore\obj\Release\TriadCore.csproj.GenerateResource.Cache
+C:\doc\TriadNS\TriadNS\TriadNS\TriadCore\obj\Release\TriadCore.dll
+C:\doc\TriadNS\TriadNS\TriadNS\TriadCore\obj\Release\TriadCore.pdb
+C:\Users\user\Desktop\Comp+Petri\TriadNS\bin\Release\TriadCore.dll
+C:\Users\user\Desktop\Comp+Petri\TriadNS\bin\Release\TriadCore.pdb
+C:\Users\user\Desktop\Comp+Petri\TriadNS\TriadCore\obj\Release\TriadCore.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Comp+Petri\TriadNS\TriadCore\obj\Release\TriadCore.Properties.Resources.resources
+C:\Users\user\Desktop\Comp+Petri\TriadNS\TriadCore\obj\Release\TriadCore.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Comp+Petri\TriadNS\TriadCore\obj\Release\TriadCore.dll
+C:\Users\user\Desktop\Comp+Petri\TriadNS\TriadCore\obj\Release\TriadCore.pdb
+C:\Users\user\Desktop\Comp+Petri - копия\TriadNS\bin\Release\TriadCore.dll
+C:\Users\user\Desktop\Comp+Petri - копия\TriadNS\bin\Release\TriadCore.pdb
+C:\Users\user\Desktop\Comp+Petri - копия\TriadNS\TriadCore\obj\Release\TriadCore.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Comp+Petri - копия\TriadNS\TriadCore\obj\Release\TriadCore.Properties.Resources.resources
+C:\Users\user\Desktop\Comp+Petri - копия\TriadNS\TriadCore\obj\Release\TriadCore.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Comp+Petri - копия\TriadNS\TriadCore\obj\Release\TriadCore.dll
+C:\Users\user\Desktop\Comp+Petri - копия\TriadNS\TriadCore\obj\Release\TriadCore.pdb
+C:\Users\user\Desktop\Comp+Petri +vis\TriadNS\TriadCore\obj\Release\TriadCore.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Comp+Petri +vis\TriadNS\TriadCore\obj\Release\TriadCore.Properties.Resources.resources
+C:\Users\user\Desktop\Comp+Petri +vis\TriadNS\TriadCore\obj\Release\TriadCore.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Comp+Petri +vis\TriadNS\TriadCore\obj\Release\TriadCore.dll
+C:\Users\user\Desktop\Comp+Petri +vis\TriadNS\bin\Release\TriadCore.dll
+C:\Users\user\Desktop\Comp+Petri +vis\TriadNS\bin\Release\TriadCore.pdb
+C:\Users\user\Desktop\Comp+Petri +vis\TriadNS\TriadCore\obj\Release\TriadCore.pdb
+C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\bin\Release\TriadCore.dll
+C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\bin\Release\TriadCore.pdb
+C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\TriadCore\obj\Release\TriadCore.csprojResolveAssemblyReference.cache
+C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\TriadCore\obj\Release\TriadCore.Properties.Resources.resources
+C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\TriadCore\obj\Release\TriadCore.csproj.GenerateResource.Cache
+C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\TriadCore\obj\Release\TriadCore.dll
+C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\TriadCore\obj\Release\TriadCore.pdb

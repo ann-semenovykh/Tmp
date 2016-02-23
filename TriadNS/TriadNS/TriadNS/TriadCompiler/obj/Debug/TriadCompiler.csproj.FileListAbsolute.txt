@@ -1,0 +1,8 @@
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\bin\Debug\TriadCompiler.xml
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\bin\Debug\TriadCompiler.exe
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\bin\Debug\TriadCompiler.pdb
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadCompiler\obj\Debug\TriadCompiler.csprojResolveAssemblyReference.cache
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadCompiler\obj\Debug\TriadCompiler.Properties.Resources.resources
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadCompiler\obj\Debug\TriadCompiler.csproj.GenerateResource.Cache
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadCompiler\obj\Debug\TriadCompiler.exe
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadCompiler\obj\Debug\TriadCompiler.pdb

@@ -1,0 +1,25 @@
+C:\doc\TriadNS\TriadNS\TriadNS\bin\Release\TriadRunner.exe
+C:\doc\TriadNS\TriadNS\TriadNS\bin\Release\TriadRunner.pdb
+C:\doc\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Release\TriadRunner.csprojResolveAssemblyReference.cache
+C:\doc\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Release\TriadRunner.exe
+C:\doc\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Release\TriadRunner.pdb
+C:\Users\user\Desktop\Comp+Petri\TriadNS\bin\Release\TriadRunner.exe
+C:\Users\user\Desktop\Comp+Petri\TriadNS\bin\Release\TriadRunner.pdb
+C:\Users\user\Desktop\Comp+Petri\TriadNS\TriadRunner\obj\Release\TriadRunner.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Comp+Petri\TriadNS\TriadRunner\obj\Release\TriadRunner.exe
+C:\Users\user\Desktop\Comp+Petri\TriadNS\TriadRunner\obj\Release\TriadRunner.pdb
+C:\Users\user\Desktop\Comp+Petri - копия\TriadNS\bin\Release\TriadRunner.exe
+C:\Users\user\Desktop\Comp+Petri - копия\TriadNS\bin\Release\TriadRunner.pdb
+C:\Users\user\Desktop\Comp+Petri - копия\TriadNS\TriadRunner\obj\Release\TriadRunner.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Comp+Petri - копия\TriadNS\TriadRunner\obj\Release\TriadRunner.exe
+C:\Users\user\Desktop\Comp+Petri - копия\TriadNS\TriadRunner\obj\Release\TriadRunner.pdb
+C:\Users\user\Desktop\Comp+Petri +vis\TriadNS\bin\Release\TriadRunner.exe
+C:\Users\user\Desktop\Comp+Petri +vis\TriadNS\bin\Release\TriadRunner.pdb
+C:\Users\user\Desktop\Comp+Petri +vis\TriadNS\TriadRunner\obj\Release\TriadRunner.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Comp+Petri +vis\TriadNS\TriadRunner\obj\Release\TriadRunner.exe
+C:\Users\user\Desktop\Comp+Petri +vis\TriadNS\TriadRunner\obj\Release\TriadRunner.pdb
+C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\bin\Release\TriadRunner.exe
+C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\bin\Release\TriadRunner.pdb
+C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\TriadRunner\obj\Release\TriadRunner.csprojResolveAssemblyReference.cache
+C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\TriadRunner\obj\Release\TriadRunner.exe
+C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\TriadRunner\obj\Release\TriadRunner.pdb

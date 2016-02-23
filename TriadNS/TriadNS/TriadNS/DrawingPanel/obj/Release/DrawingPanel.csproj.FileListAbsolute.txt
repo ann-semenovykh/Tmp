@@ -1,0 +1,16 @@
+C:\doc\TriadNS\TriadNS\TriadNS\bin\Release\DrawingPanel.dll
+C:\doc\TriadNS\TriadNS\TriadNS\bin\Release\DrawingPanel.pdb
+C:\doc\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.csprojResolveAssemblyReference.cache
+C:\doc\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.PrintPreviewFrm.resources
+C:\doc\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.DrawingPanel.resources
+C:\doc\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.csproj.GenerateResource.Cache
+C:\doc\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.dll
+C:\doc\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.pdb
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\bin\Release\DrawingPanel.dll
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\bin\Release\DrawingPanel.pdb
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.csprojResolveAssemblyReference.cache
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.PrintPreviewFrm.resources
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.DrawingPanel.resources
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.csproj.GenerateResource.Cache
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.dll
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.pdb

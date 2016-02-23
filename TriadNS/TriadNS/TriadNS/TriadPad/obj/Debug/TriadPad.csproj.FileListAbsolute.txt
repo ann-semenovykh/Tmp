@@ -1,0 +1,16 @@
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\bin\Debug\TriadPad.exe.config
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\bin\Debug\TriadPad.XML
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\bin\Debug\TriadPad.exe
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\bin\Debug\TriadPad.pdb
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadPad\obj\Debug\TriadPad.csprojResolveAssemblyReference.cache
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadPad\obj\Debug\TriadPad.AboutBox.resources
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadPad\obj\Debug\TriadPad.Forms.FormFind.resources
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadPad\obj\Debug\TriadPad.Forms.FormGoTo.resources
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadPad\obj\Debug\TriadPad.Forms.FormHotKey.resources
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadPad\obj\Debug\TriadPad.Forms.FormOptions.resources
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadPad\obj\Debug\TriadPad.Forms.FormMain.resources
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadPad\obj\Debug\TriadPad.Forms.FormReplace.resources
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadPad\obj\Debug\TriadPad.Properties.Resources.resources
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadPad\obj\Debug\TriadPad.csproj.GenerateResource.Cache
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadPad\obj\Debug\TriadPad.exe
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadPad\obj\Debug\TriadPad.pdb

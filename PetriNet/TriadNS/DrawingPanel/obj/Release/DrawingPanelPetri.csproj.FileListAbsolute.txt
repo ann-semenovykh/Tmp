@@ -1,0 +1,8 @@
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\bin\Release\DrawingPanel.dll
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\bin\Release\DrawingPanel.pdb
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanelPetri.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanel.PrintPreviewFrm.resources
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanel.DrawingPanel.resources
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanelPetri.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanel.dll
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanel.pdb

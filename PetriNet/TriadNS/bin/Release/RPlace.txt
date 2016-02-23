@@ -1,0 +1,37 @@
+routine RPlace[integer InitialNumMarks;real T](InOut Place_Tr;Input Tr_Place)
+	initial
+		
+		schedule TryQuery in 0;
+		Print "Инициализация вершины";
+	endi
+	
+	event TryQuery;
+		if InitialNumMarks>0 then
+			out "Query" through Place_Tr;
+			Print "Отправка запроса  ";
+			schedule Wait in T;
+		endif;
+	ende
+
+	event Wait;
+		schedule TryQuery in 0;
+	ende
+	
+	event;
+		if message="Answer" then
+			Print "Ответ получен  ";
+			InitialNumMarks:=InitialNumMarks-1;
+			out "Send" through Place_Tr;
+			Print "Отправляем фишку ";
+		endif;
+		if message="Send" then
+			Print "Фишка получена  ";
+			InitialNumMarks:=InitialNumMarks+1;
+			schedule Show in 0;
+		endif;
+	ende
+
+	event Show;
+		Print "Количество фишек "+ToStr(InitialNumMarks);
+	ende
+endrout

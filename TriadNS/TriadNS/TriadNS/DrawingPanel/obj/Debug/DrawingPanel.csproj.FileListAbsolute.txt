@@ -1,0 +1,8 @@
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\bin\Debug\DrawingPanel.dll
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\bin\Debug\DrawingPanel.pdb
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Debug\DrawingPanel.csprojResolveAssemblyReference.cache
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Debug\DrawingPanel.PrintPreviewFrm.resources
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Debug\DrawingPanel.DrawingPanel.resources
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Debug\DrawingPanel.csproj.GenerateResource.Cache
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Debug\DrawingPanel.dll
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Debug\DrawingPanel.pdb

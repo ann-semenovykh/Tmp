@@ -1,0 +1,53 @@
+﻿[integer InitialNumMarks;real T](InOut Place_Tr[<кол-во вых.дуг>];Input Tr_Place[<кол-во вх. дуг>])
+	initial
+		
+		integer inarc,outarc;
+		inarc:=<кол-во вх.дуг>;
+		outarc:=<кол-во вых.дуг>;
+		integer curpol;
+		curpol:=1;
+		schedule TryQuery in 0;
+		array[2] of integer msg;
+		Print "Инициализация вершины";
+	endi
+	
+	event TryQuery;
+		if InitialNumMarks>0 then
+			msg[0]:=1;
+			msg[1]:=curpol;
+			out IntArrayToStr(msg) through Place_Tr[curpol];
+			Print "Отправка запроса через полюс "+ToStr(curpol);
+			schedule Wait in T;
+		endif;
+	ende
+
+	event Wait;
+		if curpol<>0 then
+			curpol:=curpol+1;
+			schedule TryQuery in 0;
+		endif;
+		if curpol=outarc then
+			curpol:=1;
+			schedule TryQuery in 0;
+		endif;
+	end;
+	
+	event;
+		msg:=StrToIntArray(message);
+		if msg[0]=2 then
+			Print "Ответ получен через полюс "+ ToStr(msg[1]);
+			InitialNumMarks:=InitialNumMarks-1;
+			msg[0]:=3;
+			out IntArrayToStr(msg) through Place_Tr[msg[1]];
+			Print "Отправляем фишку через полюс"+ ToStr(msg[1]);
+		endif;
+		if msg[0]=4 then
+			Print "Фишка получена через полюс "+ToStr(msg[1]);
+			InitialNumMarks:=InitialNumMarks+1;
+			schedule Show in 0;
+		endif;
+	ende
+	event Show;
+		Print "Количество фишек "+ToStr(InitialNumMarks);
+	ende
+endrout.

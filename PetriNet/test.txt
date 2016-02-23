@@ -1,0 +1,21 @@
+routine RПозиция1(InOut pol[2])
+initial
+schedule start in 0;
+endi
+event start;
+out "Send";
+Print"Send";
+ende
+endrout
+
+routine RПереход1(InOut pol[2])
+initial
+integer count;
+count:=0;
+endi
+event;
+if message="Send" then count:=count+1;
+Print count;
+endif
+ende
+endrout
