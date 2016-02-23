@@ -1,0 +1,6 @@
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\bin\Release\TriadCore.dll
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\bin\Release\TriadCore.pdb
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadCore\obj\Release\TriadCore.Properties.Resources.resources
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadCore\obj\Release\TriadCorePetri.csproj.GenerateResource.Cache
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadCore\obj\Release\TriadCore.dll
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadCore\obj\Release\TriadCore.pdb

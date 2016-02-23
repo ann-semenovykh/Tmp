@@ -1,0 +1,20 @@
+routine RInPlace[integer InitialNumMarks;real T](Input Tr_Place)
+	initial
+		
+		array[2] of integer msg;
+		Print "Инициализация вершины";
+	endi
+		
+	event;
+		msg:=StrToIntArray(message);
+		
+		if msg[0]=4 then
+			Print "Фишка получена через полюс Tr_Place";
+			InitialNumMarks:=InitialNumMarks+1;
+			schedule Show in 0;
+		endif;
+	ende
+	event Show;
+		Print "Количество фишек "+ToStr(InitialNumMarks);
+	ende
+endrout

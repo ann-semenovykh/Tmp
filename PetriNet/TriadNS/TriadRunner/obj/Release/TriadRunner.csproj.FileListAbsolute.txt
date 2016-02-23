@@ -1,0 +1,15 @@
+C:\doc\TriadNS\TriadNS\TriadNS\bin\Release\TriadRunner.exe
+C:\doc\TriadNS\TriadNS\TriadNS\bin\Release\TriadRunner.pdb
+C:\doc\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Release\TriadRunner.csprojResolveAssemblyReference.cache
+C:\doc\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Release\TriadRunner.exe
+C:\doc\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Release\TriadRunner.pdb
+C:\Users\user\Desktop\PetriNet\TriadNS\bin\Release\TriadRunner.exe
+C:\Users\user\Desktop\PetriNet\TriadNS\bin\Release\TriadRunner.pdb
+C:\Users\user\Desktop\PetriNet\TriadNS\TriadRunner\obj\Release\TriadRunner.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\PetriNet\TriadNS\TriadRunner\obj\Release\TriadRunner.exe
+C:\Users\user\Desktop\PetriNet\TriadNS\TriadRunner\obj\Release\TriadRunner.pdb
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\bin\Release\TriadRunner.exe
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\bin\Release\TriadRunner.pdb
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadRunner\obj\Release\TriadRunner.csprojResolveAssemblyReference.cache
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadRunner\obj\Release\TriadRunner.exe
+C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadRunner\obj\Release\TriadRunner.pdb

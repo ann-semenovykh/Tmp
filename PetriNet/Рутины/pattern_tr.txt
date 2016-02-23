@@ -1,0 +1,74 @@
+﻿[real T](InOut Place_Tr[<кол-во вх.дуг>],Output Tr_Place[<кол-во вых. дуг>])
+	initial
+		integer count;
+		count:=0;
+		integer answcount;
+		answcount:=0;
+		integer inarc,outarc;
+		inarc:=<кол-во вых.дуг>;
+		outarc:=<кол-во вх.дуг>;
+		array[<кол-во вх.дуг>] of boolean pol;
+		array[<кол-во вх.дуг>] of boolean answ;
+		for i:=0 to inarc-1 do
+			pol[i]:=false;
+			answ[i]:=false;
+		endf;
+		array[2] of integer msg;
+
+		Print "Инициализация вершины";
+	endi
+		
+	event;
+		msg:=StrToIntArray(message);
+		if msg[0]=1 then
+			Print "Получен запрос из полюса "+ToStr(msg[1]);
+			if (pol[msg[1]-1]=false) then
+				pol[msg[1]-1]:=true;
+				count:=count+1;
+				schedule Verify in 0;
+			endif;
+		else
+		if msg[0]=3 then
+			Print "Фишка получена через полюс "+ToStr(msg[1]);
+			if (answ[msg[1]-1]=false) then
+				answ[msg[1]-1]:=true;
+				answcount:=answcount+1;
+				schedule Send in T;
+			endif;
+			
+		endif;
+ 			
+		endif;
+			
+		
+	ende
+
+	event Send;
+		if (answcount=inarc) tnen
+			msg[0]:=4;
+			for i:=0 to outarc-1 do
+				out IntArrayToStr(msg) through Tr_Place[i];
+				Print "Передача фишки через полюс "+ToStr(msg[1]);
+			endf;
+			count:=0;
+			for i:=0 to inarc-1 do
+				pol[i]:=false;
+				answ[i]:=false;
+			endf;
+			answcount:=0;
+		endif;
+	ende
+
+	event Verify;
+		if (count=inarc) then
+			Print "Получен запрос от всех вершин";
+			msg[0]:=2;
+			for i:=0 to inarc-1 do
+				msg[1]:=i+1;
+				out IntArrayToStr(msg) through Place_Tr[i];
+				Print "Отправляем ответ через полюс "+ToStr(msg[1]);
+			endf;
+		endif;
+			
+	ende
+endrout
