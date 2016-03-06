@@ -38,3 +38,11 @@ C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\DrawingPanel\obj\Release\D
 C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\DrawingPanel\obj\Release\DrawingPanel.csproj.GenerateResource.Cache
 C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\DrawingPanel\obj\Release\DrawingPanel.dll
 C:\Users\user\Google Диск\Comp+Petri +vis\TriadNS\DrawingPanel\obj\Release\DrawingPanel.pdb
+C:\Users\user\Documents\GitHub\Tmp\Comp+Petri +vis\TriadNS\bin\Release\DrawingPanel.dll
+C:\Users\user\Documents\GitHub\Tmp\Comp+Petri +vis\TriadNS\bin\Release\DrawingPanel.pdb
+C:\Users\user\Documents\GitHub\Tmp\Comp+Petri +vis\TriadNS\DrawingPanel\obj\Release\DrawingPanel.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\Tmp\Comp+Petri +vis\TriadNS\DrawingPanel\obj\Release\DrawingPanel.PrintPreviewFrm.resources
+C:\Users\user\Documents\GitHub\Tmp\Comp+Petri +vis\TriadNS\DrawingPanel\obj\Release\DrawingPanel.DrawingPanel.resources
+C:\Users\user\Documents\GitHub\Tmp\Comp+Petri +vis\TriadNS\DrawingPanel\obj\Release\DrawingPanel.csproj.GenerateResource.Cache
+C:\Users\user\Documents\GitHub\Tmp\Comp+Petri +vis\TriadNS\DrawingPanel\obj\Release\DrawingPanel.dll
+C:\Users\user\Documents\GitHub\Tmp\Comp+Petri +vis\TriadNS\DrawingPanel\obj\Release\DrawingPanel.pdb

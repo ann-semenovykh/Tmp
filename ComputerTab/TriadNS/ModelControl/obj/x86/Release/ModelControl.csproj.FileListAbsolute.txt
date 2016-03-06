@@ -1,0 +1,9 @@
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ModelControl\obj\x86\Release\ModelControl.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ModelControl\obj\x86\Release\ModelControl.ModelControl.resources
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ModelControl\obj\x86\Release\ModelControl.csproj.GenerateResource.Cache
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ModelControl\bin\Release\ModelControl.dll
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ModelControl\bin\Release\ModelControl.pdb
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ModelControl\bin\Release\DrawingPanel.dll
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ModelControl\bin\Release\DrawingPanel.pdb
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ModelControl\obj\x86\Release\ModelControl.dll
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ModelControl\obj\x86\Release\ModelControl.pdb

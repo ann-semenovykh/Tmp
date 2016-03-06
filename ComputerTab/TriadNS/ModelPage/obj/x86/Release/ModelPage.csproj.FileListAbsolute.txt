@@ -1,0 +1,3 @@
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ModelPage\obj\x86\Release\ModelPage.csprojResolveAssemblyReference.cache
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ModelPage\obj\x86\Release\ModelPage.Pages.resources
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ModelPage\obj\x86\Release\ModelPage.csproj.GenerateResource.Cache

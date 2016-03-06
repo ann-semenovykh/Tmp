@@ -24,3 +24,7 @@ C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadNSim\obj\Release\TriadN
 C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadNSim\obj\Release\TriadNSim.Properties.Resources.resources
 C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadNSim\obj\Release\TriadNSimPetri.csproj.GenerateResource.Cache
 C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadNSim\obj\Release\TriadNSim.Forms.frmShowTree.resources
+C:\Users\user\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Release\TriadNSim.exe.config
+C:\Users\user\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadNSim\obj\Release\TriadNSimPetri.csproj.ResolveComReference.cache
+C:\Users\user\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadNSim\obj\Release\TriadNSim.exe
+C:\Users\user\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadNSim\obj\Release\TriadNSim.pdb
