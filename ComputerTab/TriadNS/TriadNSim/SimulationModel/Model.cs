@@ -13,24 +13,30 @@ using System.ComponentModel;
 using System.Runtime.Serialization.Formatters.Binary;
 using TriadCompiler;
 using TriadCore;
+using System.Reflection;
+using System.CodeDom.Compiler;
+using Microsoft.CSharp;
 
 
 namespace TriadNSim
 {
-    class Model: Object
+    public class Model: Object
     {
-        private TabPage tb;
-        private ListView lv;
-        private drawingPanel dp;
-        public ImageList img=new ImageList();
-        private DrawingPanel.BaseObject[] m_oSelectedObjects;
-        private Dictionary<ListViewItem, Bitmap> ItemImages = new Dictionary<ListViewItem, Bitmap>();
-        private COWLOntologyManager ontologyManager;
-        public const string sOntologyPath = "Ontologies\\ComputerNetwork.owl";
-        private frmChangeRoutine m_frmChangeRoutine;
-
+        protected  TabPage tb;
+        protected  ListView lv;
+        protected  drawingPanel dp;
+        public  ImageList img=new ImageList();
+        protected  DrawingPanel.BaseObject[] m_oSelectedObjects;
+        protected  Dictionary<ListViewItem, Bitmap> ItemImages = new Dictionary<ListViewItem, Bitmap>();
+        protected  COWLOntologyManager ontologyManager;
+        public  const string sOntologyPath = "Ontologies\\Petri.owl";
+        protected  frmChangeRoutine m_frmChangeRoutine;
+        private static Model instance = null;
+        private string name=null;
+        
         public Model(TabPage t,ListView l,drawingPanel d)
         {
+            instance = this;
             tb = t;
             lv = l;
             dp = d;
@@ -46,13 +52,13 @@ namespace TriadNSim
             dp.MouseDoubleClick+=new MouseEventHandler(dp_MouseDoubleClick);
             LoadPage();
         }
-        public void Define(int EndModelTime)
+        public virtual void Define(int EndModelTime)
         {
             SimulationInfo simInfo = new SimulationInfo(dp.Shapes, EndModelTime);
             if (!ontologyManager.Complete(simInfo))
                 Util.ShowErrorBox(ontologyManager.sCompleteError); 
         }
-        public void Reset()
+        public virtual void Reset()
         {
             foreach (BaseObject obj in dp.Shapes)
             {
@@ -66,7 +72,7 @@ namespace TriadNSim
                 }
             }
         }
-        public void Calc()
+        public virtual void Calc()
         {
             if (dp.Shapes.Count == 0)
             {
@@ -77,7 +83,7 @@ namespace TriadNSim
             frmCalc.ShowDialog();
         }
 
-        public void Run(int EndModelTime,bool bSelectSimCondition = false)
+        public virtual void Run(int EndModelTime,bool bSelectSimCondition = false)
         {
             SimulationInfo simInfo = new SimulationInfo(dp.Shapes, EndModelTime);
 
@@ -131,17 +137,17 @@ namespace TriadNSim
 
             Cursor.Current = Cursors.Default;
         }
-        public void visualize(object sender, VisualizeArgs e)
+        public virtual void visualize(object sender, VisualizeArgs e)
         {
             
         }
-        private void dp_MouseDoubleClick(object sender, MouseEventArgs e)
+        protected virtual void dp_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             BaseObject selObj = dp.ShapeCollection.selectedObj;
             if (selObj is Link)
                 EditLink(selObj as Link, true);
         }
-        private void dp_onLineCPChanged(object sender, OnLineCPChangedEventArgs e)
+        protected virtual void dp_onLineCPChanged(object sender, OnLineCPChangedEventArgs e)
         {
             Link link = e.line as Link;
             if (link != null)
@@ -154,7 +160,7 @@ namespace TriadNSim
                     dp.Undo();
             }
         }
-        private void dp_beforeAddLine(object sender, BeforeAddLineEventArgs e)
+        protected virtual void dp_beforeAddLine(object sender, BeforeAddLineEventArgs e)
         {
             e.cancel = true;
             NetworkObject objFrom = e.fromCP.Owner as NetworkObject;
@@ -166,42 +172,27 @@ namespace TriadNSim
                     dp.ShapeCollection.AddShape(oLink);
             }
         }
-        private void lv_ItemDrag(object sender, ItemDragEventArgs e)
+        protected virtual void lv_ItemDrag(object sender, ItemDragEventArgs e)
         {
             lv.DoDragDrop(e.Item, DragDropEffects.Move);
         }
-        private void lv_MouseUp(object sender, MouseEventArgs e)
+        protected virtual void lv_MouseUp(object sender, MouseEventArgs e)
         {
-            if (e.Button == System.Windows.Forms.MouseButtons.Right)
+            
+        }
+        private int modeltime;
+        public int GetEndModelTime
+        {
+            get
             {
-                ContextMenuStrip menu = new ContextMenuStrip();
-                if (lv.SelectedItems.Count > 0)
-                {
-                    ListViewItem item = lv.SelectedItems[0];
-                    ModelObjectType type = ModelObjectType.Undefined;
-                    object[] tag = null;
-                    if (item.Tag != null)
-                    {
-                        tag = item.Tag as object[];
-                        type = (ModelObjectType)tag[1];
-                    }
-                    if (type != ModelObjectType.UserObject)
-                    {
-                        menu.Items.Add("Поведения элемента", null, сMenuItemsRoutines_Click);
-                        menu.Items.Add("Изменить изображение", null, ChangeElementImage);
-                        if (type == ModelObjectType.Undefined && tag[0].ToString() != "Router")
-                            menu.Items.Add("Удалить элемент", null, cMenuItemsDelElement_Click);
-                    }
-                }
-                else
-                {
-                    menu.Items.Add("Добавить элемент", null, сMenuItemsAdd_Click);
-                }
-                if (menu.Items.Count > 0)
-                    menu.Show(lv, e.Location, ToolStripDropDownDirection.AboveRight);
+                return modeltime;
+            }
+            set
+            {
+                modeltime=value;
             }
         }
-        private void cMenuItemsDelElement_Click(object sender, EventArgs e)
+        protected virtual void cMenuItemsDelElement_Click(object sender, EventArgs e)
         {
             ListViewItem item = lv.SelectedItems[0];
             if (Util.ShowConformationBox("Удалить элемент '" + item.Text + "'?"))
@@ -212,7 +203,7 @@ namespace TriadNSim
                 lv.Items.Remove(item);
             }
         }
-        private void сMenuItemsRoutines_Click(object sender, EventArgs e)
+        protected virtual void сMenuItemsRoutines_Click(object sender, EventArgs e)
         {
             ListViewItem item = lv.SelectedItems[0];
             string sName = (string)(item.Tag as object[])[0];
@@ -225,7 +216,7 @@ namespace TriadNSim
             frmRoutines frm = new frmRoutines(cls);
             frm.ShowDialog();
         }
-        private void ChangeElementImage(object sender, EventArgs e)
+        protected virtual void ChangeElementImage(object sender, EventArgs e)
         {
             ListViewItem item = lv.SelectedItems[0];
             if (item != null)
@@ -239,7 +230,7 @@ namespace TriadNSim
                 }
             }
         }
-        public static Bitmap LoadImage(string sTitle)
+        public  static Bitmap LoadImage(string sTitle)
         {
             Bitmap bmp = null;
             OpenFileDialog dlg = new OpenFileDialog();
@@ -258,26 +249,11 @@ namespace TriadNSim
             }
             return bmp;
         }
-        private void сMenuItemsAdd_Click(object sender, EventArgs e)
+        protected virtual void сMenuItemsAdd_Click(object sender, EventArgs e)
         {
-            frmAddElement frm = new frmAddElement();
-            frm.Bmp = global::TriadNSim.Properties.Resources.question;
-            if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
-            {
-                IOWLClass superClass = ontologyManager.GetClass(frm.ParentName);
-                IOWLClass cls = ontologyManager.AddClass(frm.Name);
-                ontologyManager.AddSubClass(cls, superClass);
-                IOWLClass routClass = ontologyManager.AddRoutine(ontologyManager.GetRoutineClass(superClass), cls, frm.Name);
-                ontologyManager.SaveOntology(sOntologyPath);
-
-                img.Images.Add(frm.Bmp);
-                int nImageIndex = img.Images.Count - 1;
-                ListViewItem li = lv.Items.Add(frm.Name, nImageIndex);
-                li.Tag = new object[2] { frm.Name, ModelObjectType.Undefined };
-                ItemImages[li] = frm.Bmp;
-            }
+            
         }
-        private void lv_DragOver(object sender, DragEventArgs e)
+        protected virtual void lv_DragOver(object sender, DragEventArgs e)
         {
             if (!e.Data.GetDataPresent(typeof(ListViewItem)))
             {
@@ -285,7 +261,7 @@ namespace TriadNSim
                 return;
             }
         }
-        private void LoadPage()
+        protected virtual void LoadPage()
         {
             m_frmChangeRoutine = new frmChangeRoutine(dp);
             ontologyManager = new COWLOntologyManager(sOntologyPath);
@@ -304,14 +280,14 @@ namespace TriadNSim
             lv.LargeImageList = img;
         }
 
-        private string m_sFileName = string.Empty;
-        private string sUserIPFileName = "IP.dat";
-        private string sSimCondFileName = "SimCond.dat";
+        protected  string m_sFileName = string.Empty;
+        protected  string sUserIPFileName = "IP.dat";
+        protected  string sSimCondFileName = "SimCond.dat";
 
-        public List<InfProcedure> userIProcedures = null;
-        public List<InfProcedure> standartIProcedures = null;
-        public List<SimCondition> simConditions = null;
-        private void LoadSimConditions()
+        public  List<InfProcedure> userIProcedures = null;
+        public  List<InfProcedure> standartIProcedures = null;
+        public  List<SimCondition> simConditions = null;
+        protected virtual void LoadSimConditions()
         {
             if (File.Exists(sSimCondFileName))
             {
@@ -328,14 +304,14 @@ namespace TriadNSim
             else
                 simConditions = new List<SimCondition>();
         }
-        private void LoadStandartIP()
+        protected virtual void LoadStandartIP()
         {
             standartIProcedures = new List<InfProcedure>();
             List<IProcedureType> iprocedures = SimConditionParser.StandartIP;
             foreach (var ip in iprocedures)
                 standartIProcedures.Add(new InfProcedure(ip, true));
         }
-        private void LoadUserIP()
+        protected virtual void LoadUserIP()
         {
             if (File.Exists(sUserIPFileName))
             {
@@ -352,7 +328,7 @@ namespace TriadNSim
             else
                 userIProcedures = new List<InfProcedure>();
         }
-        public TabPage TabPage
+        public virtual TabPage TabPage
         {
             get
             {return tb;}
@@ -360,58 +336,22 @@ namespace TriadNSim
             {tb=value;}
         }
 
-        private void LoadElements()
+        protected virtual void LoadElements()
         {
 
-            lv.Clear();
-            img.Images.Clear();
-
-            string[] standartItems = { "Рабочая станция", "Сервер", "Маршрутизатор", "Пользовательский" };
-            //string[] standartItems = { "Workstation", "Server", "Router", "Custom" };
-            string[] standartItemNames = { "Workstation", "Server", "Router", "ComputerNetworkNode" };
-            ModelObjectType[] types = { ModelObjectType.Client, ModelObjectType.Server, ModelObjectType.Undefined, ModelObjectType.UserObject };
-            Dictionary<string, ListViewItem> Items = new Dictionary<string, ListViewItem>();
-            for (int i = 0; i < standartItems.Length; i++)
-            {
-                string sName = standartItems[i];
-                ListViewItem item = lv.Items.Add(sName);
-                item.Tag = new object[2] { standartItemNames[i], types[i] };
-                Items[sName.ToLower()] = item;
-            }
-
-            foreach (IOWLClass cls in ontologyManager.GetComputerNetworkElements())
-            {
-                string sName = cls.Comment;
-                if (sName.Length == 0)
-                    sName = cls.Name;
-                if (Items.ContainsKey(sName.ToLower()))
-                    continue;
-                ListViewItem item = lv.Items.Add(sName);
-                item.Tag = new object[2] { cls.Name, ModelObjectType.Undefined };
-                Items[sName.ToLower()] = item;
-            }
-
-            Dictionary<string, Bitmap> images = LoadImageList();
-            foreach (KeyValuePair<string, Bitmap> pair in images)
-            {
-                if (!Items.ContainsKey(pair.Key))
-                    continue;
-                ItemImages[Items[pair.Key]] = pair.Value;
-                img.Images.Add(pair.Value);
-                Items[pair.Key].ImageIndex = img.Images.Count - 1;
-            }
+            
         }
 
-        private Dictionary<string, Bitmap> LoadImageList()
+        protected virtual Dictionary<string, Bitmap> LoadImageList(string path)
         {
             Dictionary<string, Bitmap> res = new Dictionary<string, Bitmap>();
-            if (File.Exists("elements.xml"))
+            if (File.Exists(path))
             {
                 XmlReaderSettings settings = new XmlReaderSettings();
                 settings.IgnoreWhitespace = true;
                 settings.IgnoreComments = true;
                 XmlDocument doc = new XmlDocument();
-                doc.Load("elements.xml");
+                doc.Load(path);
                 int nCount = doc.ChildNodes.Count;
                 for (int i = 0; i < nCount; i++)
                 {
@@ -436,39 +376,11 @@ namespace TriadNSim
             }
             return res;
         }
-        private void dp_DragDrop(object sender, DragEventArgs e)
+        protected virtual void dp_DragDrop(object sender, DragEventArgs e)
         {
-            ListViewItem li = (ListViewItem)e.Data.GetData(typeof(ListViewItem));
-            Point pt = dp.PointToClient(new Point(e.X, e.Y));
-            object[] tag = li.Tag as object[];
-            ModelObjectType type = (ModelObjectType)tag[1];
-
-            float fZoom = dp.Zoom;
-            int delta = 100;
-            int X = (int)((pt.X / fZoom - dp.dx) - delta / 2);
-            int Y = (int)((pt.Y / fZoom - dp.dx) - delta / 2);
-            NetworkObject shape = new NetworkObject(dp);
-            shape.Type = type;
-            shape.Rect = new Rectangle(X, Y, delta, delta);
-            shape.Name = GetUniqueShapeName(li.Text);
-            if (type != ModelObjectType.UserObject)
-                shape.SemanticType = ontologyManager.GetRoutineClass(ontologyManager.GetClass(tag[0] as string)).Name;
-            if (ItemImages.ContainsKey(li))
-            {
-                shape.img = new Bitmap(ItemImages[li]);
-                shape.showBorder = type == ModelObjectType.UserObject;
-                shape.Trasparent = false;
-            }
-            else
-            {//!!
-
-                shape.showBorder = true;
-            }
-            dp.ShapeCollection.AddShape(shape);
-
-            dp.Focus();
+            
         }
-        private string GetUniqueShapeName(string sName)
+        protected virtual string GetUniqueShapeName(string sName)
         {
             int nIndex = 1;
             string sRes = sName.ToLower() + nIndex.ToString();
@@ -480,7 +392,7 @@ namespace TriadNSim
             }
             return sName + nIndex.ToString();
         }
-        private Dictionary<string, bool> GetShapeNames()
+        protected virtual Dictionary<string, bool> GetShapeNames()
         {
             Dictionary<string, bool> ShapeNames = new Dictionary<string, bool>();
             foreach (DrawingPanel.BaseObject obj in dp.Shapes)
@@ -490,23 +402,23 @@ namespace TriadNSim
             }
             return ShapeNames;
         }
-        private void dp_objectSelected(object sender, PropertyEventArgs e)
+        protected virtual void dp_objectSelected(object sender, PropertyEventArgs e)
         {
             m_oSelectedObjects = e.ele;
         }
-        private void dp_DragEnter(object sender, DragEventArgs e)
+        protected virtual void dp_DragEnter(object sender, DragEventArgs e)
         {
             if (e.Data.GetDataPresent(typeof(ListViewItem)))
                 e.Effect = DragDropEffects.Move;
         }
-        private void miIP_Click(object sender, EventArgs e)
+        protected virtual void miIP_Click(object sender, EventArgs e)
         {
             if (m_oSelectedObjects == null || m_oSelectedObjects.Length != 1)
                 return;
             frmObjectIPs frmObjectIPs = new frmObjectIPs(m_oSelectedObjects[0] as NetworkObject);
             frmObjectIPs.ShowDialog();
         }
-        private void miCharacteristics_Click(object sender, EventArgs e)
+        protected virtual void miCharacteristics_Click(object sender, EventArgs e)
         {
             if (m_oSelectedObjects == null || m_oSelectedObjects.Length != 1)
                 return;
@@ -522,13 +434,13 @@ namespace TriadNSim
                 obj.Routine.ParamDescription = param.Descriptions.ToList();
             }
         }
-        public NetworkObject GetSelectedObject()
+        public virtual NetworkObject GetSelectedObject()
         {
             if (m_oSelectedObjects == null || m_oSelectedObjects.Length != 1)
                 return null;
             return m_oSelectedObjects[0] as NetworkObject;
         }
-        public void ResetRoutine(Object sender, EventArgs e)
+        public virtual void ResetRoutine(Object sender, EventArgs e)
         {
             NetworkObject obj = GetSelectedObject();
             if (obj != null && obj.Routine != null)
@@ -547,87 +459,15 @@ namespace TriadNSim
                 obj.Routine = null;
             }
         }
-        private void miUserObjectChangeRoutine_Click(object sender, EventArgs e)
+        protected virtual void miUserObjectChangeRoutine_Click(object sender, EventArgs e)
         {
-            if (m_oSelectedObjects == null || m_oSelectedObjects.Length != 1)
-                return;
-            NetworkObject obj = m_oSelectedObjects[0] as NetworkObject;
-            if (obj.Type != ModelObjectType.UserObject)
-                return;
-            Routine prevRout = obj.Routine;
-            if (prevRout == null || obj.Routine.Type.Length > 0)
-            {
-                obj.Routine = new Routine();
-                obj.Routine.Name = "R" + obj.Name;
-                obj.Routine.Text = "routine " + obj.Routine.Name + "(InOut pol)\nendrout";
-                obj.Routine.Poluses.Add(new Polus("pol"));
-            }
-            m_frmChangeRoutine.SetObject(obj);
-            m_frmChangeRoutine.ShowDialog();
-            if (m_frmChangeRoutine.Successed)
-            {
-                frmChangeRoutine.SaveLastCompiledRoutine(obj.Routine.Name + ".dll");
-                obj.Routine.Type = string.Empty;
-            }
-            else
-                obj.Routine = prevRout;
+            
         }
-        private void dp_MouseUp(object sender, MouseEventArgs e)
+        protected virtual void dp_MouseUp(object sender, MouseEventArgs e)
         {
-            if (e.Button == MouseButtons.Right)
-            {
-                Point pntShow = dp.PointToScreen(e.Location);
-                if (m_oSelectedObjects != null && m_oSelectedObjects.Length == 1)
-                {
-                    ContextMenuStrip menu = new ContextMenuStrip();
-                    NetworkObject obj = m_oSelectedObjects[0] as NetworkObject;
-                    if (obj != null)
-                    {
-                        ToolStripMenuItem miRoutine = (ToolStripMenuItem)menu.Items.Add("Рутина", null);
-                        if (obj.Routine != null)
-                        {
-                            menu.Items.Add("Информационные процедуры", null, miIP_Click);
-                            menu.Items.Add("Параметры", null, miCharacteristics_Click);
-                        }
-                        {
-                            miRoutine.DropDownItems.Add("Нет", null, ResetRoutine);
-                            if (obj.Type == ModelObjectType.UserObject)
-                                miRoutine.DropDownItems.Add("Пользовательская", null, miUserObjectChangeRoutine_Click);
-                            bool bFind = false;
-                            IOWLClass semanticType = ontologyManager.GetClass(obj.SemanticType);
-                            if (semanticType != null)//
-                                foreach (var indiv in ontologyManager.GetIndividuals(semanticType))
-                                {
-                                    IOWLClass cls = ontologyManager.GetIndividualClass(indiv);
-                                    string sName = cls.Comment;
-                                    if (sName.Length == 0)
-                                        sName = cls.Name;
-                                    ToolStripMenuItem mi = (ToolStripMenuItem)miRoutine.DropDownItems.Add(sName, null, SelectRoutine);
-                                    mi.Tag = cls.Name;
-                                    if (obj.Routine != null && !bFind && obj.Routine.Type == mi.Tag.ToString())
-                                    {
-                                        mi.Checked = true;
-                                        bFind = true;
-                                    }
-                                }
-                            if (!bFind)
-                            {
-                                int iIndex = obj.Type == ModelObjectType.UserObject && obj.Routine != null ? 1 : 0;
-                                ((ToolStripMenuItem)miRoutine.DropDownItems[iIndex]).Checked = true;
-                            }
-                        }
-                        menu.Items.Add("Изменить изображение", null, miUserObjectImage_Click);
-                    }
-                    else
-                        menu.Items.Add("Изменить", null, miLinkChange_Click);
-
-                    menu.Items.Add(new ToolStripSeparator());
-                    menu.Items.Add("Удалить", null, miDelete_Click);
-                    menu.Show(tb, pntShow, ToolStripDropDownDirection.AboveRight);
-                }
-            }
+          
         }
-        public void SelectRoutine(Object sender, EventArgs e)
+        public virtual void SelectRoutine(Object sender, EventArgs e)
         {
             NetworkObject obj = GetSelectedObject();
             if (obj != null)
@@ -640,7 +480,7 @@ namespace TriadNSim
                 }
             }
         }
-        private void miLinkChange_Click(object sender, EventArgs e)
+        protected virtual void miLinkChange_Click(object sender, EventArgs e)
         {
             if (m_oSelectedObjects == null || m_oSelectedObjects.Length != 1)
                 return;
@@ -649,7 +489,7 @@ namespace TriadNSim
                 return;
             EditLink(obj, true);
         }
-        public Boolean EditLink(Link oLink, Boolean bNeedShowDialog)
+        public virtual Boolean EditLink(Link oLink, Boolean bNeedShowDialog)
         {
             ModifyRelation frmRelation = new ModifyRelation(oLink);
             if (frmRelation.Success && !bNeedShowDialog || frmRelation.ShowDialog() == DialogResult.OK)
@@ -660,11 +500,11 @@ namespace TriadNSim
             }
             return false;
         }
-        private void miDelete_Click(object sender, EventArgs e)
+        protected virtual void miDelete_Click(object sender, EventArgs e)
         {
             dp.DeleteSelected();
         }
-        private void miUserObjectImage_Click(object sender, EventArgs e)
+        protected virtual void miUserObjectImage_Click(object sender, EventArgs e)
         {
             if (m_oSelectedObjects == null || m_oSelectedObjects.Length != 1)
                 return;
@@ -672,6 +512,111 @@ namespace TriadNSim
             //if (obj.Type != ENetworkObjectType.UserObject)
             //    return;
             obj.Load_IMG();
+        }
+        public string Name
+        {
+            get { return name; }
+        }
+        public bool DeleteUserIP(string Name)
+        {
+            foreach (var ip in userIProcedures)
+            {
+                if (ip.Name == Name)
+                {
+                    userIProcedures.Remove(ip);
+                    SaveUserIP();
+                    return true;
+                }
+            }
+            return false;
+        }
+        public SimCondition GetSimCondition(string Name)
+        {
+            foreach (var simCond in simConditions)
+            {
+                if (simCond.Name == Name)
+                    return simCond;
+            }
+            return null;
+        }
+
+        public bool DeleteSimCondition(string Name)
+        {
+            foreach (var simCond in simConditions)
+            {
+                if (simCond.Name == Name)
+                {
+                    simConditions.Remove(simCond);
+                    SaveSimConditions();
+                    return true;
+                }
+            }
+            return false;
+        }
+        public InfProcedure GetUserIP(string Name)
+        {
+            foreach (var proc in userIProcedures)
+            {
+                if (proc.Name == Name)
+                    return proc;
+            }
+            return null;
+        }
+        public void SaveUserIP()
+        {
+            Stream StreamWrite = File.Open(sUserIPFileName, FileMode.Create, FileAccess.Write);
+            BinaryFormatter BinaryWrite = new BinaryFormatter();
+            BinaryWrite.Serialize(StreamWrite, userIProcedures);
+            StreamWrite.Close();
+        }
+        public static Assembly GenerateAssemblyFromFile(string sFile, string[] references = null)
+        {
+            if (File.Exists(sFile))
+            {
+                CompilerParameters compilerParameters = new CompilerParameters();
+                compilerParameters.CompilerOptions = "/t:library";
+                compilerParameters.GenerateInMemory = true;
+                //compilerParameters.GenerateInMemory = false;
+                //compilerParameters.OutputAssembly = "SimCondition.dll";
+                compilerParameters.ReferencedAssemblies.Add("system.dll");
+                compilerParameters.ReferencedAssemblies.Add("TriadCore.dll");
+                compilerParameters.ReferencedAssemblies.Add("TriadNSim.exe");
+                if (references != null)
+                {
+                    foreach (string reference in references)
+                        compilerParameters.ReferencedAssemblies.Add(reference.ToLower());
+                }
+                return new CSharpCodeProvider().CompileAssemblyFromFile(compilerParameters, sFile).CompiledAssembly;
+            }
+            return null;
+        }
+        public void SaveSimConditions()
+        {
+            Stream StreamWrite = File.Open(sSimCondFileName, FileMode.Create, FileAccess.Write);
+            BinaryFormatter BinaryWrite = new BinaryFormatter();
+            BinaryWrite.Serialize(StreamWrite, simConditions);
+            StreamWrite.Close();
+        }
+        public COWLOntologyManager OntologyManager
+        {
+            get
+            {
+                return ontologyManager;
+            }
+        }
+        public static Model Instance
+        {
+            get
+            {
+                return instance;
+            }
+        }
+        public drawingPanel Panel
+        {
+            get
+            {
+                return dp;
+            }
         }
     }
 

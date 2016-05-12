@@ -41,7 +41,26 @@ namespace DrawingPanel
             this._Moving = false;
             this._MoveFrom = false;
         }
-
+        public Line(DrawingPanel panel, CConnectionPoint From, CConnectionPoint To,int x,int y,int x1,int y1)
+            : base(panel)
+        {
+            this._FromCP = From;
+            From.Connectors.Add(this);
+            this._ToCP = To;
+            To.Connectors.Add(this);
+            this.X = x;
+            this.Y = y;
+            this.X1 = x1;
+            this.Y1 = y1;
+            this.bIsLine = true;
+            this.bSelected = true;
+            this.endCap = LineCap.ArrowAnchor;
+            this.starCap = LineCap.NoAnchor;
+            this.endMoveRedim();
+            this.bCanRotate = false;
+            this._Moving = false;
+            this._MoveFrom = false;
+        }
         [CategoryAttribute("Line Appearance"), DescriptionAttribute("Line Start Cap")]
         public LineCap starCap
         {

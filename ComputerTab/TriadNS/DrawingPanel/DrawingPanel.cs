@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using System.IO; 						
 using System.Runtime.Serialization;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Drawing.Drawing2D;
 
 namespace DrawingPanel
 {
@@ -692,15 +693,20 @@ namespace DrawingPanel
             {
                 System.Drawing.Pen myPen = new System.Drawing.Pen(System.Drawing.Color.Red, 1.5f);
                 myPen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
-                myPen.StartCap = System.Drawing.Drawing2D.LineCap.DiamondAnchor;
+               // myPen.StartCap = System.Drawing.Drawing2D.LineCap.DiamondAnchor;  nen
 
                 if (CurrentTool == ToolType.ttLine)
                 {
+
+                    myPen.EndCap = LineCap.ArrowAnchor;//<-
                     offScreenDC.DrawLine(myPen, (startX + this.dx) * this.Zoom, (startY + this.dy) * this.Zoom, (tempX + this.dx) * this.Zoom, (tempY + this.dy) * this.Zoom);
                 }
                 else
                 {
-                    offScreenDC.DrawRectangle(myPen, (this.startX + this.dx) * this.Zoom, (this.startY + this.dy) * this.Zoom, (tempX - this.startX) * this.Zoom, (tempY - this.startY) * this.Zoom);
+
+                    myPen.EndCap = LineCap.ArrowAnchor;//<-
+                   // offScreenDC.DrawRectangle(myPen, (this.startX + this.dx) * this.Zoom, (this.startY + this.dy) * this.Zoom, (tempX - this.startX) * this.Zoom, (tempY - this.startY) * this.Zoom);
+                    //nen
                 }
                 myPen.Dispose();
             }

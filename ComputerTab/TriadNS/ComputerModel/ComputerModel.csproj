@@ -6,7 +6,7 @@
     <ProductVersion>8.0.30703</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{19FA80E1-9061-47A0-9C42-488F9F81B78B}</ProjectGuid>
-    <OutputType>WinExe</OutputType>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ComputerModel</RootNamespace>
     <AssemblyName>ComputerModel</AssemblyName>
@@ -33,11 +33,16 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IKVM.OpenJDK.Core">
+    <Reference Include="IKVM.OpenJDK.Core, Version=0.46.0.1, Culture=neutral, PublicKeyToken=13235d27fcbfff58, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Other\Ontology\ikvm-0.46.0.1\bin\IKVM.OpenJDK.Core.dll</HintPath>
     </Reference>
-    <Reference Include="owlapi">
+    <Reference Include="owlapi, Version=0.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Other\Ontology\owlapi.dll</HintPath>
     </Reference>
     <Reference Include="System" />
@@ -52,11 +57,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ModelWork.cs" />
-    <Compile Include="NetworkObject.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="ComputerModel.cs" />
+    <Compile Include="EComputerObjectType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="SimulationInfo.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -85,10 +88,25 @@
       <Project>{37AB8C52-17C6-4330-A2D3-8FD32988A684}</Project>
       <Name>TriadCompiler</Name>
     </ProjectReference>
-    <ProjectReference Include="..\TriadCore\TriadCore.csproj">
-      <Project>{2FDBD413-AC61-454E-B066-77D1F01BECC9}</Project>
-      <Name>TriadCore</Name>
+    <ProjectReference Include="..\TriadNSim\TriadNSim.csproj">
+      <Project>{1B458B23-AED1-4241-9D73-B963B29A813B}</Project>
+      <Name>TriadNSim</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\define.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reset.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\simc.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Spy.bmp" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

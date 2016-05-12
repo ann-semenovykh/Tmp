@@ -21,9 +21,9 @@ namespace TriadNSim.Forms
 
         private void frmIProcedures_Load(object sender, EventArgs e)
         {
-            foreach (var ip in frmMain.Instance.standartIProcedures)
+            foreach (var ip in Model.Instance.standartIProcedures)
                 AddIp(ip);
-            foreach (var ip in frmMain.Instance.userIProcedures)
+            foreach (var ip in Model.Instance.userIProcedures)
                 AddIp(ip);
         }
 
@@ -35,8 +35,8 @@ namespace TriadNSim.Forms
             if (oFrmEditIp.Successed)
             {
                 AddIp(oFrmEditIp.IProcedure);
-                frmMain.Instance.userIProcedures.Add(oFrmEditIp.IProcedure);
-                frmMain.Instance.SaveUserIP();
+                Model.Instance.userIProcedures.Add(oFrmEditIp.IProcedure);
+                Model.Instance.SaveUserIP();
             }
         }
 
@@ -55,7 +55,7 @@ namespace TriadNSim.Forms
         private void btnDeleteIP_Click(object sender, EventArgs e)
         {
             int nIndex = listViewUserIP.SelectedItems[0].Index;
-            frmMain.Instance.DeleteUserIP(listViewUserIP.SelectedItems[0].Text);
+            Model.Instance.DeleteUserIP(listViewUserIP.SelectedItems[0].Text);
             listViewUserIP.Items.RemoveAt(nIndex);
         }
 
@@ -64,7 +64,7 @@ namespace TriadNSim.Forms
             frmEditIP oFrmEditIp = new frmEditIP();
             int nIndex = listViewUserIP.SelectedItems[0].Index;
             string sName = listViewUserIP.SelectedItems[0].Text;
-            InfProcedure EditProc = frmMain.Instance.GetUserIP(sName);
+            InfProcedure EditProc = Model.Instance.GetUserIP(sName);
             oFrmEditIp.SetIP(EditProc);
             oFrmEditIp.ShowDialog();
             if (oFrmEditIp.Successed)
@@ -76,7 +76,7 @@ namespace TriadNSim.Forms
                 EditProc.Code = proc.Code;
                 EditProc.ReturnCode = proc.ReturnCode;
                 EditProc.Params = proc.Params;
-                frmMain.Instance.SaveUserIP();
+                Model.Instance.SaveUserIP();
             }
         }
 

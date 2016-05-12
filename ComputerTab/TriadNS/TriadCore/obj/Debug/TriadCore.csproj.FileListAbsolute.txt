@@ -1,0 +1,7 @@
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\bin\Debug\TriadCore.XML
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\bin\Debug\TriadCore.dll
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\bin\Debug\TriadCore.pdb
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadCore\obj\Debug\TriadCore.Properties.Resources.resources
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadCore\obj\Debug\TriadCore.csproj.GenerateResource.Cache
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadCore\obj\Debug\TriadCore.dll
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadCore\obj\Debug\TriadCore.pdb

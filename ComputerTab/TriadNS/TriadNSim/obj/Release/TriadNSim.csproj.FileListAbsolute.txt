@@ -207,7 +207,6 @@ C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Release\Tri
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Release\TriadNSim.Forms.frmEditParam.resources
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Release\TriadNSim.Forms.frmIConditions.resources
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Release\TriadNSim.Forms.frmIProcedures.resources
-C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Release\TriadNSim.Forms.frmMain.resources
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Release\TriadNSim.Forms.frmObjectIP.resources
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Release\TriadNSim.Forms.frmObjectIPs.resources
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Release\TriadNSim.Forms.frmResult.resources
@@ -215,3 +214,4 @@ C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Release\Tri
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Release\TriadNSim.Properties.Resources.resources
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Release\TriadNSim.csproj.GenerateResource.Cache
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Release\TriadNSim.Forms.frmSimulation.resources
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Release\TriadNSim.Forms.frmChoseModel.resources

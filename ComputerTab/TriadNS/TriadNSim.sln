@@ -13,8 +13,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriadCore", "TriadCore\Tria
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriadRunner", "TriadRunner\TriadRunner.csproj", "{776D87DE-3ABA-4534-B739-BFC0E82704F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComputerModel", "ComputerModel\ComputerModel.csproj", "{19FA80E1-9061-47A0-9C42-488F9F81B78B}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -85,16 +83,6 @@ Global
 		{776D87DE-3ABA-4534-B739-BFC0E82704F3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{776D87DE-3ABA-4534-B739-BFC0E82704F3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{776D87DE-3ABA-4534-B739-BFC0E82704F3}.Release|x86.ActiveCfg = Release|Any CPU
-		{19FA80E1-9061-47A0-9C42-488F9F81B78B}.Debug|Any CPU.ActiveCfg = Debug|x86
-		{19FA80E1-9061-47A0-9C42-488F9F81B78B}.Debug|Mixed Platforms.ActiveCfg = Debug|x86
-		{19FA80E1-9061-47A0-9C42-488F9F81B78B}.Debug|Mixed Platforms.Build.0 = Debug|x86
-		{19FA80E1-9061-47A0-9C42-488F9F81B78B}.Debug|x86.ActiveCfg = Debug|x86
-		{19FA80E1-9061-47A0-9C42-488F9F81B78B}.Debug|x86.Build.0 = Debug|x86
-		{19FA80E1-9061-47A0-9C42-488F9F81B78B}.Release|Any CPU.ActiveCfg = Release|x86
-		{19FA80E1-9061-47A0-9C42-488F9F81B78B}.Release|Mixed Platforms.ActiveCfg = Release|x86
-		{19FA80E1-9061-47A0-9C42-488F9F81B78B}.Release|Mixed Platforms.Build.0 = Release|x86
-		{19FA80E1-9061-47A0-9C42-488F9F81B78B}.Release|x86.ActiveCfg = Release|x86
-		{19FA80E1-9061-47A0-9C42-488F9F81B78B}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

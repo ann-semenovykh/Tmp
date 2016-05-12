@@ -29,8 +29,8 @@ namespace TriadNSim.Forms
                 simCond.Name = frmSimCond.DesignTypeName;
                 simCond.Description = frmSimCond.Description;
                 AddSimCondition(simCond);
-                frmMain.Instance.simConditions.Add(simCond);
-                frmMain.Instance.SaveSimConditions();
+                Model.Instance.simConditions.Add(simCond);
+                Model.Instance.SaveSimConditions();
             }
         }
 
@@ -47,7 +47,7 @@ namespace TriadNSim.Forms
             frmChangeSimCondition frmSimCond = new frmChangeSimCondition();
             int nIndex = listViewIC.SelectedItems[0].Index;
             string sName = listViewIC.SelectedItems[0].Text;
-            SimCondition EditSimCond = frmMain.Instance.GetSimCondition(sName);
+            SimCondition EditSimCond = Model.Instance.GetSimCondition(sName);
             frmSimCond.SetSimCondition(EditSimCond);
             frmSimCond.ShowDialog();
             if (frmSimCond.Successed)
@@ -55,20 +55,20 @@ namespace TriadNSim.Forms
                 EditSimCond.Name = listViewIC.Items[nIndex].Text = frmSimCond.DesignTypeName;
                 EditSimCond.Description = listViewIC.Items[nIndex].SubItems[1].Text = frmSimCond.Description;
                 EditSimCond.Code = frmSimCond.Code;
-                frmMain.Instance.SaveSimConditions();
+                Model.Instance.SaveSimConditions();
             }
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
             int nIndex = listViewIC.SelectedItems[0].Index;
-            frmMain.Instance.DeleteSimCondition(listViewIC.SelectedItems[0].Text);
+            Model.Instance.DeleteSimCondition(listViewIC.SelectedItems[0].Text);
             listViewIC.Items.RemoveAt(nIndex);
         }
 
         private void frmIConditions_Load(object sender, EventArgs e)
         {
-            foreach (var simCond in frmMain.Instance.simConditions)
+            foreach (var simCond in Model.Instance.simConditions)
                 AddSimCondition(simCond);
         }
     }

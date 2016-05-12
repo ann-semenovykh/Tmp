@@ -560,9 +560,9 @@ namespace TriadNSim
             return res;
         }
 
-        public List<IOWLClass> GetComputerNetworkElements()
+        public List<IOWLClass> GetNetworkElements(string str)
         {
-            OWLClass superClass = factory.getOWLClass(":ComputerNetNode", pm);
+            OWLClass superClass = factory.getOWLClass(str, pm);
             return GetSubClasses(new COWLClass(ontology, superClass));
         }
 

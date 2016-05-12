@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using drawingPanel=DrawingPanel.DrawingPanel;
+using System.Reflection;
+using computerModel = ComputerModel.ComputerModel;
+using petriNetModel = PetriNetModel.PetriNetModel;
 
 namespace TriadNSim.Forms
 {
@@ -41,6 +44,7 @@ namespace TriadNSim.Forms
         {
             //m_oSimulation.Start(true);
             Model md = (Model)tabControl1.SelectedTab.Tag;
+            md.GetEndModelTime = GetEndModelTime();
             md.Run(GetEndModelTime());
             
         }
@@ -59,10 +63,10 @@ namespace TriadNSim.Forms
         {
             
         }
-
-        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        private void newmodel()
         {
-            if (tabControl1.SelectedTab.Name == "AddPage")
+            frmChoseModel frm = new frmChoseModel();
+            if (tabControl1.SelectedTab.Name == "AddPage" && ((frm.ShowDialog()) == DialogResult.OK))
             {
                 string title = "TabPage " + (tabControl1.TabCount).ToString();
                 TabPage myTabPage = new TabPage(title);
@@ -73,14 +77,30 @@ namespace TriadNSim.Forms
                 dp.Dock = DockStyle.Fill;
                 myTabPage.Controls.Add(dp);
                 myTabPage.Controls.Add(lv);
-                Model ob = new Model(myTabPage,lv,dp);
-                myTabPage.Tag = ob;
+                object ob = null;
                 
+                switch (frm.Tag.ToString())
+                {
+                    case "ComputerModel":
+                        ob = new computerModel(myTabPage, lv, dp);
+                        break;
+                    case "PetriNet":
+                        ob = new petriNetModel(myTabPage, lv, dp);
+                        break;
+                    default:
+                        ob = new Model(myTabPage, lv, dp);
+                        break;
+                }
+                myTabPage.Tag = ob;
+
                 tabControl1.TabPages.Insert(tabControl1.TabCount - 1, myTabPage);
                 tabControl1.SelectedTab = tabControl1.TabPages[tabControl1.TabCount - 2];
 
             }
-
+        }
+        private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            newmodel();
         }
 
         private void tabControl1_KeyPress(object sender, KeyPressEventArgs e)
@@ -107,9 +127,10 @@ namespace TriadNSim.Forms
 
         private void toolStripbtnSelect_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < tabControl1.TabCount; i++)
+            for (int i = 0; i < tabControl1.TabCount-1; i++)
             {
-                drawingPanel dp = (drawingPanel)tabControl1.TabPages[i].Controls["drawingPanel"];
+                //drawingPanel dp = (drawingPanel)tabControl1.TabPages[i].Controls["drawingPanel"];
+                drawingPanel dp = (drawingPanel)tabControl1.SelectedTab.Controls["drawingPanel"];
                 dp.CurrentTool = DrawingPanel.ToolType.ttSelect;
             }
             toolStripbtnSelect.Checked = true;
@@ -182,25 +203,10 @@ namespace TriadNSim.Forms
         {
             UpdateZoom();
         }
-
+        
         private void tabControl1_DoubleClick(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedTab.Name == "AddPage")
-            {
-                string title = "TabPage " + (tabControl1.TabCount).ToString();
-                TabPage myTabPage = new TabPage(title);
-                ListView lv = new ListView();
-                lv.Dock = DockStyle.Bottom;
-
-                drawingPanel dp = new drawingPanel();
-                dp.Dock = DockStyle.Fill;
-                myTabPage.Controls.Add(dp);
-                myTabPage.Controls.Add(lv);
-
-                tabControl1.TabPages.Insert(tabControl1.TabCount - 1, myTabPage);
-                tabControl1.SelectedTab = tabControl1.TabPages[tabControl1.TabCount - 2];
-
-            }
+            newmodel();
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -221,6 +227,7 @@ namespace TriadNSim.Forms
         private void btnDefine_Click(object sender, EventArgs e)
         {
             Model md = (Model)tabControl1.SelectedTab.Tag;
+            md.GetEndModelTime = GetEndModelTime();
             md.Define(GetEndModelTime());
         
         }

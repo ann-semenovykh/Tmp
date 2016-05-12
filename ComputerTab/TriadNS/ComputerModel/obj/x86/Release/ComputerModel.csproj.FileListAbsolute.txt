@@ -1,4 +1,3 @@
-C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\ComputerModel.exe
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\ComputerModel.pdb
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\DrawingPanel.dll
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\TriadCompiler.exe
@@ -7,7 +6,6 @@ C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\TriadCore.pdb
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\obj\x86\Release\ComputerModel.Properties.Resources.resources
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\obj\x86\Release\ComputerModel.csproj.GenerateResource.Cache
-C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\obj\x86\Release\ComputerModel.exe
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\obj\x86\Release\ComputerModel.pdb
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\obj\x86\Release\ComputerModel.csprojResolveAssemblyReference.cache
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\IKVM.OpenJDK.Core.dll
@@ -24,3 +22,10 @@ C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\IKVM.OpenJDK.Remoting.dll
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\IKVM.AWT.WinForms.dll
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\IKVM.OpenJDK.Beans.dll
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\ComputerModel.dll
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\TriadNSim.exe
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\TriadPad.exe
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\Interop.tom.dll
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\TriadNSim.pdb
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\bin\Release\TriadPad.pdb
+C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\ComputerModel\obj\x86\Release\ComputerModel.dll

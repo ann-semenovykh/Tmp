@@ -21,7 +21,7 @@ routine ROutPlace[integer InitialNumMarks;real T](InOut Place_Tr)
 	event Wait;
 		
 			schedule TryQuery in 0;
-	end
+	ende
 	
 	event;
 		msg:=StrToIntArray(message);
@@ -35,4 +35,4 @@ routine ROutPlace[integer InitialNumMarks;real T](InOut Place_Tr)
 		
 	ende
 	
-endrout.
+endrout

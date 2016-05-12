@@ -68,7 +68,7 @@ namespace TriadNSim
         bool NeedClientRoutine = false;
         
         public DrawingPanel.DrawingPanel drawingPanel;
-        private frmMain mainForm;
+        private Model mainForm;
         private static Simulation _inst;
 
         public static Simulation Instance
@@ -76,11 +76,11 @@ namespace TriadNSim
             get
             {
                 if (_inst == null)
-                    _inst = new Simulation(frmMain.Instance, frmMain.Instance.Panel);
+                    _inst = new Simulation(Model.Instance, Model.Instance.Panel);
                 return _inst;
             }
         }
-        private Simulation(frmMain mainForm, DrawingPanel.DrawingPanel panel)
+        private Simulation(Model mainForm, DrawingPanel.DrawingPanel panel)
         {
             this.mainForm = mainForm;
             drawingPanel = panel;
@@ -96,7 +96,7 @@ namespace TriadNSim
             //string sXml = TriadCore.Logger.Instance.XML;
             frmResult frmRes = new frmResult();
             frmRes.Fill();
-            frmRes.ShowDialog(mainForm);
+            frmRes.ShowDialog();
         }
 
         public void Start(bool bSimulate)
@@ -273,7 +273,7 @@ namespace TriadNSim
             writer.WriteLine("def");
             writer.WriteLine("model m;");
             writer.WriteLine("let M() be m;");
-            text = "simulate m on IC[" + mainForm.GetEndModelTime().ToString() + "](";
+            text = "simulate m on IC[" + mainForm.GetEndModelTime.ToString() + "](";
             //start write inf proc params
             int nParamCount = 0;
             foreach (NetworkObject NetObj in SpyObjects)

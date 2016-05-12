@@ -47,7 +47,7 @@ namespace TriadNSim.Forms
             IProcedure.Code = Code;
 
             bool bFind = false;
-            foreach (InfProcedure proc in frmMain.Instance.userIProcedures)
+            foreach (InfProcedure proc in Model.Instance.userIProcedures)
             {
                 if (proc.Name == IProcedure.Name && EditIP != proc)
                 {
@@ -272,7 +272,7 @@ namespace TriadNSim.Forms
         protected override bool OnOk()
         {
             bool bFind = false;
-            foreach (SimCondition simCond in frmMain.Instance.simConditions)
+            foreach (SimCondition simCond in Model.Instance.simConditions)
             {
                 if (simCond.Name == DesignTypeName && this.simCond != simCond)
                 {
@@ -309,7 +309,7 @@ namespace TriadNSim.Forms
             CommonArea.CreateNewArea();
             {
                 //рутины
-                COWLOntologyManager manager = frmMain.Instance.OntologyManager;
+                COWLOntologyManager manager = Model.Instance.OntologyManager;
                 foreach (var indiv in manager.GetIndividuals(manager.GetClass("ComputerNetworkRoutine")))
                 {
                     Routine r = manager.CreateRoutine(indiv);
@@ -320,7 +320,7 @@ namespace TriadNSim.Forms
                 }
 
                 //IP
-                foreach (InfProcedure iprocedure in frmMain.Instance.userIProcedures)
+                foreach (InfProcedure iprocedure in Model.Instance.userIProcedures)
                 {
                     IProcedureType proc = new IProcedureType(iprocedure.Name, iprocedure.ReturnCode);
                     foreach (IPParam param in iprocedure.Params)

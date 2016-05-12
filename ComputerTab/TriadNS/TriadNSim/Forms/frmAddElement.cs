@@ -38,11 +38,11 @@ namespace TriadNSim.Forms
         {
             InitializeComponent();
             parentNames = new List<string>();
-            ontologyManager = frmMain.Instance.OntologyManager;
+            ontologyManager = Model.Instance.OntologyManager;
             string sSuperClassName = "ComputerNetworkNode";
             cmbParent.Items.Add(ontologyManager.GetClass(sSuperClassName).Comment);
             parentNames.Add(sSuperClassName);
-            List<IOWLClass> elements = ontologyManager.GetComputerNetworkElements();
+            List<IOWLClass> elements = ontologyManager.GetNetworkElements(Model.Instance.Name);
             foreach (IOWLClass elem in elements)
             {
                 string sElementName = elem.Comment.Trim();
@@ -58,7 +58,7 @@ namespace TriadNSim.Forms
         private void btnOK_Click(object sender, EventArgs e)
         {
             string sName = txtName.Text.Trim();
-            if (sName.Length == 0 || frmMain.Instance.ContainsElement(sName))
+            if (sName.Length == 0)// || frmMain.Instance.ContainsElement(sName))
             {
                 Util.ShowErrorBox("Недопустимое имя");
                 txtName.Focus();
@@ -73,7 +73,7 @@ namespace TriadNSim.Forms
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Bmp = frmMain.LoadImage("Изображение элемента");
+            Bmp = Model.LoadImage("Изображение элемента");
         }
 
     }

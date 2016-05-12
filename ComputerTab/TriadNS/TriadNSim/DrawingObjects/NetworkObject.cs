@@ -9,9 +9,8 @@ namespace TriadNSim
 {
     public enum ModelObjectType
     {
+        Entity,
         Undefined,
-        Client,
-        Server,
         UserObject
     };
 
@@ -144,6 +143,7 @@ namespace TriadNSim
                     return polus;
             return null;
         }
+        public bool User { get; set; }
     }
 
     [Serializable]

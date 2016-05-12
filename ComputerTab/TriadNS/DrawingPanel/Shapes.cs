@@ -234,35 +234,35 @@ namespace DrawingPanel
             System.Drawing.Pen whitePen = new System.Drawing.Pen(System.Drawing.Color.White);
                 //NW
                 g.FillRectangle(myBrush, new RectangleF((int)((this.X + dx - 2)) * zoom, (int)((this.Y + dy - 2)) * zoom, (int)5 * zoom, (int)5 * zoom));
-                g.DrawRectangle(whitePen, (this.X + dx - 2) * zoom, (this.Y + dy - 2) * zoom, 5 * zoom, 5 * zoom);
+              //  g.DrawRectangle(whitePen, (this.X + dx - 2) * zoom, (this.Y + dy - 2) * zoom, 5 * zoom, 5 * zoom);
                 //SE
                 g.FillRectangle(myBrush, new RectangleF((this.X1 + dx - 2) * zoom, (this.Y1 + dy - 2) * zoom, (5) * zoom, (5) * zoom));
-                g.DrawRectangle(whitePen, (this.X1 + dx - 2) * zoom, (this.Y1 + dy - 2) * zoom, (5) * zoom, (5) * zoom);
+              //  g.DrawRectangle(whitePen, (this.X1 + dx - 2) * zoom, (this.Y1 + dy - 2) * zoom, (5) * zoom, (5) * zoom);
             if (!bIsLine)
             {
-                    g.DrawRectangle(myPen, (this.X + dx) * zoom, (this.Y + dy) * zoom, (this.X1 - this.X) * zoom, (this.Y1 - this.Y) * zoom);
+                  //  g.DrawRectangle(myPen, (this.X + dx) * zoom, (this.Y + dy) * zoom, (this.X1 - this.X) * zoom, (this.Y1 - this.Y) * zoom);
                     //N
                     g.FillRectangle(myBrush, (this.X + dx - 2 + (this.X1 - this.X) / 2) * zoom, (this.Y + dy - 2) * zoom, 5 * zoom, 5 * zoom);
-                    g.DrawRectangle(whitePen, (this.X + dx - 2 + (this.X1 - this.X) / 2) * zoom, (this.Y + dy - 2) * zoom, 5 * zoom, 5 * zoom);
+                 //   g.DrawRectangle(whitePen, (this.X + dx - 2 + (this.X1 - this.X) / 2) * zoom, (this.Y + dy - 2) * zoom, 5 * zoom, 5 * zoom);
                 {
                     //NE
                     g.FillRectangle(myBrush, (this.X1 + dx - 2) * zoom, (this.Y + dy - 2) * zoom, 5 * zoom, 5 * zoom);
-                    g.DrawRectangle(whitePen, (this.X1 + dx - 2) * zoom, (this.Y + dy - 2) * zoom, 5 * zoom, 5 * zoom);
+                 //   g.DrawRectangle(whitePen, (this.X1 + dx - 2) * zoom, (this.Y + dy - 2) * zoom, 5 * zoom, 5 * zoom);
                 }
                     //E
                     g.FillRectangle(myBrush, (this.X1 + dx - 2) * zoom, (this.Y + dy - 2 + (this.Y1 - this.Y) / 2) * zoom, 5 * zoom, 5 * zoom);
-                    g.DrawRectangle(whitePen, (this.X1 + dx - 2) * zoom, (this.Y + dy - 2 + (this.Y1 - this.Y) / 2) * zoom, 5 * zoom, 5 * zoom);
+                 //   g.DrawRectangle(whitePen, (this.X1 + dx - 2) * zoom, (this.Y + dy - 2 + (this.Y1 - this.Y) / 2) * zoom, 5 * zoom, 5 * zoom);
                     //S
                     g.FillRectangle(myBrush, (this.X + dx - 2 + (this.X1 - this.X) / 2) * zoom, (this.Y1 + dy - 2) * zoom, 5 * zoom, 5 * zoom);
-                    g.DrawRectangle(whitePen, (this.X + dx - 2 + (this.X1 - this.X) / 2) * zoom, (this.Y1 + dy - 2) * zoom, 5 * zoom, 5 * zoom);
+                   // g.DrawRectangle(whitePen, (this.X + dx - 2 + (this.X1 - this.X) / 2) * zoom, (this.Y1 + dy - 2) * zoom, 5 * zoom, 5 * zoom);
                 {
                     //SW
                     g.FillRectangle(myBrush, (this.X + dx - 2) * zoom, (this.Y1 + dy - 2) * zoom, 5 * zoom, 5 * zoom);
-                    g.DrawRectangle(whitePen, (this.X + dx - 2) * zoom, (this.Y1 + dy - 2) * zoom, 5 * zoom, 5 * zoom);
+                  //  g.DrawRectangle(whitePen, (this.X + dx - 2) * zoom, (this.Y1 + dy - 2) * zoom, 5 * zoom, 5 * zoom);
                 }
                     //W
                     g.FillRectangle(myBrush, (this.X + dx - 2) * zoom, (this.Y + dy - 2 + (this.Y1 - this.Y) / 2) * zoom, 5 * zoom, 5 * zoom);
-                    g.DrawRectangle(whitePen, (this.X + dx - 2) * zoom, (this.Y + dy - 2 + (this.Y1 - this.Y) / 2) * zoom, 5 * zoom, 5 * zoom);
+                 //   g.DrawRectangle(whitePen, (this.X + dx - 2) * zoom, (this.Y + dy - 2 + (this.Y1 - this.Y) / 2) * zoom, 5 * zoom, 5 * zoom);
 
                     if (bCanRotate)
                     {
@@ -278,7 +278,7 @@ namespace DrawingPanel
                         RotHP.X += midX;
                         RotHP.Y += midY;
                         g.FillRectangle(myBrush, (this.X + RotHP.X + dx - 3) * zoom, (this.Y + dy - 3 + RotHP.Y) * zoom, 6 * zoom, 6 * zoom);
-                        g.DrawRectangle(whitePen, (this.X + RotHP.X + dx - 3) * zoom, (this.Y + dy - 3 + RotHP.Y) * zoom, 6 * zoom, 6 * zoom);
+                      //  g.DrawRectangle(whitePen, (this.X + RotHP.X + dx - 3) * zoom, (this.Y + dy - 3 + RotHP.Y) * zoom, 6 * zoom, 6 * zoom);
                         g.DrawLine(myPen, (this.X + midX + dx) * zoom, (this.Y + midY + dy) * zoom, (this.X + RotHP.X + dx) * zoom, (this.Y + RotHP.Y + dy) * zoom);
                     }
                 }

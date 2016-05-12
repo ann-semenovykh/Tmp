@@ -19,7 +19,7 @@ namespace TriadNSim.Forms
         public frmRoutines(IOWLClass nodeClass)
         {
             InitializeComponent();
-            COWLOntologyManager ontologyManager = frmMain.Instance.OntologyManager;
+            COWLOntologyManager ontologyManager = Model.Instance.OntologyManager;
             this.nodeClass = nodeClass;
             this.routClass = ontologyManager.GetRoutineClass(nodeClass);
             foreach (var indiv in ontologyManager.GetIndividuals(routClass))
@@ -52,16 +52,16 @@ namespace TriadNSim.Forms
         private void btnDelete_Click(object sender, EventArgs e)
         {
             ListViewItem item = lstRoutines.SelectedItems[0];
-            COWLOntologyManager manager = frmMain.Instance.OntologyManager;
+            COWLOntologyManager manager = Model.Instance.OntologyManager;
             manager.RemoveClass(manager.GetClass(item.Text));
-            manager.SaveOntology(frmMain.sOntologyPath);
+            manager.SaveOntology(Model.sOntologyPath);
             lstRoutines.Items.Remove(item);
         }
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            COWLOntologyManager manager = frmMain.Instance.OntologyManager;
-            frmChangeRoutine frm = new frmChangeRoutine(frmMain.Instance.Panel);
+            COWLOntologyManager manager = Model.Instance.OntologyManager;
+            frmChangeRoutine frm = new frmChangeRoutine(Model.Instance.Panel);
             frm.OnNameChecked += delegate(object s, CancelEventArgs args)
             {
                 if (manager.GetClass(frm.DesignTypeName) != null)
@@ -85,7 +85,7 @@ namespace TriadNSim.Forms
             if (frm.Successed)
             {
                 manager.AddInstance(routClass, frm.ResultRoutine);
-                manager.SaveOntology(frmMain.sOntologyPath);
+                manager.SaveOntology(Model.sOntologyPath);
                 frmChangeRoutine.SaveLastCompiledRoutine(frm.ResultRoutine.Name + ".dll");
                 ListViewItem item = new ListViewItem(frm.ResultRoutine.Name);
                 lstRoutines.Items.Add(item);

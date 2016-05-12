@@ -221,7 +221,7 @@ namespace DrawingPanel
             }
 
             if (this.showBorder || bSelected)
-                g.DrawRectangle(myPen, rect.X, rect.Y, rect.Width, rect.Height);
+                ;//  g.DrawRectangle(myPen, rect.X, rect.Y, rect.Width, rect.Height);
 
             myPen.Dispose();
             base.Draw(g, dx, dy, zoom);

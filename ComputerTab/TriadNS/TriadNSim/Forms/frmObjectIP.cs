@@ -48,12 +48,12 @@ namespace TriadNSim.Forms
             dataGridViewParams.Rows.Clear();
             if (cmbIPType.SelectedIndex == 0)
             {
-                foreach (var ip in frmMain.Instance.standartIProcedures)
+                foreach (var ip in Model.Instance.standartIProcedures)
                     cmbIP.Items.Add(ip.Name);
             }
             else
             {
-                foreach (var ip in frmMain.Instance.userIProcedures)
+                foreach (var ip in Model.Instance.userIProcedures)
                     cmbIP.Items.Add(ip.Name);
             }
             if (cmbIP.Items.Count > 0)
@@ -65,8 +65,8 @@ namespace TriadNSim.Forms
             if (cmbIP.SelectedIndex < 0)
                 return null;
 
-            return cmbIPType.SelectedIndex == 0 ? frmMain.Instance.standartIProcedures[cmbIP.SelectedIndex] :
-                                                    frmMain.Instance.userIProcedures[cmbIP.SelectedIndex];
+            return cmbIPType.SelectedIndex == 0 ? Model.Instance.standartIProcedures[cmbIP.SelectedIndex] :
+                                                    Model.Instance.userIProcedures[cmbIP.SelectedIndex];
         }
 
         private void cmbIP_SelectedIndexChanged(object sender, EventArgs e)

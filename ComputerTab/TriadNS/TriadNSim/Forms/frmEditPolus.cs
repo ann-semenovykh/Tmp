@@ -29,7 +29,7 @@ namespace TriadNSim.Forms
             int PolusCount = poluses.Count;
             toolTip = new ToolTip();
 
-            COWLOntologyManager ontologyManager = frmMain.Instance.OntologyManager;
+            COWLOntologyManager ontologyManager = Model.Instance.OntologyManager;
             IOWLClass superClass = ontologyManager.GetClass("ComputerNetworkRoutine");
             List<IOWLClass> routines = ontologyManager.GetSubClasses(superClass);
             routines.Insert(0, superClass);

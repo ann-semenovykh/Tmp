@@ -32,7 +32,7 @@ namespace TriadNSim.Forms
 
             if (checkedListBox1.CheckedItems.Count > 0)
             {
-                COWLOntologyManager ontologyManager = frmMain.Instance.OntologyManager;
+                COWLOntologyManager ontologyManager = Model.Instance.OntologyManager;
                 List<string> references = new List<string>();
                 foreach (var indiv in ontologyManager.GetIndividuals(ontologyManager.GetClass("ComputerNetworkRoutine")))
                 {
@@ -43,17 +43,17 @@ namespace TriadNSim.Forms
                     }
                 }
 
-                foreach (InfProcedure iprocedure in frmMain.Instance.userIProcedures)
+                foreach (InfProcedure iprocedure in Model.Instance.userIProcedures)
                 {
                     references.Add(Application.StartupPath + "\\" + iprocedure.Name + ".dll");
                 }
 
                 foreach (int index in checkedListBox1.CheckedIndices)
                 {
-                    SimCondition simCond = frmMain.Instance.simConditions[index];
+                    SimCondition simCond = Model.Instance.simConditions[index];
                     string sPath = Application.StartupPath + "\\" + frmChangeSimCondition.CompiledFileNameTxt;
                     frmChangeSimCondition.CompileTo(simCond.Code, sPath);
-                    Assembly ass = frmMain.GenerateAssemblyFromFile(sPath, references.ToArray());
+                    Assembly ass = Model.GenerateAssemblyFromFile(sPath, references.ToArray());
                     Type type = ass.GetTypes()[0];
                     ConstructorInfo construct = type.GetConstructors()[0];
                     ICondition iCondition = (ICondition)construct.Invoke(new object[] { simInfo.TerminateTime });
@@ -65,7 +65,7 @@ namespace TriadNSim.Forms
 
         private void frmSimulate_Load(object sender, EventArgs e)
         {
-            foreach (var simCond in frmMain.Instance.simConditions)
+            foreach (var simCond in Model.Instance.simConditions)
             {
                 string sName = simCond.Description;
                 if (sName.Length > 0)

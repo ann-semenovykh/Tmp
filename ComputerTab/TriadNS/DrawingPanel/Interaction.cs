@@ -238,11 +238,11 @@ namespace DrawingPanel
 
         public override void Draw(Graphics g, int dx, int dy, float zoom)
         {
-            System.Drawing.Pen bluePen = new System.Drawing.Pen(System.Drawing.Color.Blue);
+            //System.Drawing.Pen bluePen = new System.Drawing.Pen(System.Drawing.Color.Blue);
 
-            g.DrawLine(bluePen, (this.X + dx) * zoom, (this.Y + dy) * zoom, (this.X + dx + Width) * zoom, (this.Y + dy + Width) * zoom);
-            g.DrawLine(bluePen, (this.X + dx + Width) * zoom, (this.Y + dy) * zoom, (this.X + dx) * zoom, (this.Y + dy + Width) * zoom);
-            bluePen.Dispose();
+            //g.DrawLine(bluePen, (this.X + dx) * zoom, (this.Y + dy) * zoom, (this.X + dx + Width) * zoom, (this.Y + dy + Width) * zoom);
+            //g.DrawLine(bluePen, (this.X + dx + Width) * zoom, (this.Y + dy) * zoom, (this.X + dx) * zoom, (this.Y + dy + Width) * zoom);
+            //bluePen.Dispose();
 
             if (drawingPanel.CurrentTool == ToolType.ttLine && isSelected())
             {
