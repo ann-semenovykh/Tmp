@@ -17,6 +17,8 @@ namespace DrawingPanel
     public delegate void ObjectSelected(object sender, PropertyEventArgs e);
 
     public delegate void BeforeAddLine(object sender, BeforeAddLineEventArgs e);
+
+    public delegate void BeforeAddDynamicOb(object sender, BeforeAddDynamicObEventArgs e);
     
     public delegate void OnLineCPChanged(object sender, OnLineCPChangedEventArgs e);
 
@@ -67,7 +69,16 @@ namespace DrawingPanel
             this.cancel = false;
         }
     }
-
+    public class BeforeAddDynamicObEventArgs : EventArgs
+    {
+        public CConnectionPoint CP;
+        public bool cancel;
+        public BeforeAddDynamicObEventArgs(CConnectionPoint cp)
+        {
+            this.CP = cp;
+            this.cancel = false;
+        }
+    }
     public class OnLineCPChangedEventArgs : EventArgs
     {
         public Line line;
@@ -413,7 +424,24 @@ namespace DrawingPanel
             }
 
         }
+        public DynamicObject GetDynamicOb(BaseObject obj)
+        {
+            DynamicObject Finded = null;
+            foreach (BaseObject o in ShapeList)
+            {
+                if (o is DynamicObject)
+                {
+                    DynamicObject mark = o as DynamicObject;
+                    if (mark.CP.Owner == obj)
+                    {
+                        Finded = mark;
+                        break;
+                    }
+                }
+            }
+            return Finded;
 
+        }
         public Line GetLine(BaseObject obj1, BaseObject obj2)
         {
             Line FindedLine = null;
@@ -726,6 +754,19 @@ namespace DrawingPanel
 
         #region ADD ELEMNTS METODS
 
+        public void addDynamic(CConnectionPoint cp, Color penC, float penW, int x, int y)
+        {
+            this.deSelect();
+            DynamicObject r = new DynamicObject(drawingPanel, cp);
+            r.penColor = penC;
+            r.penWidth = penW;
+            this.ShapeList.Add(r);
+            storeDo(UndoRedoAction.uraInsert, r);
+            sRec = new ObjSelection(drawingPanel, r);
+            selectedObj = r;
+            selectedObj.Select();
+
+        }
         public void addConnector(CConnectionPoint From, CConnectionPoint To, Color penC, float penW)
         {
             this.deSelect();
@@ -781,7 +822,7 @@ namespace DrawingPanel
             this.ShapeList.Add(obj);
 
             storeDo(UndoRedoAction.uraInsert, obj);
-
+            if (!(obj is DynamicObject))
             sRec = new ObjSelection(drawingPanel, obj);
             selectedObj = obj;
             selectedObj.Select();
@@ -810,6 +851,7 @@ namespace DrawingPanel
             {
                 selectedObj.bSelected = true;
                 selectedObj.Select();
+                if (!(selectedObj is DynamicObject))
                 sRec = new ObjSelection(drawingPanel, selectedObj);
             }
         }

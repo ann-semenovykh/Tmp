@@ -70,6 +70,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseObject.cs" />
+    <Compile Include="DynamicObject.cs" />
     <Compile Include="NameEdit.cs">
       <SubType>Component</SubType>
     </Compile>

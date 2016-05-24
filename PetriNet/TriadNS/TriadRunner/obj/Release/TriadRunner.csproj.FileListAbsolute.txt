@@ -13,3 +13,8 @@ C:\Users\user\Desktop\Универ\PetriNet\TriadNS\bin\Release\TriadRunner.pdb
 C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadRunner\obj\Release\TriadRunner.csprojResolveAssemblyReference.cache
 C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadRunner\obj\Release\TriadRunner.exe
 C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadRunner\obj\Release\TriadRunner.pdb
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Release\TriadRunner.exe
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Release\TriadRunner.pdb
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadRunner\obj\Release\TriadRunner.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadRunner\obj\Release\TriadRunner.exe
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadRunner\obj\Release\TriadRunner.pdb

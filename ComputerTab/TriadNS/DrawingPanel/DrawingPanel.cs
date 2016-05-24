@@ -18,7 +18,8 @@ namespace DrawingPanel
         ttSelect,
         ttImageBox,
         ttLine,
-        ttHandMove
+        ttHandMove,
+        ttDynamicOb
     }
 
     public enum DrawingStatus 
@@ -87,6 +88,8 @@ namespace DrawingPanel
         public event ObjectDeleted objectDeleted;
         public event BeforeAddLine beforeAddLine;
         public event OnLineCPChanged onLineCPChanged;
+
+        public event BeforeAddDynamicOb beforeAddDynamicOb;
 
         public static Cursor getCursor(string a, Cursor defCur)
         {
@@ -795,6 +798,7 @@ namespace DrawingPanel
                             CurrentStatus = DrawingStatus.dsSelectRect;
                         }
                         break;
+                    case ToolType.ttDynamicOb:
                     case ToolType.ttLine:
                         if (CurrentCP != null)
                         {
@@ -1055,6 +1059,22 @@ namespace DrawingPanel
                             CurrentStatus = DrawingStatus.dsNone;
                         }
                         break;
+                    case ToolType.ttDynamicOb:
+                        if (this.CurrentStatus == DrawingStatus.dsDrawRect)
+                        {
+                            CConnectionPoint cp = _shapes.GetConnectionPoint((int)(e.X / Zoom) - this.dx, (int)(e.Y / Zoom - this.dy));
+                            if (cp == null && hoverShape != null)
+                                cp = hoverShape.ConnectionPoint;
+                            if (cp != null)
+                            {
+                                BeforeAddDynamicObEventArgs args = new BeforeAddDynamicObEventArgs(cp);
+                                beforeAddDynamicOb(this, args);
+                                if (!args.cancel)
+                                {
+                                    this._shapes.addDynamic(cp, CreationPenColor, CreationPenWidth, (cp.getX1() - cp.getX()) / 2, (cp.getY1() - cp.getY()) / 2);
+                                }
+                            }
+                        } CurrentStatus = DrawingStatus.dsNone; break;
                     default:
                         CurrentStatus = DrawingStatus.dsNone;
                         break;

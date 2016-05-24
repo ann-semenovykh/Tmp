@@ -266,6 +266,7 @@
     </Compile>
     <Compile Include="ServerRoutine.cs" />
     <Compile Include="SimulationModel\PetriNetModel\NetElements.cs" />
+    <Compile Include="SimulationModel\PetriNetModel\PetriMark.cs" />
     <Compile Include="SimulationModel\PetriNetModel\PetriNetModel.cs" />
     <Compile Include="SimulationModel\Simulation.cs" />
     <Compile Include="DrawingObjects\Client.cs" />

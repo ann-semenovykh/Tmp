@@ -1,0 +1,8 @@
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Debug\DrawingPanel.dll
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Debug\DrawingPanel.pdb
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\DrawingPanel\obj\Debug\DrawingPanelPetri.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\DrawingPanel\obj\Debug\DrawingPanel.PrintPreviewFrm.resources
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\DrawingPanel\obj\Debug\DrawingPanel.DrawingPanel.resources
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\DrawingPanel\obj\Debug\DrawingPanelPetri.csproj.GenerateResource.Cache
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\DrawingPanel\obj\Debug\DrawingPanel.dll
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\DrawingPanel\obj\Debug\DrawingPanel.pdb

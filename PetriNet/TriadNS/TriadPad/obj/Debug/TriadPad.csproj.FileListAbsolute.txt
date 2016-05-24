@@ -1,0 +1,16 @@
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Debug\TriadPad.exe.config
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Debug\TriadPad.XML
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Debug\TriadPad.exe
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Debug\TriadPad.pdb
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadPad\obj\Debug\TriadPad.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadPad\obj\Debug\TriadPad.AboutBox.resources
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadPad\obj\Debug\TriadPad.Forms.FormFind.resources
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadPad\obj\Debug\TriadPad.Forms.FormGoTo.resources
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadPad\obj\Debug\TriadPad.Forms.FormHotKey.resources
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadPad\obj\Debug\TriadPad.Forms.FormOptions.resources
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadPad\obj\Debug\TriadPad.Forms.FormMain.resources
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadPad\obj\Debug\TriadPad.Forms.FormReplace.resources
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadPad\obj\Debug\TriadPad.Properties.Resources.resources
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadPad\obj\Debug\TriadPad.csproj.GenerateResource.Cache
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadPad\obj\Debug\TriadPad.exe
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadPad\obj\Debug\TriadPad.pdb

@@ -50,7 +50,12 @@ namespace TriadNSim
             dp.beforeAddLine+=new BeforeAddLine(dp_beforeAddLine);
             dp.onLineCPChanged+=new OnLineCPChanged(dp_onLineCPChanged);
             dp.MouseDoubleClick+=new MouseEventHandler(dp_MouseDoubleClick);
+
+            dp.beforeAddDynamicOb += dp_beforeAddDynamicOb;
             LoadPage();
+        }
+        protected virtual void dp_beforeAddDynamicOb(object sender, BeforeAddDynamicObEventArgs e)
+        {
         }
         public virtual void Define(int EndModelTime)
         {
@@ -146,6 +151,14 @@ namespace TriadNSim
             BaseObject selObj = dp.ShapeCollection.selectedObj;
             if (selObj is Link)
                 EditLink(selObj as Link, true);
+            if (selObj is DynamicObject)
+                EditObject(selObj as DynamicObject);
+        }
+        public void EditObject(DynamicObject oMark)
+        {
+            //ModifyMarks frmMark = new ModifyMarks(oMark);
+            //if (frmMark.ShowDialog() == DialogResult.OK)
+            //    oMark.mult = frmMark.mult;
         }
         protected virtual void dp_onLineCPChanged(object sender, OnLineCPChangedEventArgs e)
         {
@@ -590,6 +603,7 @@ namespace TriadNSim
             }
             return null;
         }
+        
         public void SaveSimConditions()
         {
             Stream StreamWrite = File.Open(sSimCondFileName, FileMode.Create, FileAccess.Write);

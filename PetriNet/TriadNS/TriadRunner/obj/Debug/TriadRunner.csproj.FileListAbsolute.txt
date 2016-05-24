@@ -1,0 +1,5 @@
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Debug\TriadRunner.exe
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Debug\TriadRunner.pdb
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadRunner\obj\Debug\TriadRunner.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadRunner\obj\Debug\TriadRunner.exe
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadRunner\obj\Debug\TriadRunner.pdb

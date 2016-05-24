@@ -276,6 +276,7 @@ namespace TriadNSim
         private List<ConnectedIP> _connectedIPs;
         public string SemanticType;
         public ModelObjectType Type { get; set; }
+        public DynamicObject DynamicObj;
         public List<ConnectedIP> ConnectedIPs
         {
             set

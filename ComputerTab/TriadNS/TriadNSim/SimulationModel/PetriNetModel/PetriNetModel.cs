@@ -9,6 +9,7 @@ using System.Drawing;
 using TriadNSim.Forms;
 using System.ComponentModel;
 using DrawingPanel;
+using TriadNSim.SimulationModel.PetriNetModel;
 
 namespace PetriNetModel
 {
@@ -150,17 +151,35 @@ namespace PetriNetModel
             dp.ShapeCollection.AddShape(shape);
             if (type == ENetPetriObjectType.Place)
             {
-                //PetriMark m = new PetriMark(drawingPanel1, shape.ConnectionPoint);
-                //shape.Mark = m;
-                //m.mult = 0;
+                PetriMark m = new PetriMark(dp, shape.ConnectionPoint);
+                shape.DynamicObj = m;
+                m.mult = 0;
 
-               // dp.ShapeCollection.AddShape(m);
+                dp.ShapeCollection.AddShape(m);
                 
             }
-
+            
             dp.Focus();
     }
         int x, y, x1, y1;
+        protected override void dp_beforeAddDynamicOb(object sender, BeforeAddDynamicObEventArgs e)
+        {
+            e.cancel = true;
+            NetworkObject objFrom = e.CP.Owner as NetworkObject;
+            if (objFrom.SemanticType == "PlaceRoutine")
+                if (dp.ShapeCollection.GetDynamicOb(objFrom) == null)
+                {
+                    //PetriMark m = new PetriMark(drawingPanel1, e.CP);
+                    //drawingPanel1.ShapeCollection.AddShape(m);
+                    //objFrom.Mark = m;
+                }
+                else
+                {
+                    PetriMark m = (PetriMark)dp.ShapeCollection.GetDynamicOb(objFrom);
+                    m.IncMult();
+                }
+
+        }
         protected override void dp_beforeAddLine(object sender, BeforeAddLineEventArgs e)
         {
             e.cancel = true;
@@ -281,6 +300,12 @@ namespace PetriNetModel
 
             }
         }
-
+        private void DrawMarks()
+        {
+            PetriMark pm;
+            foreach (BaseObject ob in dp.Shapes)
+                if (ob.bIsDynamicOb)
+                { pm = (PetriMark)ob; pm.Draw(dp.CreateGraphics(), dp.dx, dp.dy, dp.Zoom); }
+        }
     }
 }

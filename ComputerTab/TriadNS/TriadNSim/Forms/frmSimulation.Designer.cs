@@ -31,11 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmSimulation));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.treeView1 = new System.Windows.Forms.TreeView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
-            this.drawingPanel1 = new DrawingPanel.DrawingPanel();
-            this.listView1 = new System.Windows.Forms.ListView();
             this.AddPage = new System.Windows.Forms.TabPage();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
             this.miFile = new System.Windows.Forms.ToolStripMenuItem();
@@ -70,6 +66,7 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripbtnSelect = new System.Windows.Forms.ToolStripButton();
             this.toolStripbtnLink = new System.Windows.Forms.ToolStripButton();
+            this.toolStripButtonMark = new System.Windows.Forms.ToolStripButton();
             this.toolStripcmbZoom = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbCalcStaticProp = new System.Windows.Forms.ToolStripButton();
@@ -81,6 +78,8 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.treeView1 = new System.Windows.Forms.TreeView();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -89,9 +88,9 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.MainMenu.SuspendLayout();
             this.MainToolBar.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolStripContainer1
@@ -121,7 +120,7 @@
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.treeView1);
+            this.splitContainer1.Panel1.Controls.Add(this.groupBox1);
             // 
             // splitContainer1.Panel2
             // 
@@ -131,17 +130,8 @@
             this.splitContainer1.SplitterDistance = 155;
             this.splitContainer1.TabIndex = 0;
             // 
-            // treeView1
-            // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(0, 0);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(155, 364);
-            this.treeView1.TabIndex = 0;
-            // 
             // tabControl1
             // 
-            this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.AddPage);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
@@ -155,55 +145,12 @@
             this.tabControl1.KeyDown += new System.Windows.Forms.KeyEventHandler(this.tabControl1_KeyDown);
             this.tabControl1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tabControl1_KeyPress);
             // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.drawingPanel1);
-            this.tabPage1.Controls.Add(this.listView1);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(608, 338);
-            this.tabPage1.TabIndex = 2;
-            this.tabPage1.Text = "tabPage1";
-            this.tabPage1.UseVisualStyleBackColor = true;
-            // 
-            // drawingPanel1
-            // 
-            this.drawingPanel1.A4 = true;
-            this.drawingPanel1.AllowDrop = true;
-            this.drawingPanel1.AutoScroll = true;
-            this.drawingPanel1.AutoScrollMinSize = new System.Drawing.Size(1024, 768);
-            this.drawingPanel1.BackColor = System.Drawing.Color.White;
-            this.drawingPanel1.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.Default;
-            this.drawingPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.drawingPanel1.dx = 0;
-            this.drawingPanel1.dy = 0;
-            this.drawingPanel1.gridSize = 20;
-            this.drawingPanel1.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Default;
-            this.drawingPanel1.Location = new System.Drawing.Point(3, 3);
-            this.drawingPanel1.Name = "drawingPanel1";
-            this.drawingPanel1.Size = new System.Drawing.Size(602, 235);
-            this.drawingPanel1.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
-            this.drawingPanel1.StickToGrid = false;
-            this.drawingPanel1.TabIndex = 1;
-            this.drawingPanel1.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
-            this.drawingPanel1.Zoom = 1F;
-            // 
-            // listView1
-            // 
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.listView1.Location = new System.Drawing.Point(3, 238);
-            this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(602, 97);
-            this.listView1.TabIndex = 0;
-            this.listView1.UseCompatibleStateImageBehavior = false;
-            // 
             // AddPage
             // 
             this.AddPage.Location = new System.Drawing.Point(4, 22);
             this.AddPage.Name = "AddPage";
             this.AddPage.Padding = new System.Windows.Forms.Padding(3);
-            this.AddPage.Size = new System.Drawing.Size(608, 336);
+            this.AddPage.Size = new System.Drawing.Size(608, 338);
             this.AddPage.TabIndex = 1;
             this.AddPage.Text = "  *";
             this.AddPage.UseVisualStyleBackColor = true;
@@ -428,6 +375,7 @@
             this.toolStripSeparator1,
             this.toolStripbtnSelect,
             this.toolStripbtnLink,
+            this.toolStripButtonMark,
             this.toolStripcmbZoom,
             this.toolStripSeparator2,
             this.tsbCalcStaticProp,
@@ -440,7 +388,7 @@
             this.toolStripButton3});
             this.MainToolBar.Location = new System.Drawing.Point(3, 24);
             this.MainToolBar.Name = "MainToolBar";
-            this.MainToolBar.Size = new System.Drawing.Size(498, 25);
+            this.MainToolBar.Size = new System.Drawing.Size(490, 25);
             this.MainToolBar.TabIndex = 2;
             this.MainToolBar.Text = "toolStrip1";
             // 
@@ -498,6 +446,16 @@
             this.toolStripbtnLink.Size = new System.Drawing.Size(23, 22);
             this.toolStripbtnLink.Text = "Соединить";
             this.toolStripbtnLink.Click += new System.EventHandler(this.toolStripbtnLink_Click);
+            // 
+            // toolStripButtonMark
+            // 
+            this.toolStripButtonMark.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripButtonMark.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMark.Image")));
+            this.toolStripButtonMark.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripButtonMark.Name = "toolStripButtonMark";
+            this.toolStripButtonMark.Size = new System.Drawing.Size(23, 22);
+            this.toolStripButtonMark.Text = "Добавить фишку";
+            this.toolStripButtonMark.Click += new System.EventHandler(this.toolStripButtonMark_Click);
             // 
             // toolStripcmbZoom
             // 
@@ -604,6 +562,25 @@
             this.toolStripButton3.Text = "Условия моделироавния";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.treeView1);
+            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox1.Location = new System.Drawing.Point(0, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(155, 364);
+            this.groupBox1.TabIndex = 0;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Браузер моделей";
+            // 
+            // treeView1
+            // 
+            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.treeView1.Location = new System.Drawing.Point(3, 16);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(149, 345);
+            this.treeView1.TabIndex = 1;
+            // 
             // frmSimulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -624,11 +601,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.MainMenu.ResumeLayout(false);
             this.MainMenu.PerformLayout();
             this.MainToolBar.ResumeLayout(false);
             this.MainToolBar.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -681,12 +658,11 @@
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.ToolStripButton toolStripButton3;
         private System.Windows.Forms.SplitContainer splitContainer1;
-        private System.Windows.Forms.TreeView treeView1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage AddPage;
-        private System.Windows.Forms.TabPage tabPage1;
-        private DrawingPanel.DrawingPanel drawingPanel1;
-        private System.Windows.Forms.ListView listView1;
+        private System.Windows.Forms.ToolStripButton toolStripButtonMark;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.TreeView treeView1;
 
     }
 }

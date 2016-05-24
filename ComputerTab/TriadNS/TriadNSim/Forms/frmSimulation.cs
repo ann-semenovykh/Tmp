@@ -20,6 +20,8 @@ namespace TriadNSim.Forms
         public frmSimulation()
         {
             InitializeComponent();
+            treeView1.Nodes.Add("root", "Модели");
+
 
         }
         public int GetEndModelTime()
@@ -63,12 +65,13 @@ namespace TriadNSim.Forms
         {
             
         }
+        
         private void newmodel()
         {
             frmChoseModel frm = new frmChoseModel();
             if (tabControl1.SelectedTab.Name == "AddPage" && ((frm.ShowDialog()) == DialogResult.OK))
             {
-                string title = "TabPage " + (tabControl1.TabCount).ToString();
+                string title = "Модель " + (tabControl1.TabCount-1).ToString();
                 TabPage myTabPage = new TabPage(title);
                 ListView lv = new ListView();
                 lv.Dock = DockStyle.Bottom;
@@ -95,8 +98,9 @@ namespace TriadNSim.Forms
 
                 tabControl1.TabPages.Insert(tabControl1.TabCount - 1, myTabPage);
                 tabControl1.SelectedTab = tabControl1.TabPages[tabControl1.TabCount - 2];
-
+                treeView1.Nodes[0].Nodes.Add(title, title);
             }
+            
         }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -216,7 +220,22 @@ namespace TriadNSim.Forms
 
         private void frmSimulation_Load(object sender, EventArgs e)
         {
+            string title = "Новая модель";
+            TabPage myTabPage = new TabPage(title);
+            ListView lv = new ListView();
+            lv.Dock = DockStyle.Bottom;
 
+            drawingPanel dp = new drawingPanel();
+            dp.Dock = DockStyle.Fill;
+            myTabPage.Controls.Add(dp);
+            myTabPage.Controls.Add(lv);
+            object ob = null;
+
+            ob = new Model(myTabPage, lv, dp);
+            myTabPage.Tag = ob;
+
+            tabControl1.TabPages.Insert(0, myTabPage);
+            tabControl1.SelectedTab = tabControl1.TabPages[0];
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -242,6 +261,20 @@ namespace TriadNSim.Forms
         {
             frmIConditions frm = new frmIConditions();
             frm.ShowDialog();
+        }
+
+        private void toolStripButtonMark_Click(object sender, EventArgs e)
+        {
+            int i = tabControl1.SelectedIndex;
+            {
+                drawingPanel dp = (drawingPanel)tabControl1.TabPages[i].Controls["drawingPanel"];
+
+                dp.CurrentTool = DrawingPanel.ToolType.ttDynamicOb;
+            }
+            toolStripbtnLink.Checked = toolStripbtnSelect.Checked = false;
+            toolStripButtonMark.Checked = true;
+
+            
         }
         
     }

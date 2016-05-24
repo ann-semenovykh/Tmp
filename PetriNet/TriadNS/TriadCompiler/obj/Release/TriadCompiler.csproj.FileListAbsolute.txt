@@ -13,3 +13,8 @@ C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadCompiler\obj\Release\Tr
 C:\Users\user\Desktop\Универ\PetriNet\TriadNS\bin\Release\TriadCompiler.exe
 C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadCompiler\obj\Release\TriadCompiler.Properties.Resources.resources
 C:\Users\user\Desktop\Универ\PetriNet\TriadNS\TriadCompiler\obj\Release\TriadCompiler.csproj.GenerateResource.Cache
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Release\TriadCompiler.exe
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadCompiler\obj\Release\TriadCompiler.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadCompiler\obj\Release\TriadCompiler.Properties.Resources.resources
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadCompiler\obj\Release\TriadCompiler.csproj.GenerateResource.Cache
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadCompiler\obj\Release\TriadCompiler.exe

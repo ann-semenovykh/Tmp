@@ -825,7 +825,8 @@ namespace DrawingPanel
             this.ShapeList.Add(obj);
 
             storeDo(UndoRedoAction.uraInsert, obj);
-            if (!(obj is PetriMark)) 
+            
+ 
             sRec = new ObjSelection(drawingPanel, obj);
             selectedObj = obj;
             selectedObj.Select();

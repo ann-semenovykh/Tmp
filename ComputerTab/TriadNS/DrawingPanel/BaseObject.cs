@@ -58,6 +58,7 @@ namespace DrawingPanel
 
         public bool bIsLine;
 
+        public bool bIsDynamicOb;
         public bool bSelected;
 
         public bool Deleted;
@@ -506,6 +507,12 @@ namespace DrawingPanel
             {
                 int appo = Dist(x, y, this.X, this.Y) + Dist(x, y, this.X1, this.Y1);
                 int appo1 = Dist(this.X1, this.Y1, this.X, this.Y) + 7;
+
+                return appo < appo1;
+            } if (bIsDynamicOb)
+            {
+                int appo = Dist(x, y, this.X, this.Y);
+                int appo1 = Dist(this.X, this.Y, this.X + 7, this.Y + 7) + 7;
 
                 return appo < appo1;
             }

@@ -6,3 +6,11 @@ C:\Users\user\Desktop\Универ\PetriNet\TriadNS\DrawingPanel\obj\Release\Dra
 C:\Users\user\Desktop\Универ\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanelPetri.csproj.GenerateResource.Cache
 C:\Users\user\Desktop\Универ\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanel.dll
 C:\Users\user\Desktop\Универ\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanel.pdb
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Release\DrawingPanel.dll
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Release\DrawingPanel.pdb
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanelPetri.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanel.PrintPreviewFrm.resources
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanel.DrawingPanel.resources
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanelPetri.csproj.GenerateResource.Cache
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanel.dll
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\DrawingPanel\obj\Release\DrawingPanel.pdb

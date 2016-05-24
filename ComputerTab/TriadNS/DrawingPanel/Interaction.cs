@@ -207,11 +207,14 @@ namespace DrawingPanel
     {
         public int Width = 6;
         public ArrayList Connectors;
+        public ArrayList DynamicObjects;
         public CConnectionPoint(DrawingPanel panel, BaseObject e) : base(panel, e)
         {
             this.Type = InteractionType.itCP;
             this.fillColor = Color.Red;
             this.Connectors = new ArrayList();
+
+            this.DynamicObjects = new ArrayList();
         }
 
         public override bool isSelected()
@@ -234,6 +237,8 @@ namespace DrawingPanel
             {
                 connector.RefreshPosition();
             }
+            foreach (DynamicObject mark in DynamicObjects)
+                mark.RefreshPosition();
         }
 
         public override void Draw(Graphics g, int dx, int dy, float zoom)

@@ -1,0 +1,8 @@
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Debug\TriadCompiler.xml
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Debug\TriadCompiler.exe
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\bin\Debug\TriadCompiler.pdb
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadCompiler\obj\Debug\TriadCompiler.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadCompiler\obj\Debug\TriadCompiler.Properties.Resources.resources
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadCompiler\obj\Debug\TriadCompiler.csproj.GenerateResource.Cache
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadCompiler\obj\Debug\TriadCompiler.exe
+C:\Users\User\Documents\GitHub\Tmp\PetriNet\TriadNS\TriadCompiler\obj\Debug\TriadCompiler.pdb
