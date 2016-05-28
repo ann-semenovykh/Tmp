@@ -1298,18 +1298,59 @@ namespace TriadNSim.Forms
         
         private void btnShowReachTree_Click(object sender, EventArgs e)
         {
-            if (reachTree == null)
+            List<NetworkObject> place = new List<NetworkObject>();
+            List<NetworkObject> transition = new List<NetworkObject>();
+            List<string> transitions = new List<string>();
+            List<int> mark=new List<int>();
+            foreach (BaseObject obj in drawingPanel1.Shapes)
             {
-                MessageBox.Show("Необходимо произвести моделирование", "Внимание");
+                if (obj is NetworkObject)
+                    if ((obj as NetworkObject).Type == ENetPetriObjectType.Place)
+                    {
+                        place.Add((obj as NetworkObject));
+                        mark.Add((obj as NetworkObject).Mark.mult);
+                    }
+                    else
+                    {
+                        transition.Add((obj as NetworkObject));
+                        transitions.Add((obj as NetworkObject).Name);
+                    }
+
             }
-            else
-            {
-                tr = new frmShowTree(this);
-                btnShowReachTree.Checked = true;
-                tr.treeView1 = reachTree;
-                tr.treeView1.CollapseAll();
-                tr.Show();
-            }
+            
+            int [,] input=new int[place.Count,transition.Count];
+            int [,] output = new int[place.Count, transition.Count];
+            
+            for (int i=0;i<place.Count;i++)
+                for (int j=0;j<transition.Count;j++)
+                {
+                    foreach (BaseObject obj in drawingPanel1.Shapes)
+                        if (obj is PetriLine)
+                        {
+                            PetriLine link = obj as PetriLine;
+                            if ((link.FromCP.Owner as NetworkObject) == place[i] && (link.ToCP.Owner as NetworkObject) == transition[j])
+                                input[i, j] = link.mult;
+                            if ((link.ToCP.Owner as NetworkObject) == place[i] && (link.FromCP.Owner as NetworkObject) == transition[j])
+                                output[i, j] = link.mult;
+                         }
+                }
+            tr = new frmShowTree(this);
+            tr.PopulateTree(mark, input, output,place.Count,transition.Count,transitions);
+            tr.ShowDialog();
+            
+
+            //if (reachTree == null)
+            //{
+            //    MessageBox.Show("Необходимо произвести моделирование", "Внимание");
+            //}
+            //else
+            //{
+            //    tr = new frmShowTree(this);
+            //    btnShowReachTree.Checked = true;
+            //    tr.treeView1 = reachTree;
+            //    tr.treeView1.CollapseAll();
+            //    tr.Show();
+            //}
         }
         private bool manual;
         private void RunManual(BaseObject ob)
@@ -1408,32 +1449,32 @@ namespace TriadNSim.Forms
         }
         public void frmShowTreeClose()
         {
-            btnShowReachTree.Checked = false;
+           // btnShowReachTree.Checked = false;
         }
 
         private void btnShowReachTree_CheckedChanged(object sender, EventArgs e)
         {
-            if (!btnShowReachTree.Checked)
-                tr.Close();
+            //if (!btnShowReachTree.Checked)
+            //    tr.Close();
         }
 
         public void TreeNodeClicked(TreeNode node)
         {
-            reachTree.SelectedNode = reachTree.Nodes[ tr.treeView1.Nodes.IndexOf(node)];
-            List<int> tmp = new List<int>();
-            string val = reachTree.SelectedNode.Text;
-            string c="";
-            int i=1;
-            int n;
+            //reachTree.SelectedNode = reachTree.Nodes[ tr.treeView1.Nodes.IndexOf(node)];
+            //List<int> tmp = new List<int>();
+            //string val = reachTree.SelectedNode.Text;
+            //string c="";
+            //int i=1;
+            //int n;
 
-            while (val[i]!=']')
-            {
-                while (val[i] != ',')
-                { c += val[i]; i++; }
-                i++;
-                n = Convert.ToInt16(c);
-                tmp.Add(n);
-            }
+            //while (val[i]!=']')
+            //{
+            //    while (val[i] != ',')
+            //    { c += val[i]; i++; }
+            //    i++;
+            //    n = Convert.ToInt16(c);
+            //    tmp.Add(n);
+            //}
 
 
 

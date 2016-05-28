@@ -53,6 +53,7 @@ namespace TriadNSim
 
             dp.beforeAddDynamicOb += dp_beforeAddDynamicOb;
             LoadPage();
+            dp.Focus();
         }
         protected virtual void dp_beforeAddDynamicOb(object sender, BeforeAddDynamicObEventArgs e)
         {

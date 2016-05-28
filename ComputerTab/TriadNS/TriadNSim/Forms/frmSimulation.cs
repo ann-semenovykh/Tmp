@@ -109,12 +109,13 @@ namespace TriadNSim.Forms
 
         private void tabControl1_KeyPress(object sender, KeyPressEventArgs e)
         {
+            
         }
 
         private void tabControl1_KeyDown(object sender, KeyEventArgs e)
         {
-            if (e.KeyCode == Keys.Delete)
-                tabControl1.TabPages.Remove(tabControl1.SelectedTab);
+            //if (e.KeyCode == Keys.Delete)
+               // tabControl1.TabPages.Remove(tabControl1.SelectedTab);
         }
 
         private void toolStripbtnLink_Click(object sender, EventArgs e)
