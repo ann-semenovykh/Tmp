@@ -24,7 +24,7 @@ namespace TriadNSim.Forms
         private void populatenode(ref TreeNode parent,int[] mark,int[,] input, int[,] output,List<string> transitions)
         {
             bool doubl = 
-            globalroot.Nodes.Find("(" + String.Join(", ", mark).Replace("-1","w") + ")",true).Count()>0;
+            globalroot.Nodes.Find("(" + String.Join(", ", mark).Replace("-1","w") + ")",true).Count()>1;
             if (doubl) return;                              // вершина дублирующая
 
             List<int> ok = new List<int>();
@@ -49,31 +49,32 @@ namespace TriadNSim.Forms
                         tmp[j] += output[j, ok[i]] - input[j, ok[i]];
 
                         //пересчитываем маркировку
-                    TreeNode node = new TreeNode();
-                    checkparents(parent,node, ref tmp);
-                    node.Text = transitions[ok[i]] + ": " + "(" + String.Join(", ", tmp).Replace("-1", "w") + ")";
-                    node.Name = "(" + String.Join(", ", tmp).Replace("-1", "w") + ")";
+                    
+                    checkparents(parent, ref tmp); 
+                    TreeNode node = parent.Nodes.Add("(" + String.Join(", ", tmp).Replace("-1", "w") + ")", transitions[ok[i]] + ": " + "(" + String.Join(", ", tmp).Replace("-1", "w") + ")");
+
                     node.Tag = tmp;
-                    if ( parent.Name != node.Name)
                     populatenode(ref node, tmp, input, output, transitions);
-                    int index = parent.Nodes.Add(node);
                 }
 
         }
-        private void checkparents(TreeNode parent,TreeNode node,ref int[] tmp)
+        private void checkparents(TreeNode parent,ref int[] tmp)
         {
-            bool ok=true;
-           // while (ok && parent!=null)
+            while (parent!=null)
             {
+                bool ok = true;
                 int[] arr = parent.Tag as int[];
                 for (int i = 0; i < arr.Count()&&ok; i++)
                     if (arr[i]!=-1)
                     ok &= arr[i] <= tmp[i];
                 if (ok)
+                {
                     for (int i = 0; i < arr.Count(); i++)
-                        if (arr[i] < tmp[i] &&arr[i]!=-1)
+                        if (arr[i] < tmp[i] && arr[i] != -1)
                             tmp[i] = -1;
-                   // parent = parent.Parent;
+                   break;
+                }else
+              parent = parent.Parent;
             }
         }
         public void PopulateTree(List<int> mark, int[,] input, int[,] output,int n,int m,List<string> transitions)
@@ -86,9 +87,36 @@ namespace TriadNSim.Forms
             globalroot = root;
             populatenode(ref root,mark.ToArray(),input,output,transitions);
             treeView1.Nodes.Add(root);
+            analyse();
 
 
+        }
+        void analyse()
+        {
+            bool safety=true;
+            bool save=true;
+            bool constr=true;
+            TreeNode node=treeView1.Nodes[0];
+            int sum=(globalroot.Tag as int[]).Sum();
+            while ((safety||save||constr)&&node!=null)
+            {
+                int[] tmp = node.Tag as int[];
+                save &= tmp.Sum() == sum && !tmp.Contains(-1);
 
+                if (safety)
+                    for (int i = 0; i < tmp.Count(); i++)
+                    {
+                        safety &= (tmp[i] == 0 || tmp[i] == 1);
+                        constr &= tmp[i] != -1;
+                    }
+                if (node.NextNode == null&&node.Nodes.Count>0)
+                    node = node.Nodes[0];
+                else
+                    node = node.NextNode;
+            }
+            cbLimit.Checked = constr;
+            cbReserv.Checked = save;
+            cbSafety.Checked = safety;
         }
         private void frmShowTree_Load(object sender, EventArgs e)
         {
@@ -103,6 +131,11 @@ namespace TriadNSim.Forms
         private void treeView1_NodeMouseClick(object sender, TreeNodeMouseClickEventArgs e)
         {
             parent.TreeNodeClicked(e.Node);
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

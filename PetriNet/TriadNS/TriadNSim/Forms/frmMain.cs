@@ -1336,6 +1336,7 @@ namespace TriadNSim.Forms
                 }
             tr = new frmShowTree(this);
             tr.PopulateTree(mark, input, output,place.Count,transition.Count,transitions);
+            tr.treeView1.ExpandAll();
             tr.ShowDialog();
             
 
