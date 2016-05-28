@@ -14,3 +14,11 @@ c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.Dra
 c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.csproj.GenerateResource.Cache
 c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.dll
 c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.pdb
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\bin\Release\DrawingPanel.dll
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\bin\Release\DrawingPanel.pdb
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.PrintPreviewFrm.resources
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.DrawingPanel.resources
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.csproj.GenerateResource.Cache
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.dll
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\DrawingPanel\obj\Release\DrawingPanel.pdb

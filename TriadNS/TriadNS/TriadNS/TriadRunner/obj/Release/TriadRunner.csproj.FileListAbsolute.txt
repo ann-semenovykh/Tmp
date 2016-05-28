@@ -8,3 +8,8 @@ c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\bin\Release\TriadRunner.pdb
 c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Release\TriadRunner.csprojResolveAssemblyReference.cache
 c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Release\TriadRunner.exe
 c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Release\TriadRunner.pdb
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\bin\Release\TriadRunner.exe
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\bin\Release\TriadRunner.pdb
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Release\TriadRunner.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Release\TriadRunner.exe
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Release\TriadRunner.pdb

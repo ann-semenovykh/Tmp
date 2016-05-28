@@ -48,11 +48,9 @@ routine RRouter(InOut Con[10])[integer QueueLen; Real T1,T2]
 			out "Hello";// through Con[i];
 			schedule StartDecide in 1;
 		ende
-
-		event;
-			//Print message + " Mode " + ToStr(Mode); //!!!!
-			if Mode=0 then					//распознавание
-				if (message="Hello")|(message="Host") then
+		
+		event Mode0;
+			if (message="Hello")|(message="Host") then
 					for i:=0 to 9 do
 						case
 						Con[i]:
@@ -69,9 +67,10 @@ routine RRouter(InOut Con[10])[integer QueueLen; Real T1,T2]
 				else //кто-то уже начал выбирать главного
 					Mode:=1;
 				endif
-			endif;
-			if Mode=1 then //пока считаем себя круче всех
-				if AbsReal(StrToReal(message)-MySeed)<0.001 then
+		ende
+		
+		event Mode1;
+			if AbsReal(StrToReal(message)-MySeed)<0.001 then
 					RecFrom:=RecFrom+1;
 					Print "Получил уже от "+IntToStr(RecFrom)+" из "+IntToStr(NCount);
 					if RecFrom=NCount then
@@ -86,6 +85,14 @@ routine RRouter(InOut Con[10])[integer QueueLen; Real T1,T2]
 						Print "Я проиграл!"
 					endif;
 				endif;
+		ende
+		event;
+			//Print message + " Mode " + ToStr(Mode); //!!!!
+			if Mode=0 then					//распознавание
+				schedule Mode0 in 0;
+			endif;
+			if Mode=1 then //пока считаем себя круче всех
+				schedule Mode1 in 0;
 			endif;
 			if (Mode=6)|(Mode=7)|(Mode=8) then	//рассылаем число вершин и свои номера
 				Print "Mode="+IntToStr(Mode);
@@ -120,19 +127,7 @@ routine RRouter(InOut Con[10])[integer QueueLen; Real T1,T2]
 				endif;
 			endif;
 			if (Mode=8)|(Mode=6)  then
-				RecFrom:=RecFrom+1;
-				//если ото всех уже получили:
-				Print "получил от "+IntToStr(RecFrom)+" из "+IntToStr(NCount);
-				if RecFrom=NCount then
-					//значит отправляем папе
-					if Father!=-1 then
-						Msg[0]:=MyNumber;
-						Msg[1]:=NodeCount;
-						Print " Шлю " + IntArrayToStr(Msg) + " через выход "+IntToStr(Father)+" папе" ;
-						out IntArrayToStr(Msg) through Con[Father];
-					endif;
-					schedule BuildTable in 1;
-				endif;
+				schedule Mode68 in 0;
 			endif;
 			if Mode=7 then	
 				//если это первый раз:

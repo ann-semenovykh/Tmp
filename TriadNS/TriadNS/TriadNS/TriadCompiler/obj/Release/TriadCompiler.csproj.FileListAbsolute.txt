@@ -8,3 +8,8 @@ c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadCompiler\obj\Release\TriadCompiler.c
 c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadCompiler\obj\Release\TriadCompiler.Properties.Resources.resources
 c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadCompiler\obj\Release\TriadCompiler.csproj.GenerateResource.Cache
 c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadCompiler\obj\Release\TriadCompiler.exe
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\bin\Release\TriadCompiler.exe
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\TriadCompiler\obj\Release\TriadCompiler.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\TriadCompiler\obj\Release\TriadCompiler.Properties.Resources.resources
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\TriadCompiler\obj\Release\TriadCompiler.csproj.GenerateResource.Cache
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\TriadCompiler\obj\Release\TriadCompiler.exe

@@ -5,3 +5,10 @@ C:\doc\TriadNS\TriadNS\TriadNS\TriadCore\obj\Release\TriadCore.Properties.Resour
 C:\doc\TriadNS\TriadNS\TriadNS\TriadCore\obj\Release\TriadCore.csproj.GenerateResource.Cache
 C:\doc\TriadNS\TriadNS\TriadNS\TriadCore\obj\Release\TriadCore.dll
 C:\doc\TriadNS\TriadNS\TriadNS\TriadCore\obj\Release\TriadCore.pdb
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\bin\Release\TriadCore.dll
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\bin\Release\TriadCore.pdb
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\TriadCore\obj\Release\TriadCore.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\TriadCore\obj\Release\TriadCore.Properties.Resources.resources
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\TriadCore\obj\Release\TriadCore.csproj.GenerateResource.Cache
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\TriadCore\obj\Release\TriadCore.dll
+C:\Users\User\Documents\GitHub\Tmp\TriadNS\TriadNS\TriadNS\TriadCore\obj\Release\TriadCore.pdb
