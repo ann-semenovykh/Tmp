@@ -1,6 +1,8 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 11.00
-# Visual C# Express 2010
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.40629.0
+MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriadNSim", "TriadNSim\TriadNSim.csproj", "{1B458B23-AED1-4241-9D73-B963B29A813B}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DrawingPanel", "DrawingPanel\DrawingPanel.csproj", "{A0A6ED6F-DA02-46D6-A79E-F63FFE303832}"
@@ -12,6 +14,8 @@ EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriadCore", "TriadCore\TriadCore.csproj", "{2FDBD413-AC61-454E-B066-77D1F01BECC9}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TriadRunner", "TriadRunner\TriadRunner.csproj", "{776D87DE-3ABA-4534-B739-BFC0E82704F3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GraphicalEditor", "GraphicalEditor\GraphicalEditor.csproj", "{560B598F-0304-46FA-A8A0-5A7D865C7F8B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +87,16 @@ Global
 		{776D87DE-3ABA-4534-B739-BFC0E82704F3}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
 		{776D87DE-3ABA-4534-B739-BFC0E82704F3}.Release|Mixed Platforms.Build.0 = Release|Any CPU
 		{776D87DE-3ABA-4534-B739-BFC0E82704F3}.Release|x86.ActiveCfg = Release|Any CPU
+		{560B598F-0304-46FA-A8A0-5A7D865C7F8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{560B598F-0304-46FA-A8A0-5A7D865C7F8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{560B598F-0304-46FA-A8A0-5A7D865C7F8B}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{560B598F-0304-46FA-A8A0-5A7D865C7F8B}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{560B598F-0304-46FA-A8A0-5A7D865C7F8B}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{560B598F-0304-46FA-A8A0-5A7D865C7F8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{560B598F-0304-46FA-A8A0-5A7D865C7F8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{560B598F-0304-46FA-A8A0-5A7D865C7F8B}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{560B598F-0304-46FA-A8A0-5A7D865C7F8B}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{560B598F-0304-46FA-A8A0-5A7D865C7F8B}.Release|x86.ActiveCfg = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

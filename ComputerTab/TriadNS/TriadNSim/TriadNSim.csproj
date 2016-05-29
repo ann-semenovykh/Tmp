@@ -282,6 +282,10 @@
       <Project>{A0A6ED6F-DA02-46D6-A79E-F63FFE303832}</Project>
       <Name>DrawingPanel</Name>
     </ProjectReference>
+    <ProjectReference Include="..\GraphicalEditor\GraphicalEditor.csproj">
+      <Project>{560b598f-0304-46fa-a8a0-5a7d865c7f8b}</Project>
+      <Name>GraphicalEditor</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TriadCompiler\TriadCompiler.csproj">
       <Project>{37AB8C52-17C6-4330-A2D3-8FD32988A684}</Project>
       <Name>TriadCompiler</Name>
@@ -345,6 +349,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\question.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

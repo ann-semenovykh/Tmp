@@ -73,25 +73,20 @@ namespace TriadNSim.Forms
             {
                 string title = "Модель " + (tabControl1.TabCount-1).ToString();
                 TabPage myTabPage = new TabPage(title);
-                ListView lv = new ListView();
-                lv.Dock = DockStyle.Bottom;
-
-                drawingPanel dp = new drawingPanel();
-                dp.Dock = DockStyle.Fill;
-                myTabPage.Controls.Add(dp);
-                myTabPage.Controls.Add(lv);
+                GraphicalEditor.GraphicalEditor editor = new GraphicalEditor.GraphicalEditor(); 
+                
                 object ob = null;
                 
                 switch (frm.Tag.ToString())
                 {
                     case "ComputerModel":
-                        ob = new computerModel(myTabPage, lv, dp);
+                        ob = new computerModel(myTabPage, editor);
                         break;
                     case "PetriNet":
-                        ob = new petriNetModel(myTabPage, lv, dp);
+                        ob = new petriNetModel(myTabPage, editor);
                         break;
                     default:
-                        ob = new Model(myTabPage, lv, dp);
+                        ob = new Model(myTabPage,editor);
                         break;
                 }
                 myTabPage.Tag = ob;
@@ -223,16 +218,10 @@ namespace TriadNSim.Forms
         {
             string title = "Новая модель";
             TabPage myTabPage = new TabPage(title);
-            ListView lv = new ListView();
-            lv.Dock = DockStyle.Bottom;
-
-            drawingPanel dp = new drawingPanel();
-            dp.Dock = DockStyle.Fill;
-            myTabPage.Controls.Add(dp);
-            myTabPage.Controls.Add(lv);
+            GraphicalEditor.GraphicalEditor editor = new GraphicalEditor.GraphicalEditor();
             object ob = null;
 
-            ob = new Model(myTabPage, lv, dp);
+            ob = new Model(myTabPage, editor);
             myTabPage.Tag = ob;
 
             tabControl1.TabPages.Insert(0, myTabPage);
@@ -276,6 +265,11 @@ namespace TriadNSim.Forms
             toolStripButtonMark.Checked = true;
 
             
+        }
+
+        private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
+        {
+
         }
         
     }

@@ -34,12 +34,15 @@ namespace TriadNSim
         private static Model instance = null;
         private string name=null;
         
-        public Model(TabPage t,ListView l,drawingPanel d)
+        public Model(TabPage t,GraphicalEditor.GraphicalEditor editor)
         {
             instance = this;
             tb = t;
-            lv = l;
-            dp = d;
+            editor.Parent = tb;
+            editor.Dock = DockStyle.Fill;
+            editor.toolStripContainer1.TopToolStripPanelVisible = false;
+            lv = editor.lv;
+            dp = editor.dp;
             dp.DragDrop+=new DragEventHandler(dp_DragDrop);
             dp.DragEnter+=new DragEventHandler(dp_DragEnter);
             dp.objectSelected+=new ObjectSelected(dp_objectSelected);

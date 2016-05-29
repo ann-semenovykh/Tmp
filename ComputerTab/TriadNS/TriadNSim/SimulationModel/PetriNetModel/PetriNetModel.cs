@@ -15,11 +15,13 @@ namespace PetriNetModel
 {
     public class PetriNetModel: Model
     {
-        public PetriNetModel(TabPage t, ListView l, drawingPanel d)
-            : base(t,l,d)
+        public PetriNetModel(TabPage t,GraphicalEditor.GraphicalEditor editor)
+            : base(t,editor)
         {
             dp.MouseDown += new MouseEventHandler(dp_MouseDown);
             dp.MouseClick += new MouseEventHandler(dp_MouseClick);
+
+            editor.toolStripContainer1.TopToolStripPanelVisible = true;
         }
 
         void dp_MouseClick(object sender, MouseEventArgs e)

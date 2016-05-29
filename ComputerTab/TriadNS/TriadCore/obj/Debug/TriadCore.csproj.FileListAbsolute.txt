@@ -5,3 +5,4 @@ C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadCore\obj\Debug\Triad
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadCore\obj\Debug\TriadCore.csproj.GenerateResource.Cache
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadCore\obj\Debug\TriadCore.dll
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadCore\obj\Debug\TriadCore.pdb
+C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadCore\obj\Debug\TriadCore.csprojResolveAssemblyReference.cache

@@ -7,12 +7,13 @@ using System.Windows.Forms;
 using System.Drawing;
 using drawingPanel = DrawingPanel.DrawingPanel;
 using TriadNSim.Forms;
+using graphicalEditor=GraphicalEditor.GraphicalEditor;
 
 namespace ComputerModel
 {
     public class  ComputerModel: Model
     {
-        public ComputerModel(TabPage tb,ListView l,drawingPanel dp):base (tb,l,dp)
+        public ComputerModel(TabPage tb,graphicalEditor editor):base (tb,editor)
         {
 
         }
