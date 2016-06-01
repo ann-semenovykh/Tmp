@@ -52,7 +52,7 @@ namespace TriadNSim.Forms
                     
                     checkparents(parent, ref tmp); 
                     TreeNode node = parent.Nodes.Add("(" + String.Join(", ", tmp).Replace("-1", "w") + ")", transitions[ok[i]] + ": " + "(" + String.Join(", ", tmp).Replace("-1", "w") + ")");
-
+                    lbActive.Items.Remove(transitions[ok[i]]);
                     node.Tag = tmp;
                     populatenode(ref node, tmp, input, output, transitions);
                 }
@@ -85,6 +85,7 @@ namespace TriadNSim.Forms
             root.Name = "(" + String.Join(", ", mark) + ")";
             root.Tag = mark.ToArray();
             globalroot = root;
+            lbActive.Items.AddRange(transitions.ToArray());
             populatenode(ref root,mark.ToArray(),input,output,transitions);
             treeView1.Nodes.Add(root);
             analyse();
@@ -96,6 +97,7 @@ namespace TriadNSim.Forms
             bool safety=true;
             bool save=true;
             bool constr=true;
+            
             TreeNode node=treeView1.Nodes[0];
             int sum=(globalroot.Tag as int[]).Sum();
             while ((safety||save||constr)&&node!=null)
@@ -117,6 +119,8 @@ namespace TriadNSim.Forms
             cbLimit.Checked = constr;
             cbReserv.Checked = save;
             cbSafety.Checked = safety;
+            cbActive.Checked = lbActive.Items.Count == 0;
+            lbActive.Visible =label1.Visible= !cbActive.Checked;
         }
         private void frmShowTree_Load(object sender, EventArgs e)
         {

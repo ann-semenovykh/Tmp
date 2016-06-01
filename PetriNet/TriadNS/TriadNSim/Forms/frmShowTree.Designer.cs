@@ -30,10 +30,13 @@
         {
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.cbSafety = new System.Windows.Forms.CheckBox();
-            this.cbLimit = new System.Windows.Forms.CheckBox();
             this.cbReserv = new System.Windows.Forms.CheckBox();
+            this.cbLimit = new System.Windows.Forms.CheckBox();
+            this.cbSafety = new System.Windows.Forms.CheckBox();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.cbActive = new System.Windows.Forms.CheckBox();
+            this.lbActive = new System.Windows.Forms.ListBox();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -47,41 +50,48 @@
             this.treeView1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.treeView1.Location = new System.Drawing.Point(0, 0);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(410, 285);
+            this.treeView1.Size = new System.Drawing.Size(255, 386);
             this.treeView1.TabIndex = 0;
             this.treeView1.NodeMouseClick += new System.Windows.Forms.TreeNodeMouseClickEventHandler(this.treeView1_NodeMouseClick);
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lbActive);
+            this.groupBox1.Controls.Add(this.cbActive);
             this.groupBox1.Controls.Add(this.cbReserv);
             this.groupBox1.Controls.Add(this.cbLimit);
             this.groupBox1.Controls.Add(this.cbSafety);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(410, 97);
+            this.groupBox1.Size = new System.Drawing.Size(151, 386);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Свойства сетей Петри";
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // splitContainer1
+            // cbReserv
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.cbReserv.AutoCheck = false;
+            this.cbReserv.AutoSize = true;
+            this.cbReserv.Location = new System.Drawing.Point(13, 75);
+            this.cbReserv.Name = "cbReserv";
+            this.cbReserv.Size = new System.Drawing.Size(86, 17);
+            this.cbReserv.TabIndex = 2;
+            this.cbReserv.Text = "Сохранение";
+            this.cbReserv.UseVisualStyleBackColor = true;
             // 
-            // splitContainer1.Panel1
+            // cbLimit
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.treeView1);
-            // 
-            // splitContainer1.Panel2
-            // 
-            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
-            this.splitContainer1.Size = new System.Drawing.Size(410, 386);
-            this.splitContainer1.SplitterDistance = 285;
-            this.splitContainer1.TabIndex = 2;
+            this.cbLimit.AutoCheck = false;
+            this.cbLimit.AutoSize = true;
+            this.cbLimit.Location = new System.Drawing.Point(13, 52);
+            this.cbLimit.Name = "cbLimit";
+            this.cbLimit.Size = new System.Drawing.Size(109, 17);
+            this.cbLimit.TabIndex = 1;
+            this.cbLimit.Text = "Ограниченность";
+            this.cbLimit.UseVisualStyleBackColor = true;
             // 
             // cbSafety
             // 
@@ -94,27 +104,51 @@
             this.cbSafety.Text = "Безопасность";
             this.cbSafety.UseVisualStyleBackColor = true;
             // 
-            // cbLimit
+            // splitContainer1
             // 
-            this.cbLimit.AutoCheck = false;
-            this.cbLimit.AutoSize = true;
-            this.cbLimit.Location = new System.Drawing.Point(139, 29);
-            this.cbLimit.Name = "cbLimit";
-            this.cbLimit.Size = new System.Drawing.Size(109, 17);
-            this.cbLimit.TabIndex = 1;
-            this.cbLimit.Text = "Ограниченность";
-            this.cbLimit.UseVisualStyleBackColor = true;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer1.Name = "splitContainer1";
             // 
-            // cbReserv
+            // splitContainer1.Panel1
             // 
-            this.cbReserv.AutoCheck = false;
-            this.cbReserv.AutoSize = true;
-            this.cbReserv.Location = new System.Drawing.Point(279, 29);
-            this.cbReserv.Name = "cbReserv";
-            this.cbReserv.Size = new System.Drawing.Size(86, 17);
-            this.cbReserv.TabIndex = 2;
-            this.cbReserv.Text = "Сохранение";
-            this.cbReserv.UseVisualStyleBackColor = true;
+            this.splitContainer1.Panel1.Controls.Add(this.treeView1);
+            // 
+            // splitContainer1.Panel2
+            // 
+            this.splitContainer1.Panel2.Controls.Add(this.groupBox1);
+            this.splitContainer1.Size = new System.Drawing.Size(410, 386);
+            this.splitContainer1.SplitterDistance = 255;
+            this.splitContainer1.TabIndex = 2;
+            // 
+            // cbActive
+            // 
+            this.cbActive.AutoCheck = false;
+            this.cbActive.AutoSize = true;
+            this.cbActive.CausesValidation = false;
+            this.cbActive.Location = new System.Drawing.Point(13, 99);
+            this.cbActive.Name = "cbActive";
+            this.cbActive.Size = new System.Drawing.Size(85, 17);
+            this.cbActive.TabIndex = 3;
+            this.cbActive.Text = "Активность";
+            this.cbActive.UseVisualStyleBackColor = true;
+            // 
+            // lbActive
+            // 
+            this.lbActive.FormattingEnabled = true;
+            this.lbActive.Location = new System.Drawing.Point(13, 147);
+            this.lbActive.Name = "lbActive";
+            this.lbActive.Size = new System.Drawing.Size(123, 121);
+            this.lbActive.TabIndex = 4;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(13, 128);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(125, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Неактивные переходы:";
             // 
             // frmShowTree
             // 
@@ -144,6 +178,9 @@
         private System.Windows.Forms.CheckBox cbReserv;
         private System.Windows.Forms.CheckBox cbLimit;
         private System.Windows.Forms.CheckBox cbSafety;
+        private System.Windows.Forms.ListBox lbActive;
+        private System.Windows.Forms.CheckBox cbActive;
+        private System.Windows.Forms.Label label1;
 
     }
 }
