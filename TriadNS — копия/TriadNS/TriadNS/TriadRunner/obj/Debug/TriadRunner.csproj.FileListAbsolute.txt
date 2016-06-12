@@ -1,0 +1,5 @@
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\bin\Debug\TriadRunner.exe
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\bin\Debug\TriadRunner.pdb
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.csprojResolveAssemblyReference.cache
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.exe
+c:\doc\TriadNS\TriadNS\TriadNS\TriadNS\TriadRunner\obj\Debug\TriadRunner.pdb

@@ -59,6 +59,9 @@
             this.miModel = new System.Windows.Forms.ToolStripMenuItem();
             this.customizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tRANSFORMATIONToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.bYRULESToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.makeRulesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.miHelp = new System.Windows.Forms.ToolStripMenuItem();
             this.miAbout = new System.Windows.Forms.ToolStripMenuItem();
             this.MainToolBar = new System.Windows.Forms.ToolStrip();
@@ -80,6 +83,7 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
+            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -182,6 +186,7 @@
             this.miFile,
             this.miEdit,
             this.miModel,
+            this.tRANSFORMATIONToolStripMenuItem,
             this.miHelp});
             this.MainMenu.Location = new System.Drawing.Point(0, 0);
             this.MainMenu.Name = "MainMenu";
@@ -238,12 +243,14 @@
             this.miSave.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
             this.miSave.Size = new System.Drawing.Size(233, 22);
             this.miSave.Text = "&Сохранить";
+            this.miSave.Click += new System.EventHandler(this.miSave_Click);
             // 
             // miSaveAs
             // 
             this.miSaveAs.Name = "miSaveAs";
             this.miSaveAs.Size = new System.Drawing.Size(233, 22);
             this.miSaveAs.Text = "Сохранить &как...";
+            this.miSaveAs.Click += new System.EventHandler(this.miSaveAs_Click);
             // 
             // toolStripSeparator3
             // 
@@ -358,6 +365,7 @@
             this.miModel.Name = "miModel";
             this.miModel.Size = new System.Drawing.Size(59, 20);
             this.miModel.Text = "&MODEL";
+            this.miModel.Click += new System.EventHandler(this.miModel_Click);
             // 
             // customizeToolStripMenuItem
             // 
@@ -370,6 +378,29 @@
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
             this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
+            // 
+            // tRANSFORMATIONToolStripMenuItem
+            // 
+            this.tRANSFORMATIONToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.bYRULESToolStripMenuItem,
+            this.makeRulesToolStripMenuItem});
+            this.tRANSFORMATIONToolStripMenuItem.Name = "tRANSFORMATIONToolStripMenuItem";
+            this.tRANSFORMATIONToolStripMenuItem.Size = new System.Drawing.Size(125, 20);
+            this.tRANSFORMATIONToolStripMenuItem.Text = "TRANSFORMATION";
+            this.tRANSFORMATIONToolStripMenuItem.Click += new System.EventHandler(this.tRANSFORMATIONToolStripMenuItem_Click);
+            // 
+            // bYRULESToolStripMenuItem
+            // 
+            this.bYRULESToolStripMenuItem.Name = "bYRULESToolStripMenuItem";
+            this.bYRULESToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.bYRULESToolStripMenuItem.Text = "By Rules";
+            // 
+            // makeRulesToolStripMenuItem
+            // 
+            this.makeRulesToolStripMenuItem.Name = "makeRulesToolStripMenuItem";
+            this.makeRulesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.makeRulesToolStripMenuItem.Text = "Make Rules";
+            this.makeRulesToolStripMenuItem.Click += new System.EventHandler(this.makeRulesToolStripMenuItem_Click);
             // 
             // miHelp
             // 
@@ -405,10 +436,11 @@
             this.toolStripbtnRun,
             this.toolStripSeparator8,
             this.toolStripButton1,
-            this.toolStripButton3});
+            this.toolStripButton3,
+            this.toolStripDropDownButton1});
             this.MainToolBar.Location = new System.Drawing.Point(3, 24);
             this.MainToolBar.Name = "MainToolBar";
-            this.MainToolBar.Size = new System.Drawing.Size(490, 25);
+            this.MainToolBar.Size = new System.Drawing.Size(519, 25);
             this.MainToolBar.TabIndex = 2;
             this.MainToolBar.Text = "toolStrip1";
             // 
@@ -582,6 +614,15 @@
             this.toolStripButton3.Text = "Условия моделироавния";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
+            // toolStripDropDownButton1
+            // 
+            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
+            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
+            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
+            this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 22);
+            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
+            // 
             // frmSimulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -664,6 +705,10 @@
         private System.Windows.Forms.ToolStripButton toolStripButtonMark;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.ToolStripMenuItem tRANSFORMATIONToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem bYRULESToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem makeRulesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
 
     }
 }

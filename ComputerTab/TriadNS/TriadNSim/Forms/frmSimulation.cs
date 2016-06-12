@@ -10,6 +10,7 @@ using drawingPanel=DrawingPanel.DrawingPanel;
 using System.Reflection;
 using computerModel = ComputerModel.ComputerModel;
 using petriNetModel = PetriNetModel.PetriNetModel;
+using TriadNSim.Transformer;
 
 namespace TriadNSim.Forms
 {
@@ -270,6 +271,32 @@ namespace TriadNSim.Forms
         private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void miModel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tRANSFORMATIONToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void miSaveAs_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void miSave_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void makeRulesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmRules rules = new frmRules();
+            rules.ShowDialog();
         }
         
     }

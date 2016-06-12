@@ -33,7 +33,10 @@ namespace TriadNSim
         protected  frmChangeRoutine m_frmChangeRoutine;
         private static Model instance = null;
         private string name=null;
-        
+        public Model()
+        {
+
+        }
         public Model(TabPage t,GraphicalEditor.GraphicalEditor editor)
         {
             instance = this;

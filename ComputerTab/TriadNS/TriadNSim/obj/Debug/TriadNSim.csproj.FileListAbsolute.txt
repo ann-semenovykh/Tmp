@@ -23,3 +23,5 @@ C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Debug\Triad
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Debug\TriadNSim.csproj.GenerateResource.Cache
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Debug\TriadNSim.exe
 C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Debug\TriadNSim.pdb
+C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Debug\TriadNSim.Transformer.frmRules.resources
+C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadNSim\obj\Debug\TriadNSim.Forms.frmTransformation.resources
