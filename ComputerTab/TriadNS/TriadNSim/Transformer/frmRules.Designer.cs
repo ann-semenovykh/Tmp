@@ -104,6 +104,8 @@
             // 
             this.cmbTarget.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbTarget.FormattingEnabled = true;
+            this.cmbTarget.Items.AddRange(new object[] {
+            "Сеть Петри"});
             this.cmbTarget.Location = new System.Drawing.Point(120, 44);
             this.cmbTarget.Name = "cmbTarget";
             this.cmbTarget.Size = new System.Drawing.Size(200, 21);
@@ -153,6 +155,8 @@
             // 
             this.cmbSource.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbSource.FormattingEnabled = true;
+            this.cmbSource.Items.AddRange(new object[] {
+            "Компьютерная сеть"});
             this.cmbSource.Location = new System.Drawing.Point(120, 12);
             this.cmbSource.Name = "cmbSource";
             this.cmbSource.Size = new System.Drawing.Size(200, 21);

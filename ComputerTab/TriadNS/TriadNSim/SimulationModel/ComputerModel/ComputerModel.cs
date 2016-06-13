@@ -130,7 +130,7 @@ namespace ComputerModel
         }
         protected override void сMenuItemsAdd_Click(object sender, EventArgs e)
         {
-            frmAddElement frm = new frmAddElement();
+            frmAddElement frm = new frmAddElement(true);
             frm.Bmp = global::TriadNSim.Properties.Resources.question;
             if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {

@@ -68,7 +68,7 @@ namespace TriadNSim.Transformer
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmTransformation tr = new frmTransformation(img,this,null);
+            frmTransformation tr = new frmTransformation(transform.lstItem,this,null);
             this.Hide();
             tr.ShowDialog();
             this.Show();
@@ -81,8 +81,12 @@ namespace TriadNSim.Transformer
 
         private void btnDelete_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы дейтсвительно хотите удалить правило?", "Внимание", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                lstRules.Items.Remove(lstRules.SelectedItems[0]);
+            if (lstRules.SelectedItems.Count == 0)
+                MessageBox.Show("Необходимо выбрать правило для удаления", "Ошибка");
+            else
+                if (MessageBox.Show("Вы действительно хотите удалить правило?", "Внимание", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    lstRules.Items.Remove(lstRules.SelectedItems[0]);
+            
         }
         private void add_shapes(ArrayList dp,ArrayList rule)
         {
@@ -93,14 +97,18 @@ namespace TriadNSim.Transformer
         }
         private void btnModify_Click(object sender, EventArgs e)
         {
-            TransformationRule edit=transform.Rules.Find(ex=>ex.Name==lstRules.SelectedItems[0].Name);
-            frmTransformation tr = new frmTransformation(img, this, edit.Name);
-            add_shapes(tr.leftPart.Shapes, edit.leftPart);
-            add_shapes(tr.rightPart.Shapes, edit.rightPart);
-            tr.txtName.Text = edit.Name;
-            this.Hide();
-            tr.ShowDialog();
-            this.Show();
+            if (lstRules.SelectedItems.Count > 0)
+            {
+                TransformationRule edit = transform.Rules.Find(ex => ex.Name == lstRules.SelectedItems[0].Name);
+                frmTransformation tr = new frmTransformation(transform.lstItem, this, edit.Name);
+                add_shapes(tr.leftPart.Shapes, edit.leftPart);
+                add_shapes(tr.rightPart.Shapes, edit.rightPart);
+                tr.txtName.Text = edit.Name;
+                this.Hide();
+                tr.ShowDialog();
+                this.Show();
+            }
+            else MessageBox.Show("Необходимо выбрать правило для изменения", "Ошибка");
         }
     }
 }

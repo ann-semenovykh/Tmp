@@ -42,7 +42,6 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.txtName = new System.Windows.Forms.TextBox();
-            this.lstItems = new System.Windows.Forms.ListView();
             this.MainToolBar = new System.Windows.Forms.ToolStrip();
             this.toolStripbtnSelect = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
@@ -61,7 +60,6 @@
             this.splitContainer3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.MainToolBar.SuspendLayout();
@@ -101,7 +99,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Size = new System.Drawing.Size(859, 435);
-            this.splitContainer1.SplitterDistance = 301;
+            this.splitContainer1.SplitterDistance = 326;
             this.splitContainer1.TabIndex = 0;
             // 
             // splitContainer3
@@ -117,7 +115,7 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.rightPart);
-            this.splitContainer3.Size = new System.Drawing.Size(859, 301);
+            this.splitContainer3.Size = new System.Drawing.Size(859, 326);
             this.splitContainer3.SplitterDistance = 418;
             this.splitContainer3.TabIndex = 0;
             // 
@@ -136,12 +134,13 @@
             this.leftPart.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Default;
             this.leftPart.Location = new System.Drawing.Point(0, 0);
             this.leftPart.Name = "leftPart";
-            this.leftPart.Size = new System.Drawing.Size(418, 301);
+            this.leftPart.Size = new System.Drawing.Size(418, 326);
             this.leftPart.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             this.leftPart.StickToGrid = false;
             this.leftPart.TabIndex = 0;
             this.leftPart.TextRenderingHint = System.Drawing.Text.TextRenderingHint.AntiAlias;
             this.leftPart.Zoom = 1F;
+            this.leftPart.Load += new System.EventHandler(this.leftPart_Load);
             // 
             // rightPart
             // 
@@ -158,7 +157,7 @@
             this.rightPart.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.Default;
             this.rightPart.Location = new System.Drawing.Point(0, 0);
             this.rightPart.Name = "rightPart";
-            this.rightPart.Size = new System.Drawing.Size(437, 301);
+            this.rightPart.Size = new System.Drawing.Size(437, 326);
             this.rightPart.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
             this.rightPart.StickToGrid = false;
             this.rightPart.TabIndex = 0;
@@ -174,11 +173,7 @@
             // splitContainer2.Panel1
             // 
             this.splitContainer2.Panel1.Controls.Add(this.groupBox1);
-            // 
-            // splitContainer2.Panel2
-            // 
-            this.splitContainer2.Panel2.Controls.Add(this.lstItems);
-            this.splitContainer2.Size = new System.Drawing.Size(859, 130);
+            this.splitContainer2.Size = new System.Drawing.Size(859, 105);
             this.splitContainer2.SplitterDistance = 286;
             this.splitContainer2.TabIndex = 0;
             // 
@@ -194,15 +189,16 @@
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(286, 130);
+            this.groupBox1.Size = new System.Drawing.Size(286, 105);
             this.groupBox1.TabIndex = 2;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Правила трансформации";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // btnCancel
             // 
             this.btnCancel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnCancel.Location = new System.Drawing.Point(152, 95);
+            this.btnCancel.Location = new System.Drawing.Point(152, 70);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(116, 30);
             this.btnCancel.TabIndex = 5;
@@ -213,7 +209,7 @@
             // btnSave
             // 
             this.btnSave.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.btnSave.Location = new System.Drawing.Point(12, 95);
+            this.btnSave.Location = new System.Drawing.Point(15, 70);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(116, 30);
             this.btnSave.TabIndex = 4;
@@ -243,7 +239,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.label1.Location = new System.Drawing.Point(12, 29);
+            this.label1.Location = new System.Drawing.Point(12, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 15);
             this.label1.TabIndex = 1;
@@ -252,19 +248,10 @@
             // txtName
             // 
             this.txtName.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.txtName.Location = new System.Drawing.Point(12, 48);
+            this.txtName.Location = new System.Drawing.Point(12, 43);
             this.txtName.Name = "txtName";
             this.txtName.Size = new System.Drawing.Size(256, 21);
             this.txtName.TabIndex = 0;
-            // 
-            // lstItems
-            // 
-            this.lstItems.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.lstItems.Location = new System.Drawing.Point(0, 0);
-            this.lstItems.Name = "lstItems";
-            this.lstItems.Size = new System.Drawing.Size(569, 130);
-            this.lstItems.TabIndex = 0;
-            this.lstItems.UseCompatibleStateImageBehavior = false;
             // 
             // MainToolBar
             // 
@@ -276,7 +263,7 @@
             this.toolStripcmbZoom});
             this.MainToolBar.Location = new System.Drawing.Point(3, 0);
             this.MainToolBar.Name = "MainToolBar";
-            this.MainToolBar.Size = new System.Drawing.Size(204, 25);
+            this.MainToolBar.Size = new System.Drawing.Size(237, 25);
             this.MainToolBar.TabIndex = 4;
             this.MainToolBar.Text = "toolStrip1";
             // 
@@ -288,6 +275,7 @@
             this.toolStripbtnSelect.Name = "toolStripbtnSelect";
             this.toolStripbtnSelect.Size = new System.Drawing.Size(23, 22);
             this.toolStripbtnSelect.Text = "Выделение";
+            this.toolStripbtnSelect.Click += new System.EventHandler(this.toolStripbtnSelect_Click);
             // 
             // toolStripButton1
             // 
@@ -297,6 +285,7 @@
             this.toolStripButton1.Name = "toolStripButton1";
             this.toolStripButton1.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton1.Text = "Соединить";
+            this.toolStripButton1.Click += new System.EventHandler(this.toolStripButton1_Click);
             // 
             // toolStripbtnLink
             // 
@@ -306,6 +295,7 @@
             this.toolStripbtnLink.Name = "toolStripbtnLink";
             this.toolStripbtnLink.Size = new System.Drawing.Size(23, 22);
             this.toolStripbtnLink.Text = "Соединить";
+            this.toolStripbtnLink.Click += new System.EventHandler(this.toolStripbtnLink_Click);
             // 
             // toolStripcmbZoom
             // 
@@ -331,6 +321,7 @@
             this.Controls.Add(this.toolStripContainer1);
             this.Name = "frmTransformation";
             this.Text = "Определить правило";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.frmTransformation_FormClosing);
             this.Load += new System.EventHandler(this.frmTransformation_Load);
             this.toolStripContainer1.ContentPanel.ResumeLayout(false);
             this.toolStripContainer1.TopToolStripPanel.ResumeLayout(false);
@@ -346,7 +337,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
@@ -374,7 +364,6 @@
         private System.Windows.Forms.ToolStripButton toolStripbtnLink;
         private System.Windows.Forms.ToolStripComboBox toolStripcmbZoom;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
-        private System.Windows.Forms.ListView lstItems;
         public DrawingPanel.DrawingPanel leftPart;
         public DrawingPanel.DrawingPanel rightPart;
         public System.Windows.Forms.TextBox txtName;

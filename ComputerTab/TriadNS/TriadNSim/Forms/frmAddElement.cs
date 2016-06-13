@@ -34,24 +34,27 @@ namespace TriadNSim.Forms
             }
         }
 
-        public frmAddElement()
+        public frmAddElement(bool add_elem)
         {
             InitializeComponent();
-            parentNames = new List<string>();
-            ontologyManager = Model.Instance.OntologyManager;
-            string sSuperClassName = "ComputerNetworkNode";
-            cmbParent.Items.Add(ontologyManager.GetClass(sSuperClassName).Comment);
-            parentNames.Add(sSuperClassName);
-            List<IOWLClass> elements = ontologyManager.GetNetworkElements(Model.Instance.Name);
-            foreach (IOWLClass elem in elements)
+            if (add_elem)
             {
-                string sElementName = elem.Comment.Trim();
-                if (sElementName.Length == 0)
-                    sElementName = elem.Name;
-                cmbParent.Items.Add(sElementName);
-                parentNames.Add(elem.Name);
+                parentNames = new List<string>();
+                ontologyManager = Model.Instance.OntologyManager;
+                string sSuperClassName = "ComputerNetworkNode";
+                cmbParent.Items.Add(ontologyManager.GetClass(sSuperClassName).Comment);
+                parentNames.Add(sSuperClassName);
+                List<IOWLClass> elements = ontologyManager.GetNetworkElements(Model.Instance.Name);
+                foreach (IOWLClass elem in elements)
+                {
+                    string sElementName = elem.Comment.Trim();
+                    if (sElementName.Length == 0)
+                        sElementName = elem.Name;
+                    cmbParent.Items.Add(sElementName);
+                    parentNames.Add(elem.Name);
+                }
+                cmbParent.SelectedIndex = 0;
             }
-            cmbParent.SelectedIndex = 0;
         }
 
 
@@ -66,6 +69,7 @@ namespace TriadNSim.Forms
                 return;
             }
             Name = sName;
+            if (cmbParent.Visible)
             ParentName = parentNames[cmbParent.SelectedIndex];
             DialogResult = System.Windows.Forms.DialogResult.OK;
             Close();

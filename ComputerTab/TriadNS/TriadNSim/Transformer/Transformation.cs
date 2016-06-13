@@ -16,17 +16,45 @@ namespace TriadNSim.Transformer
     {
         public List<TransformationRule> Rules=new List<TransformationRule>();
         public ImageList img=new ImageList();
+        public COWLOntologyManager ontologyManager = new COWLOntologyManager(@"Ontologies\\Petri.owl");
+        public ListView lstItem;
+        public Dictionary<ListViewItem, Bitmap> ItemImages = new Dictionary<ListViewItem, Bitmap>();
         public Transformation()
         {
+            lstItem = new ListView();
+            lstItem.Dock = DockStyle.Fill;
+            lstItem.Clear();
+            img.Images.Clear();
+            LoadElements("petri_elements.xml",":PetriNetNode");
+            LoadElements("comp_elements.xml", ":ComputerNetworkNode");
+            Size s = new Size(60, 60);
+            img.ImageSize = s;
+            lstItem.LargeImageList = img;
+        }
+        protected void LoadElements(string path,string node)
+        {
+            Dictionary<string, ListViewItem> Items = new Dictionary<string, ListViewItem>();
             
-        }
-        virtual void LoadImages(string path1,string path2)
-        {
+            foreach (IOWLClass cls in ontologyManager.GetNetworkElements(node))
+            {
+                string sName = cls.Comment;
+                if (sName.Length == 0)
+                    sName = cls.Name;
+                if (Items.ContainsKey(sName.ToLower()))
+                    continue;
+                ListViewItem item = lstItem.Items.Add(sName);
+                Items[sName.ToLower()] = item;
+            }
 
-        }
-        override void LoadImages(string path)
-        {
-
+            Dictionary<string, Bitmap> images = LoadImageList(path);
+            foreach (KeyValuePair<string, Bitmap> pair in images)
+            {
+                if (!Items.ContainsKey(pair.Key))
+                    continue;
+                ItemImages[Items[pair.Key]] = pair.Value;
+                img.Images.Add(pair.Value);
+                Items[pair.Key].ImageIndex = img.Images.Count - 1;
+            }
         }
         protected virtual Dictionary<string, Bitmap> LoadImageList(string path)
         {
