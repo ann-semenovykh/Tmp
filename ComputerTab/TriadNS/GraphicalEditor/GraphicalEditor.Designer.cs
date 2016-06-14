@@ -29,16 +29,13 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(GraphicalEditor));
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.dp = new DrawingPanel.DrawingPanel();
             this.lv = new System.Windows.Forms.ListView();
-            this.img = new System.Windows.Forms.ImageList(this.components);
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
-            this.btnDynamic = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.btnAnalize = new System.Windows.Forms.ToolStripButton();
+            this.img = new System.Windows.Forms.ImageList(this.components);
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -120,46 +117,26 @@
             this.lv.TabIndex = 0;
             this.lv.UseCompatibleStateImageBehavior = false;
             // 
-            // img
-            // 
-            this.img.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.img.ImageSize = new System.Drawing.Size(16, 16);
-            this.img.TransparentColor = System.Drawing.Color.Transparent;
-            // 
             // toolStrip1
             // 
             this.toolStrip1.Dock = System.Windows.Forms.DockStyle.None;
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.btnDynamic,
-            this.toolStripSeparator1,
-            this.btnAnalize});
+            this.toolStripSeparator1});
             this.toolStrip1.Location = new System.Drawing.Point(3, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(95, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(49, 25);
             this.toolStrip1.TabIndex = 0;
-            // 
-            // btnDynamic
-            // 
-            this.btnDynamic.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnDynamic.Image = ((System.Drawing.Image)(resources.GetObject("btnDynamic.Image")));
-            this.btnDynamic.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnDynamic.Name = "btnDynamic";
-            this.btnDynamic.Size = new System.Drawing.Size(23, 22);
-            this.btnDynamic.Text = "Динамический объект";
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(6, 25);
             // 
-            // btnAnalize
+            // img
             // 
-            this.btnAnalize.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.btnAnalize.Image = ((System.Drawing.Image)(resources.GetObject("btnAnalize.Image")));
-            this.btnAnalize.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.btnAnalize.Name = "btnAnalize";
-            this.btnAnalize.Size = new System.Drawing.Size(23, 22);
-            this.btnAnalize.Text = "Средство анализа";
+            this.img.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.img.ImageSize = new System.Drawing.Size(16, 16);
+            this.img.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // GraphicalEditor
             // 
@@ -189,10 +166,8 @@
         public DrawingPanel.DrawingPanel dp;
         public System.Windows.Forms.ListView lv;
         private System.Windows.Forms.ImageList img;
-        private System.Windows.Forms.ToolStrip toolStrip1;
-        private System.Windows.Forms.ToolStripButton btnDynamic;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripButton btnAnalize;
+        public System.Windows.Forms.ToolStrip toolStrip1;
 
     }
 }

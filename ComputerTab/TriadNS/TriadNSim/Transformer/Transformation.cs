@@ -15,23 +15,19 @@ namespace TriadNSim.Transformer
     public class Transformation
     {
         public List<TransformationRule> Rules=new List<TransformationRule>();
-        public ImageList img=new ImageList();
-        public COWLOntologyManager ontologyManager = new COWLOntologyManager(@"Ontologies\\Petri.owl");
-        public ListView lstItem;
         public Dictionary<ListViewItem, Bitmap> ItemImages = new Dictionary<ListViewItem, Bitmap>();
-        public Transformation()
+        public Transformation(ImageList img,COWLOntologyManager ontologyManager,ListView lstItem)
         {
-            lstItem = new ListView();
             lstItem.Dock = DockStyle.Fill;
             lstItem.Clear();
             img.Images.Clear();
-            LoadElements("petri_elements.xml",":PetriNetNode");
-            LoadElements("comp_elements.xml", ":ComputerNetworkNode");
+            LoadElements("petri_elements.xml",":PetriNetNode",img,ontologyManager,lstItem);
+            LoadElements("comp_elements.xml", ":ComputerNetworkNode",img,ontologyManager,lstItem);
             Size s = new Size(60, 60);
             img.ImageSize = s;
             lstItem.LargeImageList = img;
         }
-        protected void LoadElements(string path,string node)
+        protected void LoadElements(string path,string node,ImageList img,COWLOntologyManager ontologyManager,ListView lstItem)
         {
             Dictionary<string, ListViewItem> Items = new Dictionary<string, ListViewItem>();
             

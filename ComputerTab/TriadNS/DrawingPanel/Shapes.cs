@@ -450,8 +450,9 @@ namespace DrawingPanel
                 if (obj is Line)
                 {
                     Line line = obj as Line;
-                    if (line.FromCP.Owner == obj1 && line.ToCP.Owner == obj2
-                        || line.FromCP.Owner == obj2 && line.ToCP.Owner == obj1)
+                    if (((line.FromCP.Owner == obj1 && line.ToCP.Owner == obj2
+                        || line.FromCP.Owner == obj2 && line.ToCP.Owner == obj1)&&!line.directed)||
+                    (line.FromCP.Owner == obj1 && line.ToCP.Owner == obj2 &&line.directed))
                     {
                         FindedLine = line;
                         break;

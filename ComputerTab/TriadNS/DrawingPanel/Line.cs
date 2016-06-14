@@ -20,10 +20,11 @@ namespace DrawingPanel
         private CConnectionPoint _ToCP;
         private bool _Moving;
         private bool _MoveFrom;
-
+        public bool directed;
         public Line(DrawingPanel panel, CConnectionPoint From, CConnectionPoint To)
             : base(panel)
         {
+            directed = false;
             this._FromCP = From;
             From.Connectors.Add(this);
             this._ToCP = To;
@@ -40,10 +41,12 @@ namespace DrawingPanel
             this.bCanRotate = false;
             this._Moving = false;
             this._MoveFrom = false;
+            mult = 1;
         }
         public Line(DrawingPanel panel, CConnectionPoint From, CConnectionPoint To,int x,int y,int x1,int y1)
             : base(panel)
         {
+            directed = true;
             this._FromCP = From;
             From.Connectors.Add(this);
             this._ToCP = To;
@@ -60,6 +63,26 @@ namespace DrawingPanel
             this.bCanRotate = false;
             this._Moving = false;
             this._MoveFrom = false;
+            mult = 1;
+        }
+        public void MultChange()
+        {
+            if (mult > 1)
+                Name = "[" + mult.ToString() + "]";
+            else Name = "";
+
+        }
+        public int mult { set; get; }
+        public void IncMult()
+        {
+            mult++;
+            MultChange();
+        }
+        public void DecMult()
+        {
+            if (mult > 1)
+                mult--;
+            MultChange();
         }
         [CategoryAttribute("Line Appearance"), DescriptionAttribute("Line Start Cap")]
         public LineCap starCap
@@ -206,7 +229,19 @@ namespace DrawingPanel
             }
 
             g.DrawLine(myPen, (this.X + dx) * zoom, (this.Y + dy) * zoom, (this.X1 + dx) * zoom, (this.Y1 + dy) * zoom);
+            if (Name != null)
+            {
+                StringFormat stringFormat = new StringFormat();
+                stringFormat.Alignment = StringAlignment.Center;
+                stringFormat.LineAlignment = StringAlignment.Near;
 
+                Font font = new Font("Arial", 8 * zoom);
+                SizeF size = g.MeasureString(Name, font);
+                if ((X1 - X) * zoom > size.Width)
+                    size.Width = (X1 - X) * zoom;
+                g.DrawString(Name, font, new SolidBrush(Color.Black), new PointF(((this.X + this.X1) / 2 + dx) * zoom, ((this.Y + this.Y1) / 2 + dy) * zoom));
+                stringFormat.Dispose();
+            }
             myPen.Dispose();
         }
     }

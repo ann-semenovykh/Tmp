@@ -13,8 +13,12 @@ using TriadNSim.SimulationModel.PetriNetModel;
 
 namespace PetriNetModel
 {
+    [Serializable]
     public class PetriNetModel: Model
     {
+
+        ToolStripButton add_mark;
+        ToolStripButton tree;
         public PetriNetModel(TabPage t,GraphicalEditor.GraphicalEditor editor)
             : base(t,editor)
         {
@@ -22,8 +26,20 @@ namespace PetriNetModel
             dp.MouseClick += new MouseEventHandler(dp_MouseClick);
 
             editor.toolStripContainer1.TopToolStripPanelVisible = true;
+            add_mark= new ToolStripButton("Добавить метку", new Bitmap("img\\mark.png"));
+            tree = new ToolStripButton("Дерево достижимости", new Bitmap("img\\tree.png"));
+            add_mark.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            tree.DisplayStyle = ToolStripItemDisplayStyle.Image;
+            editor.toolStrip1.Items.Add(add_mark);
+            editor.toolStrip1.Items.Add(new ToolStripSeparator());
+            editor.toolStrip1.Items.Add(tree);
+            add_mark.Click += new EventHandler(ButtonMark_Click);
         }
-
+        private void ButtonMark_Click(object sender, EventArgs e)
+        {
+            dp.CurrentTool = DrawingPanel.ToolType.ttDynamicOb;
+            add_mark.Checked = !add_mark.Checked;
+        }
         void dp_MouseClick(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
@@ -182,17 +198,60 @@ namespace PetriNetModel
                 }
 
         }
+        public void GetLinks(Link oLink, Polus from, Polus to)
+        {
+            foreach (BaseObject obj in dp.ShapeCollection.ShapeList)
+            {
+                if (obj is Link)
+                {
+                    Link line = obj as Link;
+                    if (line.FromCP.Owner == oLink.FromCP.Owner && line.ToCP.Owner == oLink.ToCP.Owner)
+                    //|| line.FromCP.Owner == obj2 && line.ToCP.Owner == obj1)
+                    {
+                        line.PolusFrom = from;
+                        line.PolusTo = to;
+                    }
+                }
+            }
+        }
+        public override bool EditLink(Link oLink, bool bNeedShowDialog)
+        {
+            ModifyRelation frmRelation = new ModifyRelation(oLink);
+            if (frmRelation.Success && !bNeedShowDialog || frmRelation.ShowDialog() == DialogResult.OK)
+            {
+                oLink.PolusFrom = frmRelation.From != null ? frmRelation.From : null;
+                oLink.PolusTo = frmRelation.To != null ? frmRelation.To : null;
+                GetLinks(oLink, oLink.PolusFrom, oLink.PolusTo);
+                //oLink.mult = frmRelation.mult;
+                return true;
+            }
+            return false;
+        }
         protected override void dp_beforeAddLine(object sender, BeforeAddLineEventArgs e)
         {
             e.cancel = true;
             NetworkObject objFrom = e.fromCP.Owner as NetworkObject;
             NetworkObject objTo = e.toCP.Owner as NetworkObject;
-            if (dp.ShapeCollection.GetLine(objFrom, objTo) == null)
-            {
-                Link oLink = new Link(dp, e.fromCP, e.toCP,x,y,x1,y1);
-                if (EditLink(oLink, false))
-                    dp.ShapeCollection.AddShape(oLink);
-            }
+            if (objFrom.SemanticType != objTo.SemanticType)//соединяются только различные вершины (позиции и переходы)
+                if (dp.ShapeCollection.GetLine(objFrom, objTo) == null) //связь туда и обратно
+                {
+
+                    //PetriLine oLine = new PetriLine(drawingPanel1, e.fromCP, e.toCP, x, y, x1, y1);
+                    Link oLink = new Link(dp, e.fromCP, e.toCP, x, y, x1, y1);
+                    if (EditLink(oLink, false))
+                    {
+                        // drawingPanel1.ShapeCollection.AddShape(oLine);
+                        dp.ShapeCollection.AddShape(oLink);
+                    }
+                }
+                else
+                {
+                    //PetriLink oLink = new PetriLink(drawingPanel1, e.fromCP, e.toCP, x, y, x1, y1);
+                    Line curLine = dp.ShapeCollection.GetLine(objFrom, objTo);
+                    curLine.IncMult();
+                    //drawingPanel1.ShapeCollection.AddShape(oLink);
+
+                }
         }
         string rout_place = "routine_place.txt";
         string rout_tr = "routine_tr.txt";

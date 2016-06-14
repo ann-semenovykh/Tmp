@@ -32,7 +32,7 @@
             this.toolStripContainer1 = new System.Windows.Forms.ToolStripContainer();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.ModelBrowser = new System.Windows.Forms.TreeView();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.AddPage = new System.Windows.Forms.TabPage();
             this.MainMenu = new System.Windows.Forms.MenuStrip();
@@ -71,7 +71,6 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripbtnSelect = new System.Windows.Forms.ToolStripButton();
             this.toolStripbtnLink = new System.Windows.Forms.ToolStripButton();
-            this.toolStripButtonMark = new System.Windows.Forms.ToolStripButton();
             this.toolStripcmbZoom = new System.Windows.Forms.ToolStripComboBox();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.tsbCalcStaticProp = new System.Windows.Forms.ToolStripButton();
@@ -83,7 +82,6 @@
             this.toolStripSeparator8 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton3 = new System.Windows.Forms.ToolStripButton();
-            this.toolStripDropDownButton1 = new System.Windows.Forms.ToolStripDropDownButton();
             this.toolStripContainer1.ContentPanel.SuspendLayout();
             this.toolStripContainer1.TopToolStripPanel.SuspendLayout();
             this.toolStripContainer1.SuspendLayout();
@@ -137,7 +135,7 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.treeView1);
+            this.groupBox1.Controls.Add(this.ModelBrowser);
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(0, 0);
             this.groupBox1.Name = "groupBox1";
@@ -146,13 +144,13 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Браузер моделей";
             // 
-            // treeView1
+            // ModelBrowser
             // 
-            this.treeView1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.treeView1.Location = new System.Drawing.Point(3, 16);
-            this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(149, 345);
-            this.treeView1.TabIndex = 1;
+            this.ModelBrowser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ModelBrowser.Location = new System.Drawing.Point(3, 16);
+            this.ModelBrowser.Name = "ModelBrowser";
+            this.ModelBrowser.Size = new System.Drawing.Size(149, 345);
+            this.ModelBrowser.TabIndex = 1;
             // 
             // tabControl1
             // 
@@ -209,8 +207,8 @@
             this.toolStripSeparator4,
             this.miExit});
             this.miFile.Name = "miFile";
-            this.miFile.Size = new System.Drawing.Size(40, 20);
-            this.miFile.Text = "&FILE";
+            this.miFile.Size = new System.Drawing.Size(48, 20);
+            this.miFile.Text = "&Файл";
             // 
             // miNew
             // 
@@ -297,8 +295,8 @@
             this.toolStripSeparator6,
             this.selectAllToolStripMenuItem});
             this.miEdit.Name = "miEdit";
-            this.miEdit.Size = new System.Drawing.Size(43, 20);
-            this.miEdit.Text = "&EDIT";
+            this.miEdit.Size = new System.Drawing.Size(59, 20);
+            this.miEdit.Text = "&Правка";
             // 
             // undoToolStripMenuItem
             // 
@@ -363,20 +361,21 @@
             this.customizeToolStripMenuItem,
             this.optionsToolStripMenuItem});
             this.miModel.Name = "miModel";
-            this.miModel.Size = new System.Drawing.Size(59, 20);
-            this.miModel.Text = "&MODEL";
+            this.miModel.Size = new System.Drawing.Size(62, 20);
+            this.miModel.Text = "&Модель";
             this.miModel.Click += new System.EventHandler(this.miModel_Click);
             // 
             // customizeToolStripMenuItem
             // 
             this.customizeToolStripMenuItem.Name = "customizeToolStripMenuItem";
-            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.customizeToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.customizeToolStripMenuItem.Text = "&Customize";
+            this.customizeToolStripMenuItem.Click += new System.EventHandler(this.customizeToolStripMenuItem_Click);
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(130, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // tRANSFORMATIONToolStripMenuItem
@@ -385,14 +384,14 @@
             this.bYRULESToolStripMenuItem,
             this.makeRulesToolStripMenuItem});
             this.tRANSFORMATIONToolStripMenuItem.Name = "tRANSFORMATIONToolStripMenuItem";
-            this.tRANSFORMATIONToolStripMenuItem.Size = new System.Drawing.Size(125, 20);
-            this.tRANSFORMATIONToolStripMenuItem.Text = "TRANSFORMATION";
+            this.tRANSFORMATIONToolStripMenuItem.Size = new System.Drawing.Size(110, 20);
+            this.tRANSFORMATIONToolStripMenuItem.Text = "&Трансформация";
             this.tRANSFORMATIONToolStripMenuItem.Click += new System.EventHandler(this.tRANSFORMATIONToolStripMenuItem_Click);
             // 
             // bYRULESToolStripMenuItem
             // 
             this.bYRULESToolStripMenuItem.Name = "bYRULESToolStripMenuItem";
-            this.bYRULESToolStripMenuItem.Size = new System.Drawing.Size(134, 22);
+            this.bYRULESToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.bYRULESToolStripMenuItem.Text = "By Rules";
             // 
             // makeRulesToolStripMenuItem
@@ -407,8 +406,8 @@
             this.miHelp.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.miAbout});
             this.miHelp.Name = "miHelp";
-            this.miHelp.Size = new System.Drawing.Size(47, 20);
-            this.miHelp.Text = "&HELP";
+            this.miHelp.Size = new System.Drawing.Size(68, 20);
+            this.miHelp.Text = "&Помощь";
             // 
             // miAbout
             // 
@@ -426,7 +425,6 @@
             this.toolStripSeparator1,
             this.toolStripbtnSelect,
             this.toolStripbtnLink,
-            this.toolStripButtonMark,
             this.toolStripcmbZoom,
             this.toolStripSeparator2,
             this.tsbCalcStaticProp,
@@ -436,11 +434,10 @@
             this.toolStripbtnRun,
             this.toolStripSeparator8,
             this.toolStripButton1,
-            this.toolStripButton3,
-            this.toolStripDropDownButton1});
+            this.toolStripButton3});
             this.MainToolBar.Location = new System.Drawing.Point(3, 24);
             this.MainToolBar.Name = "MainToolBar";
-            this.MainToolBar.Size = new System.Drawing.Size(519, 25);
+            this.MainToolBar.Size = new System.Drawing.Size(467, 25);
             this.MainToolBar.TabIndex = 2;
             this.MainToolBar.Text = "toolStrip1";
             // 
@@ -498,16 +495,6 @@
             this.toolStripbtnLink.Size = new System.Drawing.Size(23, 22);
             this.toolStripbtnLink.Text = "Соединить";
             this.toolStripbtnLink.Click += new System.EventHandler(this.toolStripbtnLink_Click);
-            // 
-            // toolStripButtonMark
-            // 
-            this.toolStripButtonMark.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripButtonMark.Image = ((System.Drawing.Image)(resources.GetObject("toolStripButtonMark.Image")));
-            this.toolStripButtonMark.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripButtonMark.Name = "toolStripButtonMark";
-            this.toolStripButtonMark.Size = new System.Drawing.Size(23, 22);
-            this.toolStripButtonMark.Text = "Добавить фишку";
-            this.toolStripButtonMark.Click += new System.EventHandler(this.toolStripButtonMark_Click);
             // 
             // toolStripcmbZoom
             // 
@@ -614,15 +601,6 @@
             this.toolStripButton3.Text = "Условия моделироавния";
             this.toolStripButton3.Click += new System.EventHandler(this.toolStripButton3_Click);
             // 
-            // toolStripDropDownButton1
-            // 
-            this.toolStripDropDownButton1.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Image;
-            this.toolStripDropDownButton1.Image = ((System.Drawing.Image)(resources.GetObject("toolStripDropDownButton1.Image")));
-            this.toolStripDropDownButton1.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.toolStripDropDownButton1.Name = "toolStripDropDownButton1";
-            this.toolStripDropDownButton1.Size = new System.Drawing.Size(29, 22);
-            this.toolStripDropDownButton1.Text = "toolStripDropDownButton1";
-            // 
             // frmSimulation
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -702,13 +680,11 @@
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage AddPage;
-        private System.Windows.Forms.ToolStripButton toolStripButtonMark;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.TreeView ModelBrowser;
         private System.Windows.Forms.ToolStripMenuItem tRANSFORMATIONToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem bYRULESToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem makeRulesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripDropDownButton toolStripDropDownButton1;
 
     }
 }

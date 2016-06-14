@@ -1,5 +1,5 @@
-C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\bin\Debug\TriadRunner.exe
-C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\bin\Debug\TriadRunner.pdb
-C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadRunner\obj\Debug\TriadRunner.csprojResolveAssemblyReference.cache
-C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadRunner\obj\Debug\TriadRunner.exe
-C:\Users\user\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadRunner\obj\Debug\TriadRunner.pdb
+C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\bin\Debug\TriadRunner.exe
+C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\bin\Debug\TriadRunner.pdb
+C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadRunner\obj\Debug\TriadRunner.csprojResolveAssemblyReference.cache
+C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadRunner\obj\Debug\TriadRunner.exe
+C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\TriadRunner\obj\Debug\TriadRunner.pdb

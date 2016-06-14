@@ -140,8 +140,8 @@ namespace TriadNSim.Forms
                 if (bmp != null)
                 {
                     parent.transform.ItemImages[item] = bmp;
-                    parent.transform.img.Images.Add(bmp);
-                    item.ImageIndex = parent.transform.img.Images.Count - 1;
+                    parent.img.Images.Add(bmp);
+                    item.ImageIndex = parent.img.Images.Count - 1;
                 }
             }
         }
@@ -152,8 +152,8 @@ namespace TriadNSim.Forms
             frm.Bmp = global::TriadNSim.Properties.Resources.question;
             if (frm.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
-                parent.transform.img.Images.Add(frm.Bmp);
-                int nImageIndex = parent.transform.img.Images.Count - 1;
+                parent.img.Images.Add(frm.Bmp);
+                int nImageIndex = parent.img.Images.Count - 1;
                 ListViewItem li = list.Items.Add(frm.Name, nImageIndex);
                 parent.transform.ItemImages[li] = frm.Bmp;
             }

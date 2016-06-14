@@ -18,11 +18,13 @@ namespace TriadNSim.Transformer
     {
         public Transformation transform;
         public ImageList img = new ImageList();
+        public COWLOntologyManager ontologyManager = new COWLOntologyManager(@"Ontologies\\Petri.owl");
+        public ListView lstItem=new ListView();
         public string fileName;
         public frmRules()
         {
             InitializeComponent();
-            transform = new Transformation();
+            transform = new Transformation(img,ontologyManager, lstItem);
         }
 
         private void lstRules_SelectedIndexChanged(object sender, EventArgs e)
@@ -40,7 +42,7 @@ namespace TriadNSim.Transformer
                 DialogueSauver.Title = "Сохранить правила трансформации";
                 DialogueSauver.Filter = "TransformationRule files (*.tr)|*.tr|All files (*.*)|*.*";
                 bool bOK = false;
-                if (fileName != string.Empty)
+                if (fileName != null)
                 {
                     DialogueSauver.FileName = fileName;
                     bOK = true;
@@ -68,7 +70,7 @@ namespace TriadNSim.Transformer
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
-            frmTransformation tr = new frmTransformation(transform.lstItem,this,null);
+            frmTransformation tr = new frmTransformation(lstItem,this,null);
             this.Hide();
             tr.ShowDialog();
             this.Show();
@@ -99,8 +101,8 @@ namespace TriadNSim.Transformer
         {
             if (lstRules.SelectedItems.Count > 0)
             {
-                TransformationRule edit = transform.Rules.Find(ex => ex.Name == lstRules.SelectedItems[0].Name);
-                frmTransformation tr = new frmTransformation(transform.lstItem, this, edit.Name);
+                TransformationRule edit = transform.Rules.Find(ex => ex.Name == lstRules.SelectedItems[0].Text);
+                frmTransformation tr = new frmTransformation(lstItem, this, edit.Name);
                 add_shapes(tr.leftPart.Shapes, edit.leftPart);
                 add_shapes(tr.rightPart.Shapes, edit.rightPart);
                 tr.txtName.Text = edit.Name;

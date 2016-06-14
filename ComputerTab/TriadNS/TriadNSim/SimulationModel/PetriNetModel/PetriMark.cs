@@ -7,6 +7,7 @@ using System.Drawing;
 
 namespace TriadNSim.SimulationModel.PetriNetModel
 {
+    [Serializable]
     class PetriMark: DynamicObject
     {
         public PetriMark(DrawingPanel.DrawingPanel dp,CConnectionPoint cp):base(dp,cp)

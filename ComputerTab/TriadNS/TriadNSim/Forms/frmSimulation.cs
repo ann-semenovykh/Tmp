@@ -10,6 +10,7 @@ using drawingPanel=DrawingPanel.DrawingPanel;
 using System.Reflection;
 using computerModel = ComputerModel.ComputerModel;
 using petriNetModel = PetriNetModel.PetriNetModel;
+using graphicalEditor = GraphicalEditor.GraphicalEditor;
 using TriadNSim.Transformer;
 
 namespace TriadNSim.Forms
@@ -21,7 +22,7 @@ namespace TriadNSim.Forms
         public frmSimulation()
         {
             InitializeComponent();
-            treeView1.Nodes.Add("root", "Модели");
+            ModelBrowser.Nodes.Add("root", "Модели");
 
 
         }
@@ -94,7 +95,7 @@ namespace TriadNSim.Forms
 
                 tabControl1.TabPages.Insert(tabControl1.TabCount - 1, myTabPage);
                 tabControl1.SelectedTab = tabControl1.TabPages[tabControl1.TabCount - 2];
-                treeView1.Nodes[0].Nodes.Add(title, title);
+                ModelBrowser.Nodes[0].Nodes.Add(title, title);
             }
             
         }
@@ -119,7 +120,8 @@ namespace TriadNSim.Forms
            // for (int i = 0; i < tabControl1.TabCount; i++)
             int i = tabControl1.SelectedIndex;
             {
-                drawingPanel dp = (drawingPanel)tabControl1.TabPages[i].Controls["drawingPanel"];
+                graphicalEditor gp = (graphicalEditor)tabControl1.SelectedTab.Controls["graphicalEditor"];
+                drawingPanel dp = gp.dp;
                 dp.CurrentTool = DrawingPanel.ToolType.ttLine;
             }
             toolStripbtnSelect.Checked = false;
@@ -128,11 +130,11 @@ namespace TriadNSim.Forms
 
         private void toolStripbtnSelect_Click(object sender, EventArgs e)
         {
-            for (int i = 0; i < tabControl1.TabCount-1; i++)
+            //for (int i = 0; i < tabControl1.TabCount-1; i++)
             {
                 //drawingPanel dp = (drawingPanel)tabControl1.TabPages[i].Controls["drawingPanel"];
-                drawingPanel dp = (drawingPanel)tabControl1.SelectedTab.Controls["drawingPanel"];
-                dp.CurrentTool = DrawingPanel.ToolType.ttSelect;
+                graphicalEditor gp = (graphicalEditor)tabControl1.SelectedTab.Controls["graphicalEditor"];
+                gp.dp.CurrentTool = DrawingPanel.ToolType.ttSelect;
             }
             toolStripbtnSelect.Checked = true;
             toolStripbtnLink.Checked = false;
@@ -140,13 +142,15 @@ namespace TriadNSim.Forms
 
         public void Save(string fileName)
         {
-            drawingPanel dp = (drawingPanel)tabControl1.SelectedTab.Controls["drawingPanel"];
-            string sNewFileName = dp.Saver(fileName);
+            graphicalEditor gp = (graphicalEditor)tabControl1.SelectedTab.Controls["graphicalEditor"];
+            string sNewFileName = gp.dp.Saver(fileName);
             if (sNewFileName != string.Empty)
             {
                 this.m_sFileName = sNewFileName;
-                this.Text = this.m_sFileName;
+                ModelBrowser.Nodes.Find(tabControl1.SelectedTab.Text, true)[0].Text =System.IO.Path.GetFileName(sNewFileName);
+                tabControl1.SelectedTab.Text = System.IO.Path.GetFileName(sNewFileName);
             }
+
         }
         private void toolStripbtnSave_Click(object sender, EventArgs e)
         {
@@ -155,12 +159,15 @@ namespace TriadNSim.Forms
 
         public void Open()
         {
-            drawingPanel dp = (drawingPanel)tabControl1.SelectedTab.Controls["drawingPanel"];
-            string sNewFileName = dp.Loader();
+            graphicalEditor gp = (graphicalEditor)tabControl1.SelectedTab.Controls["graphicalEditor"];
+            string sNewFileName = gp.dp.Loader();
             if (sNewFileName != string.Empty)
             {
                 this.m_sFileName = sNewFileName;
                // this.Text = Util.ApplicationName + " [" + System.IO.Path.GetFileName(this.m_sFileName) + "]";
+                tabControl1.SelectedTab.Text =  System.IO.Path.GetFileName(this.m_sFileName);
+                
+
             }
         }
         private void toolStripbtnOpen_Click(object sender, EventArgs e)
@@ -175,18 +182,18 @@ namespace TriadNSim.Forms
 
         public void UpdateZoom()
         {
-            drawingPanel dp = (drawingPanel)tabControl1.SelectedTab.Controls["drawingPanel"];
+            graphicalEditor gp = (graphicalEditor)tabControl1.SelectedTab.Controls["graphicalEditor"];
                 
             try
             {
                 string strZoom = toolStripcmbZoom.Text.Trim();
                 if (strZoom.EndsWith("%")) strZoom = strZoom.Substring(0, strZoom.Length - 1);
                 int value = Int32.Parse(strZoom);
-                dp.Zoom=value / 100.0f;
+                gp.dp.Zoom=value / 100.0f;
             }
             catch
             {
-                toolStripcmbZoom.Text = Convert.ToString(dp.Zoom * 100) + "%";
+                toolStripcmbZoom.Text = Convert.ToString(gp.dp.Zoom * 100) + "%";
             }
         }
         private void toolStripcmbZoom_KeyDown(object sender, KeyEventArgs e)
@@ -227,6 +234,7 @@ namespace TriadNSim.Forms
 
             tabControl1.TabPages.Insert(0, myTabPage);
             tabControl1.SelectedTab = tabControl1.TabPages[0];
+            ModelBrowser.Nodes[0].Nodes.Add("Новая модель", "Новая модель");
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -254,19 +262,7 @@ namespace TriadNSim.Forms
             frm.ShowDialog();
         }
 
-        private void toolStripButtonMark_Click(object sender, EventArgs e)
-        {
-            int i = tabControl1.SelectedIndex;
-            {
-                drawingPanel dp = (drawingPanel)tabControl1.TabPages[i].Controls["drawingPanel"];
-
-                dp.CurrentTool = DrawingPanel.ToolType.ttDynamicOb;
-            }
-            toolStripbtnLink.Checked = toolStripbtnSelect.Checked = false;
-            toolStripButtonMark.Checked = true;
-
-            
-        }
+        
 
         private void toolStripContainer1_TopToolStripPanel_Click(object sender, EventArgs e)
         {
@@ -297,6 +293,11 @@ namespace TriadNSim.Forms
         {
             frmRules rules = new frmRules();
             rules.ShowDialog();
+        }
+
+        private void customizeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
         
     }

@@ -2,10 +2,10 @@ C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\GraphicalEditor\bin\Debug
 C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\GraphicalEditor\bin\Debug\GraphicalEditor.pdb
 C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\GraphicalEditor\bin\Debug\DrawingPanel.dll
 C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\GraphicalEditor\bin\Debug\DrawingPanel.pdb
+C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\bin\Debug\GraphicalEditor.dll
+C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\bin\Debug\GraphicalEditor.pdb
 C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\GraphicalEditor\obj\Debug\GraphicalEditor.csprojResolveAssemblyReference.cache
 C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\GraphicalEditor\obj\Debug\GraphicalEditor.GraphicalEditor.resources
 C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\GraphicalEditor\obj\Debug\GraphicalEditor.csproj.GenerateResource.Cache
 C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\GraphicalEditor\obj\Debug\GraphicalEditor.dll
 C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\GraphicalEditor\obj\Debug\GraphicalEditor.pdb
-C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\bin\Debug\GraphicalEditor.dll
-C:\Users\User\Documents\GitHub\Tmp\ComputerTab\TriadNS\bin\Debug\GraphicalEditor.pdb
