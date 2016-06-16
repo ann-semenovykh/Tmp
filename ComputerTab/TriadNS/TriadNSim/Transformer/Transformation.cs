@@ -14,6 +14,7 @@ namespace TriadNSim.Transformer
     [Serializable]
     public class Transformation
     {
+        public string sourceModel, targetModel;
         public List<TransformationRule> Rules=new List<TransformationRule>();
         public Dictionary<ListViewItem, Bitmap> ItemImages = new Dictionary<ListViewItem, Bitmap>();
         public Transformation(ImageList img,COWLOntologyManager ontologyManager,ListView lstItem)
@@ -26,6 +27,10 @@ namespace TriadNSim.Transformer
             Size s = new Size(60, 60);
             img.ImageSize = s;
             lstItem.LargeImageList = img;
+        }
+        public Transformation()
+        {
+
         }
         protected void LoadElements(string path,string node,ImageList img,COWLOntologyManager ontologyManager,ListView lstItem)
         {

@@ -177,6 +177,12 @@
     <Compile Include="Transformer\frmRules.Designer.cs">
       <DependentUpon>frmRules.cs</DependentUpon>
     </Compile>
+    <Compile Include="Transformer\frmStartTransformation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Transformer\frmStartTransformation.Designer.cs">
+      <DependentUpon>frmStartTransformation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Transformer\frmTransformation.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -252,6 +258,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Transformer\frmRules.resx">
       <DependentUpon>frmRules.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Transformer\frmStartTransformation.resx">
+      <DependentUpon>frmStartTransformation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Transformer\frmTransformation.resx">
       <DependentUpon>frmTransformation.cs</DependentUpon>

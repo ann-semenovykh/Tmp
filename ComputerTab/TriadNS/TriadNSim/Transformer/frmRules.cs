@@ -64,7 +64,7 @@ namespace TriadNSim.Transformer
 
         private void btnCancel_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Вы действительно хотите выйти?", "Внимание", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            if (MessageBox.Show("Вы действительно хотите выйти?\nПравила не будут сохранены", "Внимание", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 this.Close();
         }
 

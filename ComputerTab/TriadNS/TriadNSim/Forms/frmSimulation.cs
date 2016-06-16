@@ -18,12 +18,10 @@ namespace TriadNSim.Forms
     public partial class frmSimulation : Form
     {
 
-        private string m_sFileName = string.Empty;
         public frmSimulation()
         {
             InitializeComponent();
             ModelBrowser.Nodes.Add("root", "Модели");
-
 
         }
         public int GetEndModelTime()
@@ -47,14 +45,14 @@ namespace TriadNSim.Forms
         private void Run(bool bSelectSimCondition = false)
         {
             //m_oSimulation.Start(true);
-            Model md = (Model)tabControl1.SelectedTab.Tag;
+            Model md = (Model)tabModels.SelectedTab.Tag;
             md.GetEndModelTime = GetEndModelTime();
             md.Run(GetEndModelTime());
             
         }
         private void tsbCalcStaticProp_Click(object sender, EventArgs e)
         {
-            Model md = (Model)tabControl1.SelectedTab.Tag;
+            Model md = (Model)tabModels.SelectedTab.Tag;
             md.Calc();
         }
 
@@ -68,18 +66,18 @@ namespace TriadNSim.Forms
             
         }
         
-        private void newmodel()
+        public void newmodel(string model)
         {
-            frmChoseModel frm = new frmChoseModel();
-            if (tabControl1.SelectedTab.Name == "AddPage" && ((frm.ShowDialog()) == DialogResult.OK))
+            frmChoseModel frm = new frmChoseModel(new COWLOntologyManager("Ontologies\\Petri.owl"));
+            if (model!=null||tabModels.SelectedTab.Name == "AddPage" && ((frm.ShowDialog()) == DialogResult.OK))
             {
-                string title = "Модель " + (tabControl1.TabCount-1).ToString();
+                string title = "Модель " + (tabModels.TabCount-1).ToString();
                 TabPage myTabPage = new TabPage(title);
                 GraphicalEditor.GraphicalEditor editor = new GraphicalEditor.GraphicalEditor(); 
                 
                 object ob = null;
-                
-                switch (frm.Tag.ToString())
+                string mod = model == null ? frm.Tag.ToString() : model;
+                switch (mod)
                 {
                     case "ComputerModel":
                         ob = new computerModel(myTabPage, editor);
@@ -93,15 +91,15 @@ namespace TriadNSim.Forms
                 }
                 myTabPage.Tag = ob;
 
-                tabControl1.TabPages.Insert(tabControl1.TabCount - 1, myTabPage);
-                tabControl1.SelectedTab = tabControl1.TabPages[tabControl1.TabCount - 2];
+                tabModels.TabPages.Insert(tabModels.TabCount - 1, myTabPage);
+                tabModels.SelectedTab = tabModels.TabPages[tabModels.TabCount - 2];
                 ModelBrowser.Nodes[0].Nodes.Add(title, title);
             }
             
         }
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            newmodel();
+            newmodel(null);
         }
 
         private void tabControl1_KeyPress(object sender, KeyPressEventArgs e)
@@ -118,9 +116,9 @@ namespace TriadNSim.Forms
         private void toolStripbtnLink_Click(object sender, EventArgs e)
         {
            // for (int i = 0; i < tabControl1.TabCount; i++)
-            int i = tabControl1.SelectedIndex;
+            int i = tabModels.SelectedIndex;
             {
-                graphicalEditor gp = (graphicalEditor)tabControl1.SelectedTab.Controls["graphicalEditor"];
+                graphicalEditor gp = (graphicalEditor)tabModels.SelectedTab.Controls["graphicalEditor"];
                 drawingPanel dp = gp.dp;
                 dp.CurrentTool = DrawingPanel.ToolType.ttLine;
             }
@@ -133,7 +131,7 @@ namespace TriadNSim.Forms
             //for (int i = 0; i < tabControl1.TabCount-1; i++)
             {
                 //drawingPanel dp = (drawingPanel)tabControl1.TabPages[i].Controls["drawingPanel"];
-                graphicalEditor gp = (graphicalEditor)tabControl1.SelectedTab.Controls["graphicalEditor"];
+                graphicalEditor gp = (graphicalEditor)tabModels.SelectedTab.Controls["graphicalEditor"];
                 gp.dp.CurrentTool = DrawingPanel.ToolType.ttSelect;
             }
             toolStripbtnSelect.Checked = true;
@@ -142,30 +140,33 @@ namespace TriadNSim.Forms
 
         public void Save(string fileName)
         {
-            graphicalEditor gp = (graphicalEditor)tabControl1.SelectedTab.Controls["graphicalEditor"];
+            graphicalEditor gp = (graphicalEditor)tabModels.SelectedTab.Controls["graphicalEditor"];
             string sNewFileName = gp.dp.Saver(fileName);
             if (sNewFileName != string.Empty)
             {
-                this.m_sFileName = sNewFileName;
-                ModelBrowser.Nodes.Find(tabControl1.SelectedTab.Text, true)[0].Text =System.IO.Path.GetFileName(sNewFileName);
-                tabControl1.SelectedTab.Text = System.IO.Path.GetFileName(sNewFileName);
+                Model md = (Model)tabModels.SelectedTab.Tag;
+                md.m_sFileName = sNewFileName;
+                ModelBrowser.Nodes.Find(tabModels.SelectedTab.Text, true)[0].Text =System.IO.Path.GetFileName(sNewFileName);
+                tabModels.SelectedTab.Text = System.IO.Path.GetFileName(sNewFileName);
             }
 
         }
         private void toolStripbtnSave_Click(object sender, EventArgs e)
         {
-            Save(m_sFileName);
+            Model md = (Model)tabModels.SelectedTab.Tag;
+            Save(md.m_sFileName);
         }
 
         public void Open()
         {
-            graphicalEditor gp = (graphicalEditor)tabControl1.SelectedTab.Controls["graphicalEditor"];
+            graphicalEditor gp = (graphicalEditor)tabModels.SelectedTab.Controls["graphicalEditor"];
             string sNewFileName = gp.dp.Loader();
             if (sNewFileName != string.Empty)
             {
-                this.m_sFileName = sNewFileName;
+                Model md = (Model)tabModels.SelectedTab.Tag;
+                md.m_sFileName = sNewFileName;
                // this.Text = Util.ApplicationName + " [" + System.IO.Path.GetFileName(this.m_sFileName) + "]";
-                tabControl1.SelectedTab.Text =  System.IO.Path.GetFileName(this.m_sFileName);
+                tabModels.SelectedTab.Text =  System.IO.Path.GetFileName(md.m_sFileName);
                 
 
             }
@@ -182,7 +183,7 @@ namespace TriadNSim.Forms
 
         public void UpdateZoom()
         {
-            graphicalEditor gp = (graphicalEditor)tabControl1.SelectedTab.Controls["graphicalEditor"];
+            graphicalEditor gp = (graphicalEditor)tabModels.SelectedTab.Controls["graphicalEditor"];
                 
             try
             {
@@ -214,7 +215,7 @@ namespace TriadNSim.Forms
         
         private void tabControl1_DoubleClick(object sender, EventArgs e)
         {
-            newmodel();
+            newmodel(null);
         }
 
         private void toolStripButton1_Click(object sender, EventArgs e)
@@ -229,12 +230,14 @@ namespace TriadNSim.Forms
             GraphicalEditor.GraphicalEditor editor = new GraphicalEditor.GraphicalEditor();
             object ob = null;
 
-            ob = new Model(myTabPage, editor);
+            ob = new ComputerModel.ComputerModel(myTabPage, editor);
             myTabPage.Tag = ob;
 
-            tabControl1.TabPages.Insert(0, myTabPage);
-            tabControl1.SelectedTab = tabControl1.TabPages[0];
+            tabModels.TabPages.Insert(0, myTabPage);
+            tabModels.SelectedTab = tabModels.TabPages[0];
             ModelBrowser.Nodes[0].Nodes.Add("Новая модель", "Новая модель");
+
+            toolStripcmbZoom.SelectedText = "100%";
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -244,7 +247,7 @@ namespace TriadNSim.Forms
 
         private void btnDefine_Click(object sender, EventArgs e)
         {
-            Model md = (Model)tabControl1.SelectedTab.Tag;
+            Model md = (Model)tabModels.SelectedTab.Tag;
             md.GetEndModelTime = GetEndModelTime();
             md.Define(GetEndModelTime());
         
@@ -252,7 +255,7 @@ namespace TriadNSim.Forms
 
         private void toolStripButton2_Click(object sender, EventArgs e)
         {
-            Model md = (Model)tabControl1.SelectedTab.Tag;
+            Model md = (Model)tabModels.SelectedTab.Tag;
             md.Reset();
         }
 
@@ -298,6 +301,12 @@ namespace TriadNSim.Forms
         private void customizeToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void bYRULESToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmStartTransformation frm = new frmStartTransformation(this);
+            frm.ShowDialog();
         }
         
     }

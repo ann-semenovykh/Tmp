@@ -23,10 +23,10 @@ namespace TriadNSim.Forms
             parent = par;
             edit = e;
             list = lv;
-            lv.Parent = splitContainer2.Panel2;
-            lv.DragOver += new DragEventHandler(lv_DragOver);
-            lv.MouseUp += new MouseEventHandler(lv_MouseUp);
-            lv.ItemDrag += new ItemDragEventHandler(lv_ItemDrag);
+            list.Parent = splitContainer2.Panel2;
+            list.DragOver += new DragEventHandler(lv_DragOver);
+            list.MouseUp += new MouseEventHandler(lv_MouseUp);
+            list.ItemDrag += new ItemDragEventHandler(lv_ItemDrag);
             leftPart.DragDrop += new DragEventHandler(dp_DragDrop);
             leftPart.DragEnter += new DragEventHandler(dp_DragEnter);
             leftPart.objectSelected += new ObjectSelected(dp_objectSelected);
@@ -252,8 +252,8 @@ namespace TriadNSim.Forms
 
         private void frmTransformation_FormClosing(object sender, FormClosingEventArgs e)
         {
-            list.Parent = null;
-            list = null;
+            //list.Parent = null;
+          //  list = null;
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

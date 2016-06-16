@@ -184,7 +184,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmRules";
-            this.Text = "Трансформация моделей";
+            this.Text = "Определить трансформацию";
             this.Load += new System.EventHandler(this.frmRules_Load);
             this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);

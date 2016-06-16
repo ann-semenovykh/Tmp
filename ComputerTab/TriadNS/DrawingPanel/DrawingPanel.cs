@@ -35,7 +35,7 @@ namespace DrawingPanel
         private DrawingStatus CurrentStatus;
         public ToolType CurrentTool;
         private InteractionType InteractionType = InteractionType.itNone;
-
+        public string model;
 
         private int startX;
         private int startY;
@@ -108,7 +108,12 @@ namespace DrawingPanel
             InitializeComponent();
             myInit();
         }
-
+        public DrawingPanel(string m)
+        {
+            InitializeComponent();
+            myInit();
+            model=m;
+        }
         //Graphic
         [CategoryAttribute("Graphics"), DescriptionAttribute("InterpolationMode")]
         public System.Drawing.Drawing2D.InterpolationMode InterpolationMode
@@ -280,7 +285,10 @@ namespace DrawingPanel
         {
             CurrentStatus = DrawingStatus.dsNone;
             CurrentTool = ToolType.ttSelect;
-            _shapes = new Shapes(this);
+            if (model != null)
+                _shapes = new Shapes(this, model);
+            else
+                _shapes = new Shapes(this);
             _edit = new NameEdit(this);
             _edit.Visible = false;
             this.Controls.Add(_edit);

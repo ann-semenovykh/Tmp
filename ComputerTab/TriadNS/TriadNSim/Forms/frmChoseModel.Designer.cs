@@ -47,6 +47,8 @@
             this.lbModel.Name = "lbModel";
             this.lbModel.Size = new System.Drawing.Size(259, 212);
             this.lbModel.TabIndex = 0;
+            this.lbModel.SelectedIndexChanged += new System.EventHandler(this.lbModel_SelectedIndexChanged);
+            this.lbModel.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lbModel_MouseDoubleClick);
             // 
             // btnOK
             // 
@@ -73,6 +75,7 @@
             this.MinimizeBox = false;
             this.Name = "frmChoseModel";
             this.Text = "Модель";
+            this.Load += new System.EventHandler(this.frmChoseModel_Load);
             this.ResumeLayout(false);
 
         }

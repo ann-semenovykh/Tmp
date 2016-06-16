@@ -309,11 +309,12 @@ namespace DrawingPanel
     {
         public ArrayList ShapeList;
         // The Handles Obj
+        public string Model;
         public ObjSelectionBase sRec;
         public BaseObject selectedObj;
         [NonSerialized]
         public DrawingPanel drawingPanel;
-
+        
         public int minDim = 10;
 
         [NonSerialized]
@@ -325,7 +326,13 @@ namespace DrawingPanel
             ShapeList = new ArrayList();
             initUndoBuff();
         }
-
+        public Shapes(DrawingPanel panel,string M)
+        {
+            drawingPanel = panel;
+            ShapeList = new ArrayList();
+            initUndoBuff();
+            Model = M;
+        }
         private void initUndoBuff()
         {
             undoB = new UndoRedoBuffer(20);

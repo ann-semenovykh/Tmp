@@ -20,6 +20,7 @@ using Microsoft.CSharp;
 
 namespace TriadNSim
 {
+    [Serializable]
     public class Model: Object
     {
         protected  TabPage tb;
@@ -33,6 +34,9 @@ namespace TriadNSim
         protected  frmChangeRoutine m_frmChangeRoutine;
         private static Model instance = null;
         private string name=null;
+        public string filename;
+
+        public string m_sFileName = string.Empty;
         public Model()
         {
 
@@ -301,7 +305,6 @@ namespace TriadNSim
             lv.LargeImageList = img;
         }
 
-        protected  string m_sFileName = string.Empty;
         protected  string sUserIPFileName = "IP.dat";
         protected  string sSimCondFileName = "SimCond.dat";
 
