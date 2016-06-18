@@ -272,6 +272,7 @@ namespace TriadNSim
     [Serializable]
     public class NetworkObject : ImgBox
     {
+        public string Tag;
         private Routine _routine;
         private List<ConnectedIP> _connectedIPs;
         public string SemanticType;

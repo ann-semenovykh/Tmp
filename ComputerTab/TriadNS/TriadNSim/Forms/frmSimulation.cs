@@ -305,8 +305,13 @@ namespace TriadNSim.Forms
 
         private void bYRULESToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmStartTransformation frm = new frmStartTransformation(this);
-            frm.ShowDialog();
+            graphicalEditor gp = (graphicalEditor)tabModels.SelectedTab.Controls["graphicalEditor"];
+            if (gp.dp.Shapes.Count > 0)
+            {
+                frmStartTransformation frm = new frmStartTransformation(this, gp.dp.Shapes);
+                frm.ShowDialog();
+            }
+            else MessageBox.Show("Модель пуста");
         }
         
     }

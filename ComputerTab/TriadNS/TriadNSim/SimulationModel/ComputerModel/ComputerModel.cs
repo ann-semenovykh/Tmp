@@ -70,6 +70,7 @@ namespace ComputerModel
                                 {
                                     IOWLClass cls = ontologyManager.GetIndividualClass(indiv);
                                     string sName = cls.Comment;
+                         
                                     if (sName.Length == 0)
                                         sName = cls.Name;
                                     ToolStripMenuItem mi = (ToolStripMenuItem)miRoutine.DropDownItems.Add(sName, null, SelectRoutine);
@@ -159,6 +160,7 @@ namespace ComputerModel
             int X = (int)((pt.X / fZoom - dp.dx) - delta / 2);
             int Y = (int)((pt.Y / fZoom - dp.dx) - delta / 2);
             NetworkObject shape = new NetworkObject(dp);
+            shape.Tag = li.Text;
             shape.Type = type;
             shape.Rect = new Rectangle(X, Y, delta, delta);
             shape.Name = GetUniqueShapeName(li.Text);

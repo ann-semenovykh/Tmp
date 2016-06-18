@@ -16,6 +16,5 @@ namespace TriadNSim.Transformer
         public TransformationRule()
         {
         }
-
     }
 }

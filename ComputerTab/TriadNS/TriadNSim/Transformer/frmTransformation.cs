@@ -115,6 +115,7 @@ namespace TriadNSim.Forms
             shape.Type = ModelObjectType.Entity;
             shape.Rect = new Rectangle(X, Y, delta, delta);
             shape.Name = li.Text;
+            
             if (parent.transform.ItemImages.ContainsKey(li))
             {
                 shape.img = new Bitmap(parent.transform.ItemImages[li]);
@@ -155,7 +156,9 @@ namespace TriadNSim.Forms
                 parent.img.Images.Add(frm.Bmp);
                 int nImageIndex = parent.img.Images.Count - 1;
                 ListViewItem li = list.Items.Add(frm.Name, nImageIndex);
+                li.Tag = "Nonterminal";
                 parent.transform.ItemImages[li] = frm.Bmp;
+
             }
         }
         private void lv_MouseUp(object sender, MouseEventArgs e)

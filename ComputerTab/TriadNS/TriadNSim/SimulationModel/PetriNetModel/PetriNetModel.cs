@@ -153,6 +153,7 @@ namespace PetriNetModel
             int X = (int)((pt.X / fZoom - dp.dx) - delta / 2);
             int Y = (int)((pt.Y / fZoom - dp.dx) - delta / 2);
             NetworkObject shape = new NetworkObject(dp);
+            shape.Tag = li.Text;
             shape.Type = ModelObjectType.Entity;
             shape.Rect = new Rectangle(X, Y, delta, delta);
             shape.Name = GetUniqueShapeName(li.Text);

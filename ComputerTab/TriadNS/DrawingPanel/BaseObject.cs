@@ -13,7 +13,7 @@ namespace DrawingPanel
     public abstract class BaseObject : Object
     {
         protected bool bCanRotate;
-
+        public string Tag;
         //Start point
         protected int X;
         protected int Y;
